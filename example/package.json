@@ -1,16 +1,21 @@
 {
+  "private": true,
   "name": "example",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "christopherbiscardi <chris@christopherbiscardi.com> (@chrisbiscardi)",
+  "author": {
+    "name": "Zander Martineau",
+    "url": "https://zander.wtf"
+  },
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
   },
   "dependencies": {
-    "gatsby": "^2.19.7",
-    "gatsby-theme-minimal": "^1.0.0",
+    "gatsby": "^2.19.12",
+    "gatsby-theme-code-notes": "*",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }

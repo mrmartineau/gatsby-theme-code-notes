@@ -8,7 +8,7 @@
     "build": "yarn workspace example build"
   },
   "workspaces": [
-    "gatsby-theme-minimal",
+    "gatsby-theme-code-notes",
     "example"
   ]
 }
