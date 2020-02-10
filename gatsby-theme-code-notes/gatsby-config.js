@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = ({ contentPath = 'code-notes', basePath = '/' }) => ({
   plugins: [
     'gatsby-plugin-theme-ui',
     {
@@ -14,8 +14,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: `${__dirname}/src/code-notes/`,
+        path: `${__dirname}/src/${contentPath}/`,
       },
     },
   ],
-}
+})
