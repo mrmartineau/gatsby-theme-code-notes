@@ -1,20 +1,21 @@
-module.exports = ({ contentPath = 'code-notes', basePath = '/' }) => ({
+console.log('TCL: __dirname', __dirname)
+module.exports = ({ contentPath = 'notes', basePath = '/' }) => ({
   plugins: [
     'gatsby-plugin-theme-ui',
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        defaultLayouts: {
-          default: require.resolve('./src/components/default-page-layout.js'),
-          extensions: [`.mdx`, `.md`],
-        },
+        extensions: [`.mdx`, `.md`],
+        /* defaultLayouts: {
+          default: require.resolve('./src/pages/Note.js'),
+        }, */
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'pages',
-        path: `${__dirname}/src/${contentPath}/`,
+        name: 'notes',
+        path: contentPath,
       },
     },
   ],

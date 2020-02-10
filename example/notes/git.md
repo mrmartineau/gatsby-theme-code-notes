@@ -1,6 +1,5 @@
 ---
 title: Git
-path: /git
 tags: git, cheatsheet
 date: 2019-12-03
 ---
