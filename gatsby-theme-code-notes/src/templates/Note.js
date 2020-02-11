@@ -6,7 +6,6 @@ const Note = ({ data }) => {
   return (
     <Fragment>
       <h1>{data.mdx.frontmatter.title}</h1>
-      <h3>{data.mdx.excerpt}</h3>
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
     </Fragment>
   )

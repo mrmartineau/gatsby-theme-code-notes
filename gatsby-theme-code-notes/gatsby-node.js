@@ -57,7 +57,10 @@ exports.createPages = async ({ graphql, actions }, options) => {
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
     createPage({
-      path: post.node.fields.slug,
+      path:
+        basePath === '/'
+          ? post.node.fields.slug
+          : `${basePath}${post.node.fields.slug}`,
       component: path.join(__dirname, './src/templates', 'Note.js'),
       context: {
         slug: post.node.fields.slug,

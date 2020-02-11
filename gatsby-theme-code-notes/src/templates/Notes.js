@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link, graphql } from 'gatsby'
 
-const BlogIndex = ({ data, location }) => {
+const Notes = ({ data, location }) => {
   const notes = data.allMdx.edges
 
   return (
@@ -32,7 +32,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Notes
 
 export const pageQuery = graphql`
   query {
