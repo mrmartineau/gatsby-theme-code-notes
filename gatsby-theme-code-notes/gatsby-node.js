@@ -5,7 +5,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onPreBootstrap = ({ store, reporter }, options) => {
   const { program } = store.getState()
-  const contentPath = options.contentPath || '/'
+  const contentPath = options.contentPath || 'notes'
   const dirs = [path.join(program.directory, contentPath)]
   dirs.forEach(dir => {
     if (!fs.existsSync(dir)) {
@@ -17,9 +17,8 @@ exports.onPreBootstrap = ({ store, reporter }, options) => {
 
 exports.createPages = async ({ graphql, actions }, options) => {
   const { createPage } = actions
+  const basePath = options.basePath || '/'
 
-  const note = path.join(__dirname, './src/templates', 'Note.js')
-  const notes = path.join(__dirname, './src/templates', 'Notes.js')
   const result = await graphql(
     `
       {
@@ -45,22 +44,21 @@ exports.createPages = async ({ graphql, actions }, options) => {
     throw result.errors
   }
 
-  // Create notes posts pages.
-  const notesData = result.data.allMdx.edges
-
+  // Create the notes landing page
   createPage({
-    path: options.basePath,
-    component: notes,
+    path: basePath,
+    component: path.join(__dirname, './src/templates', 'Notes.js'),
   })
 
+  // Create notes posts pages
+  const notesData = result.data.allMdx.edges
   notesData.forEach((post, index) => {
     const previous =
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
-
     createPage({
       path: post.node.fields.slug,
-      component: note,
+      component: path.join(__dirname, './src/templates', 'Note.js'),
       context: {
         slug: post.node.fields.slug,
         previous,
@@ -82,33 +80,3 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
-
-// exports.createPages = ({ graphql, actions }, options) => {
-//   const { createPage } = actions
-//   const basePath = options.basePath || '/'
-//   console.log('TCL: exports.createPages -> basePath', basePath)
-
-//   return graphql(`
-//     {
-//       allMdx {
-//         edges {
-//           node {
-//             id
-//           }
-//         }
-//       }
-//     }
-//   `)
-//     .then(result => {
-//       console.log('TCL: exports.createPages -> result', result)
-//       // Marketing Pages
-//       result.data.mdx.edges.forEach(({ node }) => {
-//         createPage({
-//           path: `/${basePath}${node.frontmatter.path}`,
-//           component: path.resolve('./src/pages/Note.js'),
-//           context: { id: node.id },
-//         })
-//       })
-//     })
-//     .catch(err => console.log(err))
-// }

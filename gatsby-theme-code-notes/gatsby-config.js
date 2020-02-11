@@ -1,4 +1,3 @@
-console.log('TCL: __dirname', __dirname)
 module.exports = ({ contentPath = 'notes', basePath = '/' }) => ({
   plugins: [
     'gatsby-plugin-theme-ui',
