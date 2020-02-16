@@ -12,6 +12,23 @@ const Note = ({ data }) => {
 }
 
 export const pageQuery = graphql`
+  query($id: String!, $title: String) {
+    note: mdx(id: { eq: $id }) {
+      id
+      body
+    }
+    image: ogImage {
+      src(text: $title)
+    }
+    site: site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+
+/* export const pageQuery = graphql`
   query NoteBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       id
@@ -23,6 +40,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+` */
 
 export default Note
