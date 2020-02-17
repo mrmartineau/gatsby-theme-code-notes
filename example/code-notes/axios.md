@@ -1,7 +1,7 @@
 ---
 title: Axios
 tags:
-  - JavaScript
+  - javascript
 ---
 
 ```js

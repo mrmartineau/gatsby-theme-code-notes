@@ -1,9 +1,9 @@
 ---
 title: Jest
 tags:
-  - JavaScript
-  - React
-  - Testing
+  - javascript
+  - react
+  - testing
 ---
 
 ## Basic test skeleton

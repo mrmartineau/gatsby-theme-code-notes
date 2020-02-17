@@ -1,7 +1,7 @@
 ---
 title: Picture
 tags:
-  - HTML
+  - html
 ---
 
 ## Webp + png usage

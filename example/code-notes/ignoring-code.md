@@ -1,10 +1,10 @@
 ---
 title: Ignoring code
 tags:
-  - CSS
-  - HTML
-  - JavaScript
-  - TypeScript
+  - css
+  - html
+  - javascript
+  - typescript
 ---
 
 # ESlint

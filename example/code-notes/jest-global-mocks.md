@@ -1,8 +1,8 @@
 ---
 title: Jest global mocks
 Tags:
-  - JavaScript
-  - Testing
+  - javascript
+  - testing
 ---
 
 ```js

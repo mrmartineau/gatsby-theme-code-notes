@@ -1,7 +1,7 @@
 ---
 title: Opengraph metacrap
 tags:
-  - HTML
+  - html
 ---
 
 ```html

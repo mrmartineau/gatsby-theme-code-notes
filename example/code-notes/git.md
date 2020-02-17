@@ -1,8 +1,8 @@
 ---
 title: Git
 tags:
-  - Git
-  - Cheatsheet
+  - git
+  - cheatsheet
 ---
 
 ## Branches

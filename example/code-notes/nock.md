@@ -1,8 +1,8 @@
 ---
 title: Nock
 tags:
-  - Testing
-  - JavaScript
+  - testing
+  - javascript
 ---
 
 ```js

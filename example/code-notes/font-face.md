@@ -1,7 +1,7 @@
 ---
 title: '@font-face'
 tags:
-  - CSS
+  - css
 ---
 
 ## Modern browsers

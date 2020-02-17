@@ -1,7 +1,7 @@
 ---
 title: Storybook
 tags:
-  - Testing
+  - testing
 ---
 
 # MDX

@@ -1,8 +1,8 @@
 ---
 title: Clickable box
 tags:
-  - JavaScript
-  - React
+  - javascript
+  - react
 source: https://github.com/danoc/clickable-box
 ---
 
