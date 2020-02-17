@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { Helmet } from 'react-helmet'
 import { Layout } from '../components/layout'
 
 const Note = ({ data }) => {
+  const title = data.mdx.frontmatter.title
   return (
-    <Layout>
-      <h1>{data.mdx.frontmatter.title}</h1>
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
-    </Layout>
+    <Fragment>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
+      <Layout>
+        <h1>{title}</h1>
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      </Layout>
+    </Fragment>
   )
 }
 

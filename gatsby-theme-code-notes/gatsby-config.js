@@ -27,6 +27,7 @@ module.exports = options => {
       },
       `gatsby-plugin-redirects`,
       `gatsby-plugin-og-image`,
+      `gatsby-plugin-react-helmet`,
       `gatsby-plugin-theme-ui`,
     ].filter(Boolean),
   }
