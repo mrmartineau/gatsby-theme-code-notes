@@ -1,12 +1,27 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react'
+import { Global } from '@emotion/core'
+import { css } from 'theme-ui'
+import { Container } from 'theme-ui'
+import Footer from './footer'
 
-export const Layout = ({ children }) => {
-  return <main>{children}</main>
-}
+export const Layout = props => (
+  <>
+    <Global
+      styles={css({
+        '*': {
+          boxSizing: `border-box`,
+        },
+        body: {
+          margin: 0,
+          fontFamily: `body`,
+        },
+      })}
+    />
+    <main>
+      <Container>
+        {props.children}
+        <Footer />
+      </Container>
+    </main>
+  </>
+)

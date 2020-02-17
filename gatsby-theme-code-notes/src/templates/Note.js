@@ -1,45 +1,27 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { Layout } from '../components/layout'
 
 const Note = ({ data }) => {
   return (
-    <Fragment>
+    <Layout>
       <h1>{data.mdx.frontmatter.title}</h1>
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
-    </Fragment>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query($id: String!, $title: String) {
-    note: mdx(id: { eq: $id }) {
-      id
+  query NoteById($id: String!) {
+    mdx(id: { eq: $id }) {
       body
-    }
-    image: ogImage {
-      src(text: $title)
-    }
-    site: site {
-      siteMetadata {
+      frontmatter {
         title
+        tags
       }
     }
   }
 `
-
-/* export const pageQuery = graphql`
-  query NoteBySlug($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      body
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-      }
-    }
-  }
-` */
 
 export default Note

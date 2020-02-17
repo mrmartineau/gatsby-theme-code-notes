@@ -1,0 +1,17 @@
+{
+  "extends": ["eslint:recommended", "prettier", "plugin:react/recommended"],
+  "plugins": ["react", "react-hooks", "prettier"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "react/display-name": 0,
+    "react/prop-types": 0
+  }
+}

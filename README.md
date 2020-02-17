@@ -7,58 +7,52 @@
   Starter for creating a Gatsby Theme workspace
 </h1>
 
-```shell
-gatsby new my-theme https://github.com/gatsbyjs/gatsby-starter-theme-workspace
-cd my-theme
-yarn workspace example develop
-```
+A Gatsby theme for publishing notes to your website.
 
-## Layout
+## Installation
 
-```text
-.
-├── README.md
-├── gatsby-theme-minimal
-│   ├── README.md
-│   ├── gatsby-config.js
-│   ├── index.js
-│   └── package.json
-├── example
-│   ├── README.md
-│   ├── gatsby-config.js
-│   ├── package.json
-│   └── src
-├── package.json
-└── yarn.lock
+### For a new site
 
-3 directories, 10 files
-```
-
-### `gatsby-theme-minimal`
-
-This directory is the theme package itself. You should rename this at
-some point to be `gatsby-theme-{my-theme-name}`. Also change the
-`package.json` name field and the corresponding dependency in the
-example directory's `package.json`/`gatsby-config.js` to match the chosen name.
-
-- `gatsby-theme-minimal/`
-  - `gatsby-config.js`: An empty gatsby-config that you can use as a starting point for building functionality into your theme.
-  - `index.js`: Since themes also function as plugins, this is an empty file that
-    gatsby needs to use this theme as a plugin.
-  - `package.json`: The dependencies that your theme will pull in when people install it. `gatsby` should be a `peerDependency`.
-
-### `example`
-
-This is an example usage of your theme. It should look the same as the
-site of someone who installed and used your theme from npm.
-
-- `example/`
-  - `gatsby-config.js`: Specifies which theme to use and any other one-off config a site might need.
-  - `src/`: Source code such as one-off pages or components that might live in
-    a user's site.
-
-You can run the example with:
+If you're creating a new site and want to use the notes theme, you can use the notes theme starter. This will generate a new site that pre-configures use of the notes theme.
 
 ```shell
-yarn workspace example develop
+gatsby new my-themed-notes https://github.com/gatsbyjs/gatsby-starter-notes-theme
 ```
+
+### Manually add to your site
+
+1. Install the theme
+
+```shell
+npm install gatsby-theme-notes
+```
+
+2. Add the configuration to your `gatsby-config.js` file
+
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-theme-notes`,
+      options: {
+        // basePath defaults to `/`
+        basePath: `/notes`,
+      },
+    },
+  ],
+}
+```
+
+3. Add notes to your site by creating `md` or `mdx` files inside `/content/notes`.
+   > Note that if you've changed the default `contentPath` in the configuration, you'll want to add your markdown files in the directory specified by that path.
+
+### Options
+
+| Key                   | Default value    | Description                                                                                                                                                                    |
+| --------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `basePath`            | `/`              | Root url for all notes pages                                                                                                                                                   |
+| `contentPath`         | `/content/notes` | Location of notes content                                                                                                                                                      |
+| `mdx`                 | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
+| `homeText`            | `~`              | Root text for notes breadcrumb trail                                                                                                                                           |
+| `breadcrumbSeparator` | `/`              | Separator for the breadcrumb trail                                                                                                                                             |

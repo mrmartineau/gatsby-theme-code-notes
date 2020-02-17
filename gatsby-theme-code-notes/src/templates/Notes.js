@@ -1,34 +1,30 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { Layout } from '../components/layout'
 
 const Notes = ({ data, location }) => {
+  console.log('TCL: Notes -> location', location)
   const notes = data.allMdx.edges
 
   return (
-    <Fragment>
+    <Layout>
       {notes.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+        const title = node.frontmatter.title
+        const path = node.parent.name
         return (
-          <article key={node.fields.slug}>
+          <article key={path}>
             <header>
               <h3>
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
+                <Link to={`/${path}`}>{title}</Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
             </header>
             <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
+              <p>{node.excerpt}</p>
             </section>
           </article>
         )
       })}
-    </Fragment>
+    </Layout>
   )
 }
 
@@ -36,16 +32,20 @@ export default Notes
 
 export const pageQuery = graphql`
   query {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx {
       edges {
         node {
-          excerpt
-          fields {
-            slug
-          }
+          id
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
+            tags
+          }
+          parent {
+            ... on File {
+              name
+              base
+              relativePath
+            }
           }
         }
       }

@@ -1,21 +1,33 @@
-module.exports = ({ contentPath = 'notes', basePath = '/' }) => ({
-  plugins: [
-    'gatsby-plugin-theme-ui',
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-        /* defaultLayouts: {
-          default: require.resolve('./src/pages/Note.js'),
-        }, */
-      },
+module.exports = options => {
+  const { mdx = true, mdxLayouts = {} } = options
+
+  return {
+    siteMetadata: {
+      title: `Notes Title Placeholder`,
+      description: `Description placeholder`,
+      siteUrl: `http://example.com/`,
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'notes',
-        path: contentPath,
+    plugins: [
+      mdx && {
+        resolve: `gatsby-plugin-mdx`,
+        options: {
+          extensions: [`.md`, `.mdx`],
+          defaultLayouts: {
+            default: require.resolve(`./src/components/layout`),
+            ...mdxLayouts,
+          },
+        },
       },
-    },
-  ],
-})
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: options.contentPath || `content/notes`,
+          name: options.contentPath || `content/notes`,
+        },
+      },
+      `gatsby-plugin-redirects`,
+      `gatsby-plugin-og-image`,
+      `gatsby-plugin-theme-ui`,
+    ].filter(Boolean),
+  }
+}

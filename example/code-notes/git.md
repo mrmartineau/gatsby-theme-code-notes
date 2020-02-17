@@ -4,8 +4,6 @@ tags: git, cheatsheet
 date: 2019-12-03
 ---
 
-[gitsheet.wtf/](https://gitsheet.wtf/)
-
 ## Branches
 
 List all local branches
@@ -51,3 +49,5 @@ To retrieve the git commit hashes use this:
 ```sh
 git log --oneline
 ```
+
+[gitsheet.wtf/](https://gitsheet.wtf/)

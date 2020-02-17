@@ -8,14 +8,7 @@ module.exports = {
   plugins: [
     {
       resolve: 'gatsby-theme-code-notes',
-      options: { contentPath: 'code-notes', basePath: '/code-notes' },
-    },
-    {
-      resolve: `gatsby-theme-notes`,
-      options: {
-        contentPath: 'notes',
-        basePath: '/notes',
-      },
+      options: { contentPath: 'code-notes', basePath: '/' },
     },
   ],
 }
