@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // These are customizable theme options we only need to check once
 let basePath
@@ -30,6 +31,9 @@ exports.createPages = async ({ graphql, actions }, options) => {
           edges {
             node {
               id
+              fields {
+                slug
+              }
               frontmatter {
                 title
                 tags
@@ -37,8 +41,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
               parent {
                 ... on File {
                   name
-                  base
-                  relativePath
+                  ctime
                 }
               }
             }
@@ -61,21 +64,35 @@ exports.createPages = async ({ graphql, actions }, options) => {
   // Create notes posts pages
   const notesData = result.data.allMdx.edges
   notesData.forEach((post, index) => {
-    console.log('TCL: exports.createPages -> post', JSON.stringify(post))
     const previous =
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
+    const itemPath =
+      basePath === '/'
+        ? post.node.parent.name
+        : `${basePath}${post.node.parent.name}`
     createPage({
-      path:
-        basePath === '/'
-          ? post.node.parent.name
-          : `${basePath}${post.node.parent.name}`,
+      path: itemPath,
       component: path.join(__dirname, './src/templates', 'Note.js'),
       context: {
         id: post.node.id,
+        slug,
         previous,
         next,
       },
     })
   })
+}
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `Mdx`) {
+    const slug = createFilePath({ node, getNode, basePath })
+    console.log('TCL: exports.onCreateNode -> slug', slug)
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
 }
