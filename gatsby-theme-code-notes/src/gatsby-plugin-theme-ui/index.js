@@ -1,3 +1,4 @@
+import codeTheme from '@theme-ui/prism/presets/github.json'
 const primary = `rebeccapurple`
 const blue = `#3c58e8`
 
@@ -49,8 +50,7 @@ export default {
       p: 2,
     },
     code: {
-      text: primary,
-      background: `#f6f3f9`,
+      ...codeTheme,
     },
   },
 }

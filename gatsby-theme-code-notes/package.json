@@ -21,6 +21,7 @@
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
     "@theme-ui/presets": "^0.3.0",
+    "@theme-ui/prism": "^0.3.0",
     "gatsby-core-utils": "^1.0.28",
     "gatsby-plugin-mdx": "^1.0.70",
     "gatsby-plugin-meta-redirect": "^1.1.1",

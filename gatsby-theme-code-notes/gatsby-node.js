@@ -76,7 +76,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
       component: path.join(__dirname, './src/templates', 'Note.js'),
       context: {
         id: post.node.id,
-        slug,
         previous,
         next,
       },

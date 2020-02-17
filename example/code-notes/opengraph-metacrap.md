@@ -29,6 +29,6 @@ tags:
 <meta name="twitter:data1" value="December 1, 2015" />
 <meta name="twitter:label2" value="Or on demand" />
 <meta name="twitter:data2" value="at Hulu.com" />
-
-<!-- https://medium.com/slack-developer-blog/everything-you-ever-wanted-to-know-about-unfurling-but-were-afraid-to-ask-or-how-to-make-your-e64b4bb9254 -->
 ```
+
+https://medium.com/slack-developer-blog/everything-you-ever-wanted-to-know-about-unfurling-but-were-afraid-to-ask-or-how-to-make-your-e64b4bb9254
