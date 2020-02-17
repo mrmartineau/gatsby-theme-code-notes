@@ -1,6 +1,9 @@
 ---
 title: Jest
-tags: JavaScript, React, Testing
+tags:
+  - JavaScript
+  - React
+  - Testing
 ---
 
 ## Basic test skeleton

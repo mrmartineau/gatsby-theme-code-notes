@@ -1,6 +1,7 @@
 ---
 title: VIM cheatsheet
-tags: Cheatsheet
+tags:
+  - Cheatsheet
 ---
 
 **Cheatsheets**

@@ -1,11 +1,12 @@
 ---
 title: Storybook
-tags: Testing
+tags:
+  - Testing
 ---
 
 # MDX
 
-```mdx
+````mdx
 import { Meta, Story, Preview, Anchor } from '@storybook/addon-docs/blocks'
 
 <Meta title="Theme UI|Components" />
@@ -21,6 +22,7 @@ import { Meta, Story, Preview, Anchor } from '@storybook/addon-docs/blocks'
 ```jsx
 some code
 ```
+````
 
 ## Story
 

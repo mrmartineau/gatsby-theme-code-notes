@@ -1,6 +1,7 @@
 ---
 title: Postman.io
-tags: JavaScript
+tags:
+  - JavaScript
 ---
 
 ## Save an env var

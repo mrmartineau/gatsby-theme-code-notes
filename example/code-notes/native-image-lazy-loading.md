@@ -1,6 +1,7 @@
 ---
 title: Native image lazy loading
-tags: HTML
+tags:
+  - HTML
 ---
 
 ```html

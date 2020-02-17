@@ -1,7 +1,8 @@
 ---
 title: Git
-tags: git, cheatsheet
-date: 2019-12-03
+tags:
+  - Git
+  - Cheatsheet
 ---
 
 ## Branches

@@ -1,6 +1,8 @@
 ---
 title: Styled Components
-tags: React, TypeScript
+tags:
+  - React
+  - TypeScript
 ---
 
 ## Basic component

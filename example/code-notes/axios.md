@@ -1,6 +1,7 @@
 ---
 title: Axios
-tags: JavaScript
+tags:
+  - JavaScript
 ---
 
 ```js

@@ -1,6 +1,9 @@
 ---
 title: Express middleware testing
-tags: JavaScript, Node, Testing
+tags:
+  - JavaScript
+  - Node
+  - Testing
 ---
 
 ```js

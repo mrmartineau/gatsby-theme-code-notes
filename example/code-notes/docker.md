@@ -1,6 +1,7 @@
 ---
 title: Docker
-tags: devops
+tags:
+  - devops
 ---
 
 ### Dockerfile examples

@@ -1,6 +1,7 @@
 ---
 title: Picture
-tags: HTML
+tags:
+  - HTML
 ---
 
 ## Webp + png usage

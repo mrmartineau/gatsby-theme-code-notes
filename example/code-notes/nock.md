@@ -1,6 +1,8 @@
 ---
 title: Nock
-tags: Testing
+tags:
+  - Testing
+  - JavaScript
 ---
 
 ```js
