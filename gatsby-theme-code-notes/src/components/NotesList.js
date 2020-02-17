@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Layout } from '../components/layout'
+import { TagList } from './TagList'
 
 export const NotesList = ({ data }) => {
   const notes = data.allMdx.edges
@@ -13,31 +14,17 @@ export const NotesList = ({ data }) => {
       </Helmet>
       <Layout>
         {notes.map(({ node }) => {
-          const title = node.frontmatter.title
-          const path = node.parent.name
-          const modifiedDate = node.parent.ctime
-          const tags = node.frontmatter.tags
+          const { title, tags } = node.frontmatter
+          const { name, ctime } = node.parent
           return (
-            <article key={path}>
+            <article key={name}>
               <header>
                 <h3>
-                  <Link to={`/${path}`}>{title}</Link>
+                  <Link to={`/${name}`}>{title}</Link>
                 </h3>
               </header>
-              {modifiedDate}
-              {tags && (
-                <section>
-                  <ul>
-                    {tags.map((item, index) => (
-                      <li key={index}>
-                        <Link to={`/tag/${encodeURI(item.toLowerCase())}`}>
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
+              {ctime}
+              {tags && <TagList tags={tags} />}
             </article>
           )
         })}

@@ -3,9 +3,10 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Helmet } from 'react-helmet'
 import { Layout } from '../components/layout'
+import { TagList } from '../components/TagList'
 
 const Note = ({ data }) => {
-  const title = data.mdx.frontmatter.title
+  const { title, tags } = data.mdx.frontmatter
   return (
     <Fragment>
       <Helmet>
@@ -13,6 +14,7 @@ const Note = ({ data }) => {
       </Helmet>
       <Layout>
         <h1>{title}</h1>
+        {tags && <TagList tags={tags} />}
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </Layout>
     </Fragment>
