@@ -4,8 +4,8 @@ import { NotesList } from '../components/NotesList'
 export default NotesList
 
 export const pageQuery = graphql`
-  query {
-    allMdx {
+  query($tag: String!) {
+    allMdx(filter: { frontmatter: { tags: { eq: $tag } } }) {
       edges {
         node {
           id

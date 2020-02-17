@@ -30,6 +30,7 @@
     "gatsby-plugin-redirects": "^1.0.0",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-source-filesystem": "^2.1.48",
+    "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
     "react-helmet": "^5.2.1",
     "theme-ui": "^0.3.1"

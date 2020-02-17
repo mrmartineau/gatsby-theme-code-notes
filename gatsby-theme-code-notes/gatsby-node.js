@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
+const { union, flattenDeep, compact } = require('lodash')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // These are customizable theme options we only need to check once
@@ -24,7 +25,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
   const { createPage } = actions
   basePath = options.basePath || '/'
 
-  const result = await graphql(
+  const allMdxDocs = await graphql(
     `
       {
         allMdx {
@@ -51,8 +52,8 @@ exports.createPages = async ({ graphql, actions }, options) => {
     `
   )
 
-  if (result.errors) {
-    throw result.errors
+  if (allMdxDocs.errors) {
+    throw allMdxDocs.errors
   }
 
   // Create the notes landing page
@@ -61,37 +62,40 @@ exports.createPages = async ({ graphql, actions }, options) => {
     component: path.join(__dirname, './src/templates', 'Notes.js'),
   })
 
-  // Create notes posts pages
-  const notesData = result.data.allMdx.edges
-  notesData.forEach((post, index) => {
+  const globalTagsList = []
+  const notesData = allMdxDocs.data.allMdx.edges
+
+  // Create notes pages
+  notesData.forEach((note, index) => {
     const previous =
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
     const itemPath =
       basePath === '/'
-        ? post.node.parent.name
-        : `${basePath}${post.node.parent.name}`
+        ? note.node.parent.name
+        : `${basePath}${note.node.parent.name}`
     createPage({
       path: itemPath,
       component: path.join(__dirname, './src/templates', 'Note.js'),
       context: {
-        id: post.node.id,
+        id: note.node.id,
         previous,
         next,
       },
     })
-  })
-}
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode, basePath })
-    console.log('TCL: exports.onCreateNode -> slug', slug)
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
+    globalTagsList.push(note.node.frontmatter.tags)
+  })
+
+  // Create tag pages
+  const allTags = compact(union(flattenDeep(globalTagsList)))
+  allTags.forEach(item => {
+    createPage({
+      path: `${basePath}tag/${item}`,
+      component: path.join(__dirname, './src/templates', 'TagPage.js'),
+      context: {
+        tag: item,
+      },
     })
-  }
+  })
 }
