@@ -7,7 +7,7 @@ tags:
   - typescript
 ---
 
-# ESlint
+## ESlint
 
 [https://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments](https://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments)
 
@@ -26,7 +26,7 @@ alert('foo') // eslint-disable-line
 alert('foo') // eslint-disable-line no-alert
 ```
 
-# Prettier
+## Prettier
 
 [https://prettier.io/docs/en/ignore.html](https://prettier.io/docs/en/ignore.html)
 
@@ -45,13 +45,13 @@ matrix(
 <!-- prettier-ignore-end -->
 ```
 
-# TypeScript
+## TypeScript
 
 ```ts
 // @ts-ignore
 ```
 
-## TSLint
+### TSLint
 
 ```ts
 /* tslint:disable no-console */
@@ -69,7 +69,7 @@ console.log()
 /* tslint:disable-next-line:rule */
 ```
 
-# Stylelint
+## Stylelint
 
 ```js
 /* stylelint-disable */

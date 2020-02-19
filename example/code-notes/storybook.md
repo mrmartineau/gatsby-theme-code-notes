@@ -4,31 +4,28 @@ tags:
   - testing
 ---
 
-# MDX
+## MDX
 
-````mdx
-import { Meta, Story, Preview, Anchor } from '@storybook/addon-docs/blocks'
+    import { Meta, Story, Preview, Anchor } from '@storybook/addon-docs/blocks'
 
-<Meta title="Theme UI|Components" />
+    <Meta title="Theme UI|Components" />
 
----
+    ---
 
-<Anchor storyId="the-title--example" />
+    <Anchor storyId="the-title--example" />
 
-# Title
+    # Title
 
-## Example code
+    ## Example code
 
-```jsx
-some code
-```
-````
+    ```jsx
+    some code
+    ```
 
 ## Story
 
+```js
 <Preview>
-  <Story name="Example">
-
-  </Story>
+  <Story name="Example"></Story>
 </Preview>
 ```
