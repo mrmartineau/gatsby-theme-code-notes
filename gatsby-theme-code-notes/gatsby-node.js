@@ -51,12 +51,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
     throw allMdxDocs.errors
   }
 
-  // Create the notes landing page
-  createPage({
-    path: basePath,
-    component: path.join(__dirname, './src/templates', 'Notes.js'),
-  })
-
   const globalTagsList = []
   const notesData = allMdxDocs.data.allMdx.edges
 
@@ -82,14 +76,25 @@ exports.createPages = async ({ graphql, actions }, options) => {
     globalTagsList.push(note.node.frontmatter.tags)
   })
 
+  const allTags = compact(union(flattenDeep(globalTagsList))).sort()
+  console.log('TCL: exports.createPages -> allTags', allTags)
+  // Create the notes landing page
+  createPage({
+    path: basePath,
+    component: path.join(__dirname, './src/templates', 'Notes.js'),
+    context: {
+      tags: allTags,
+    },
+  })
+
   // Create tag pages
-  const allTags = compact(union(flattenDeep(globalTagsList)))
   allTags.forEach(item => {
     createPage({
       path: `${basePath}tag/${item}`,
       component: path.join(__dirname, './src/templates', 'TagPage.js'),
       context: {
         tag: item,
+        tags: allTags,
       },
     })
   })

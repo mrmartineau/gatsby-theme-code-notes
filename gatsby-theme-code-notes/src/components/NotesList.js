@@ -3,8 +3,10 @@ import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Layout } from '../components/layout'
 import { TagList } from './TagList'
+import { TagNav } from './TagNav'
 
-export const NotesList = ({ data }) => {
+export const NotesList = ({ data, pageContext }) => {
+  const { tags } = pageContext
   const notes = data.allMdx.edges
   const siteTitle = 'Znippets'
   return (
@@ -13,6 +15,8 @@ export const NotesList = ({ data }) => {
         <title>{siteTitle}</title>
       </Helmet>
       <Layout>
+        <TagNav tags={tags} />
+
         {notes.map(({ node }) => {
           const { title, tags } = node.frontmatter
           const { name } = node.parent
