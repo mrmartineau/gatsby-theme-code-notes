@@ -5,7 +5,7 @@ export default NotesList
 
 export const pageQuery = graphql`
   query {
-    allMdx {
+    allMdx(sort: { fields: fields___dateModified, order: DESC }) {
       edges {
         node {
           id
@@ -13,10 +13,12 @@ export const pageQuery = graphql`
             title
             tags
           }
+          fields {
+            dateModified(formatString: "Do MMM YYYY")
+          }
           parent {
             ... on File {
               name
-              ctime(formatString: "Do MMM YYYY")
             }
           }
         }

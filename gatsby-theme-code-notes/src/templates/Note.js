@@ -29,6 +29,9 @@ export const pageQuery = graphql`
         title
         tags
       }
+      fields {
+        dateModified(formatString: "Do MMM YYYY")
+      }
     }
   }
 `

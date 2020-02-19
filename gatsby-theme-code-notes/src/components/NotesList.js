@@ -15,7 +15,8 @@ export const NotesList = ({ data }) => {
       <Layout>
         {notes.map(({ node }) => {
           const { title, tags } = node.frontmatter
-          const { name, ctime } = node.parent
+          const { name } = node.parent
+          const { dateModified } = node.fields
           return (
             <article key={name}>
               <header>
@@ -23,7 +24,7 @@ export const NotesList = ({ data }) => {
                   <Link to={`/${name}`}>{title}</Link>
                 </h3>
               </header>
-              {ctime}
+              {dateModified && dateModified}
               {tags && <TagList tags={tags} />}
             </article>
           )

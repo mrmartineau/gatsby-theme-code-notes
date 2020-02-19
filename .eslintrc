@@ -13,5 +13,10 @@
   "rules": {
     "react/display-name": 0,
     "react/prop-types": 0
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true
   }
 }

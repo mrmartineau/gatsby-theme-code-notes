@@ -2,7 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
 const { union, flattenDeep, compact } = require('lodash')
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // These are customizable theme options we only need to check once
 let basePath
@@ -32,9 +31,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
           edges {
             node {
               id
-              fields {
-                slug
-              }
               frontmatter {
                 title
                 tags
@@ -42,7 +38,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
               parent {
                 ... on File {
                   name
-                  ctime
                 }
               }
             }
@@ -98,4 +93,17 @@ exports.createPages = async ({ graphql, actions }, options) => {
       },
     })
   })
+}
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `Mdx`) {
+    const modifiedTime = fs.statSync(node.fileAbsolutePath).mtime
+    createNodeField({
+      node,
+      name: `dateModified`,
+      value: modifiedTime,
+    })
+  }
 }

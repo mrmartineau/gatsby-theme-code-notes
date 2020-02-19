@@ -7,6 +7,7 @@
   "scripts": {
     "prebuild": "yarn clean",
     "build": "yarn workspace example build",
+    "predev": "yarn clean",
     "dev": "yarn workspace example dev",
     "clean": "yarn workspace example clean",
     "start": "yarn workspace example start",
