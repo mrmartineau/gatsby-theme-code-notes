@@ -37,3 +37,7 @@ tags:
 ```
 
 https://medium.com/slack-developer-blog/everything-you-ever-wanted-to-know-about-unfurling-but-were-afraid-to-ask-or-how-to-make-your-e64b4bb9254
+
+Facebook: https://developers.facebook.com/docs/sharing/webmasters
+
+https://sproutsocial.com/insights/social-media-image-sizes-guide/

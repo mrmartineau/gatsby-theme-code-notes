@@ -25,13 +25,13 @@ Same as above but exclude master and develop branches
 git branch --merged | egrep -v "(^\*|master|develop)"
 ```
 
-## Deleting
+### Deleting
 
 ```sh
 git branch -d branch_name
 ```
 
-## Delete remote branches
+### Delete remote branches
 
 ```sh
 git push origin --delete branch1 branch2
