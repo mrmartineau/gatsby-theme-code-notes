@@ -22,6 +22,9 @@
     "@mdx-js/react": "^1.5.5",
     "@theme-ui/presets": "^0.3.0",
     "@theme-ui/prism": "^0.3.0",
+    "@types/node": "^13.7.4",
+    "@types/react": "^16.9.21",
+    "@types/react-dom": "^16.9.5",
     "gatsby-core-utils": "^1.0.28",
     "gatsby-plugin-mdx": "^1.0.70",
     "gatsby-plugin-meta-redirect": "^1.1.1",
@@ -29,11 +32,15 @@
     "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-redirects": "^1.0.0",
     "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-plugin-typegen": "^1.1.1",
+    "gatsby-plugin-typescript": "^2.1.27",
+    "gatsby-plugin-typescript-checker": "^1.1.1",
     "gatsby-source-filesystem": "^2.1.48",
     "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
     "react-helmet": "^5.2.1",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "typescript": "^3.8.2"
   },
   "devDependencies": {
     "gatsby": "^2.19.12",

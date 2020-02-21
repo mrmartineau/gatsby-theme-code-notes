@@ -1,22 +1,22 @@
-import React from 'react'
+/** @jsx jsx */
 import { Link } from 'gatsby'
-import { Box, Badge } from 'theme-ui'
+import { jsx, Box, Badge } from 'theme-ui'
 
 export const TagList = ({ tags }) => (
   <Box
-    as="ul"
     sx={{
-      listStyleType: 'none',
       display: 'flex',
-      p: 0,
+      alignItems: 'center',
     }}
   >
     {tags.map((item, index) => (
-      <Box as="li" key={index} sx={{ mr: 1 }}>
-        <Link to={`/tag/${encodeURI(item.toLowerCase())}`}>
-          <Badge>{item}</Badge>
-        </Link>
-      </Box>
+      <Link
+        to={`/tag/${encodeURI(item.toLowerCase())}`}
+        key={index}
+        sx={{ display: 'inline-flex' }}
+      >
+        <Badge sx={{ mx: 1 }}>{item}</Badge>
+      </Link>
     ))}
   </Box>
 )

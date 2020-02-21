@@ -8,6 +8,9 @@ module.exports = options => {
       siteUrl: `http://example.com/`,
     },
     plugins: [
+      'gatsby-plugin-typescript',
+      'gatsby-plugin-typescript-checker',
+      'gatsby-plugin-typegen',
       mdx && {
         resolve: `gatsby-plugin-mdx`,
         options: {
