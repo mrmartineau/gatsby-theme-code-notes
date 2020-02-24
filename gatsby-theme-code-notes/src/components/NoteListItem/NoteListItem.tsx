@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react'
 import { TagList } from '../TagList'
 import { Link } from 'gatsby'
 import { jsx, Styled, Flex, Box } from 'theme-ui'
+import { DateModified } from '../DateModified'
 
 interface NoteListItemProps {
   name: string
@@ -25,10 +26,8 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
       <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>
         {tags && <TagList tags={tags} />}
         {dateModified && (
-          <Box
-            sx={{ ml: 3, fontFamily: 'monospace', fontSize: 0, color: 'muted' }}
-          >
-            {dateModified}
+          <Box ml={2}>
+            <DateModified>{dateModified}</DateModified>
           </Box>
         )}
       </Flex>

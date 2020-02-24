@@ -1,56 +1,49 @@
-import codeTheme from '@theme-ui/prism/presets/github.json'
-const primary = `rebeccapurple`
-const blue = `#3c58e8`
+// import codeTheme from '@theme-ui/prism/presets/github.json'
+import { base } from '@theme-ui/presets'
 
 export default {
-  initialColorMode: `light`,
-  colors: {
-    primary,
-    secondary: `#444`,
-    text: `#000`,
-    heading: `#000`,
-    background: `#fff`,
-    link: blue,
-    muted: `#888`,
-    highlight: `tomato`,
-    blue,
-  },
-  fonts: {
-    body: `system-ui, sans-serif`,
-  },
-  lineHeights: {
-    body: 1.5,
-  },
-  sizes: {
-    container: 1080,
-  },
-  layout: {
-    container: {
-      px: 2,
-    },
-  },
+  ...base,
   styles: {
-    root: {
-      fontFamily: `body`,
-      lineHeight: `body`,
-    },
-    a: {
-      color: blue,
-      '&:hover': {
-        color: `secondary`,
+    ...base.styles,
+    code: {
+      p: 2,
+      fontSize: 1,
+      color: '#393A34',
+      backgroundColor: '#f6f8fa',
+      '.comment,.prolog,.doctype,.cdata': {
+        color: '#999988',
+        fontStyle: 'italic',
+      },
+      '.namespace': {
+        opacity: 0.7,
+      },
+      '.string,.attr-value': {
+        color: '#e3116c',
+      },
+      '.punctuation,.operator': {
+        color: '#393A34',
+      },
+      '.entity,.url,.symbol,.number,.boolean,.variable,.constant,.property,.regex,.inserted': {
+        color: '#36acaa',
+      },
+      '.atrule,.keyword,.attr-name,.selector': {
+        color: '#00a4db',
+      },
+      '.function,.deleted,.tag': {
+        color: '#d73a49',
+      },
+      '.function-variable': {
+        color: '#6f42c1',
+      },
+      '.tag,.selector,.keyword': {
+        color: '#00009f',
       },
     },
-    img: {
-      maxWidth: `100%`,
-    },
-    pre: {
-      text: primary,
-      background: `#f6f3f9`,
-      overflowX: `scroll`,
-      p: 2,
-    },
-    code: {
-      ...codeTheme,
+  },
+  text: {
+    noteTitle: {
+      fontWeight: 'bold',
+      fontSize: 7,
     },
   },
 }

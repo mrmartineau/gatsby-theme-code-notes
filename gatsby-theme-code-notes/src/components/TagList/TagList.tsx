@@ -26,7 +26,7 @@ export const TagList: FunctionComponent<TagNavProps> = ({ tags }) => {
           key={index}
           sx={{ display: 'inline-flex' }}
         >
-          <Badge sx={{ mx: 1 }}>{item}</Badge>
+          <Badge sx={{ mr: 1 }}>{item}</Badge>
         </Link>
       ))}
     </Box>
