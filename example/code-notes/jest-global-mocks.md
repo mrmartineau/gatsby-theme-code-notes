@@ -1,11 +1,13 @@
 ---
 title: Jest global mocks
-Tags:
+tags:
   - javascript
   - testing
 ---
 
-```js
+## Some useful mocks
+
+```ts
 /**
  * Mocks that could be used by any jest test
  * Just add them here and they will automatically be used

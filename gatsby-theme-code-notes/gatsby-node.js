@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
   })
 
   const allTags = compact(union(flattenDeep(globalTagsList))).sort()
-  console.log('TCL: exports.createPages -> allTags', allTags)
+
   // Create the notes landing page
   createPage({
     path: basePath,

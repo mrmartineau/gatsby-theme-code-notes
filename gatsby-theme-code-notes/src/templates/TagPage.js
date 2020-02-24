@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
-import { NotesList } from '../components/NotesList'
+import { NotesPage } from '../components/NotesPage'
 
-export default NotesList
+export default NotesPage
 
 export const pageQuery = graphql`
   query($tag: String!) {
@@ -22,7 +22,6 @@ export const pageQuery = graphql`
           parent {
             ... on File {
               name
-              ctime(formatString: "Do MMM YYYY")
             }
           }
         }

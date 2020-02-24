@@ -38,7 +38,10 @@
     "gatsby-source-filesystem": "^2.1.48",
     "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
+    "pick-to-array": "^1.1.0",
     "react-helmet": "^5.2.1",
+    "remark-autolink-headings": "^5.2.1",
+    "remark-github": "^8.0.0",
     "theme-ui": "^0.3.1",
     "typescript": "^3.8.2"
   },

@@ -1,3 +1,6 @@
+const remarkHeadings = require('remark-autolink-headings')
+var remarkGithub = require('remark-github')
+
 module.exports = options => {
   const { mdx = true, mdxLayouts = {} } = options
 
@@ -16,9 +19,9 @@ module.exports = options => {
         options: {
           extensions: [`.md`, `.mdx`],
           defaultLayouts: {
-            default: require.resolve(`./src/components/layout`),
             ...mdxLayouts,
           },
+          remarkPlugins: [remarkHeadings, remarkGithub],
         },
       },
       {

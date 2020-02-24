@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
-import { NotesList } from '../components/NotesList'
+import { NotesPage } from '../components/NotesPage'
 
-export default NotesList
+export default NotesPage
 
 export const pageQuery = graphql`
   query {
