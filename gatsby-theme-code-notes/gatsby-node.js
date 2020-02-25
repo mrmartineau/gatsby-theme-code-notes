@@ -1,7 +1,6 @@
 const path = require('path')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
-const { union, flattenDeep, compact } = require('lodash')
 
 // These are customizable theme options we only need to check once
 let basePath
@@ -24,10 +23,32 @@ exports.createPages = async ({ graphql, actions }, options) => {
   const { createPage } = actions
   basePath = options.basePath || '/'
 
-  const allMdxDocs = await graphql(
+  const mdxDocs = await graphql(
     `
       {
-        allMdx {
+        allNotes: allMdx {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                tags
+              }
+              parent {
+                ... on File {
+                  name
+                }
+              }
+            }
+          }
+
+          tags: group(field: frontmatter___tags) {
+            tag: fieldValue
+            totalCount
+          }
+        }
+
+        untaggedNotes: allMdx(filter: { frontmatter: { tags: { eq: null } } }) {
           edges {
             node {
               id
@@ -47,12 +68,20 @@ exports.createPages = async ({ graphql, actions }, options) => {
     `
   )
 
-  if (allMdxDocs.errors) {
-    throw allMdxDocs.errors
+  if (mdxDocs.errors) {
+    throw mdxDocs.errorsd
   }
 
-  const globalTagsList = []
-  const notesData = allMdxDocs.data.allMdx.edges
+  // console.log('TCL: exports.createPages -> tags', mdxDocs.data.allNotes.tags)
+  // console.log(
+  //   'TCL: exports.createPages -> untaggedNotes',
+  //   mdxDocs.data.untaggedNotes
+  // )
+
+  const { untaggedNotes, allNotes } = mdxDocs.data
+
+  const globalTagsList = allNotes.tags
+  const notesData = allNotes.edges
 
   // Create notes pages
   notesData.forEach((note, index) => {
@@ -72,31 +101,36 @@ exports.createPages = async ({ graphql, actions }, options) => {
         next,
       },
     })
-
-    globalTagsList.push(note.node.frontmatter.tags)
   })
-
-  const allTags = compact(union(flattenDeep(globalTagsList))).sort()
 
   // Create the notes landing page
   createPage({
     path: basePath,
     component: path.join(__dirname, './src/templates', 'Notes.js'),
     context: {
-      tags: allTags,
+      tags: globalTagsList,
+      basePath: basePath,
     },
   })
 
   // Create tag pages
-  allTags.forEach(item => {
+  globalTagsList.forEach(item => {
     createPage({
-      path: `${basePath}tag/${item}`,
+      path: `${basePath}tag/${item.tag}`,
       component: path.join(__dirname, './src/templates', 'TagPage.js'),
       context: {
-        tag: item,
-        tags: allTags,
+        tag: item.tag,
+        tags: globalTagsList,
       },
     })
+  })
+
+  createPage({
+    path: `${basePath}tag/untagged`,
+    component: path.join(__dirname, './src/templates', 'UntaggedTagPage.js'),
+    context: {
+      tag: 'untagged',
+    },
   })
 }
 

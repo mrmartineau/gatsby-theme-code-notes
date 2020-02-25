@@ -43,7 +43,20 @@ export default {
   text: {
     noteTitle: {
       fontWeight: 'bold',
-      fontSize: 7,
+      fontSize: 6,
+      mb: 2,
+    },
+  },
+  links: {
+    bold: {
+      '&:link, &:visited': {
+        fontWeight: 'bold',
+        color: 'primary',
+        textDecoration: 'none',
+      },
+      '&:hover': {
+        textDecoration: 'underline',
+      },
     },
   },
 }

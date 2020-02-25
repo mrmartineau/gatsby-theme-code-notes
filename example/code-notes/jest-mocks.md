@@ -7,7 +7,7 @@ tags:
 
 ## Some useful mocks
 
-```ts
+```js
 /**
  * Mocks that could be used by any jest test
  * Just add them here and they will automatically be used

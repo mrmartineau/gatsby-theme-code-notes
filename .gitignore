@@ -1,3 +1,5 @@
 .cache
 public
 node_modules
+
+/mtc-vectors.txt

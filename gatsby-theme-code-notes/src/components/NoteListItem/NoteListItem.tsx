@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { FunctionComponent } from 'react'
 import { TagList } from '../TagList'
-import { Link } from 'gatsby'
-import { jsx, Styled, Flex, Box } from 'theme-ui'
+import { Link as GatsbyLink } from 'gatsby'
+import { jsx, Styled, Flex, Box, Link } from 'theme-ui'
 import { DateModified } from '../DateModified'
 
 interface NoteListItemProps {
@@ -18,10 +18,12 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   dateModified,
   tags,
 }) => (
-  <Box as="article" sx={{ border: '1px solid #ddd', p: 2, mb: 2 }}>
+  <Box as="article" sx={{ p: 2 }}>
     <Flex sx={{ justifyContent: 'space-between' }}>
       <Styled.h3 sx={{ m: 0 }}>
-        <Link to={`/${name}`}>{title}</Link>
+        <Link as={GatsbyLink} to={`/${name}`} variant="bold">
+          {title}
+        </Link>
       </Styled.h3>
       <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>
         {tags && <TagList tags={tags} />}

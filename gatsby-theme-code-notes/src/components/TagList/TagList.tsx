@@ -19,16 +19,22 @@ export const TagList: FunctionComponent<TagNavProps> = ({ tags }) => {
         alignItems: 'center',
       }}
     >
-      {tags.map((item, index) => (
-        <Link
-          as={GatsbyLink}
-          to={`/tag/${encodeURI(item.toLowerCase())}`}
-          key={index}
-          sx={{ display: 'inline-flex' }}
-        >
-          <Badge sx={{ mr: 1 }}>{item}</Badge>
-        </Link>
-      ))}
+      {tags.map((item, index) => {
+        if (item === 'untaged') {
+          return null
+        }
+
+        return (
+          <Link
+            as={GatsbyLink}
+            to={`/tag/${encodeURI(item.toLowerCase())}`}
+            key={index}
+            sx={{ display: 'inline-flex' }}
+          >
+            <Badge sx={{ mr: 1 }}>{item}</Badge>
+          </Link>
+        )
+      })}
     </Box>
   )
 }

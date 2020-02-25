@@ -22,8 +22,11 @@ interface NotePageProps {
 }
 
 export const NotePage: FunctionComponent<NotePageProps> = ({ data }) => {
-  console.log('TCL: data', data)
-  const { title, tags } = data.mdx.frontmatter
+  const {
+    frontmatter: { title, tags },
+    fields: { dateModified },
+    body,
+  } = data.mdx
   return (
     <Layout>
       <Helmet>
@@ -33,16 +36,16 @@ export const NotePage: FunctionComponent<NotePageProps> = ({ data }) => {
         {title}
       </Heading>
 
-      {data.mdx.fields.dateModified && (
+      {dateModified && (
         <Box mb={3}>
-          <DateModified>{data.mdx.fields.dateModified}</DateModified>
+          <DateModified>{dateModified}</DateModified>
         </Box>
       )}
 
       <Flex>
         <TagList tags={tags} />
       </Flex>
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      <MDXRenderer>{body}</MDXRenderer>
     </Layout>
   )
 }

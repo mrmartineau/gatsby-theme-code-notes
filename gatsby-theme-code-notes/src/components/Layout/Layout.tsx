@@ -8,10 +8,14 @@ import { Sidebar } from '../Sidebar'
 
 interface LayoutProps {
   activeTag?: string
+  path?: string
+  basePath?: string
 }
 
 export const Layout: FunctionComponent<LayoutProps> = ({
   activeTag,
+  path,
+  basePath,
   children,
 }) => {
   const tags = useAllTags()
@@ -30,7 +34,11 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       />
       <Flex>
         <Sidebar>
-          <TagNav tags={tags} activeTag={activeTag} />
+          <TagNav
+            tags={tags}
+            activeTag={activeTag}
+            rootPath={path === basePath}
+          />
         </Sidebar>
         <Box
           as="section"

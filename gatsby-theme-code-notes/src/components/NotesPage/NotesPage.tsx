@@ -1,16 +1,19 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-// import { Heading } from 'theme-ui'
 import { NoteList } from '../NoteList'
 import { Layout } from '../Layout'
 
-export const NotesPage = ({ data, pageContext }) => {
+export const NotesPage = ({ data, pageContext, location }) => {
   const notes = data.allMdx.edges
   const siteTitle = 'Znippets'
   return (
-    <Layout activeTag={pageContext.tag}>
+    <Layout
+      activeTag={pageContext.tag}
+      path={location.pathname}
+      basePath={pageContext.basePath}
+    >
       <Helmet>
-        <title>{siteTitle}</title>
+        <title>{pageContext.tag ? pageContext.tag : siteTitle}</title>
       </Helmet>
 
       {/* pageContext.tag && (
