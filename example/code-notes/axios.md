@@ -1,5 +1,6 @@
 ---
 title: Axios
+emoji: 👌
 tags:
   - javascript
 ---

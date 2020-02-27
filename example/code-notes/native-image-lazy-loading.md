@@ -1,5 +1,6 @@
 ---
 title: Native image lazy loading
+emoji: 🖼
 tags:
   - html
 ---

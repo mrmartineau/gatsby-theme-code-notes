@@ -1,12 +1,13 @@
 ---
 title: Docker
+emoji: 🐳
 tags:
   - devops
 ---
 
 ### Dockerfile examples
 
-[https://docs.docker.com/develop/develop-images/dockerfile_best-practices/](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+[Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 ```docker
 FROM node:12.4.0-alpine

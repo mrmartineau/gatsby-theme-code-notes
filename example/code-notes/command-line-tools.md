@@ -1,6 +1,8 @@
 ---
 title: Command line tools
 date: 2019-11-03
+tags:
+  - cli
 ---
 
 ## Keyboard shortcuts
@@ -220,7 +222,9 @@ Work with yarn/npm packages locally like a boss.
 ### List the current repo's PRs
 
 ```sh
-# this is an aliasalias prs 'hub pr list -L 20 -b develop --format="%t%n - Branch: [%H]%n - %U%n - %l%n%n"'# e.g. ❯ prs
+# this is an alias
+alias prs 'hub pr list -L 20 -b develop --format="%t%n - Branch: [%H]%n - %U%n - %l%n%n"'
+# e.g. ❯ prs
 ```
 
 ### Create a branch and switch to it
