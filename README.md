@@ -8,6 +8,8 @@
 
 </div>
 
+#### 🚧 This is in beta right now. It works, but it is by no means complete. You can see an example of the theme at any time at [notes.zander.wtf](https://notes.zander.wtf)
+
 ## Installation
 
 1. Install the theme
@@ -16,8 +18,8 @@
 mkdir my-site
 cd my-site
 yarn init
-# install gatsby-theme-minimal and it's dependencies
-yarn add gatsby react react-dom gatsby-theme-minimal
+# install gatsby-theme-code-notes and it's dependencies
+yarn add gatsby react react-dom gatsby-theme-code-notes
 # or
 npm install gatsby-theme-code-notes
 ```
