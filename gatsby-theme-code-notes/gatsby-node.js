@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
+const slugify = require('slugify')
 
 // These are customizable theme options we only need to check once
 let basePath
@@ -48,19 +49,10 @@ exports.createPages = async ({ graphql, actions }, options) => {
           }
         }
 
-        untaggedNotes: allMdx(filter: { frontmatter: { tags: { eq: null } } }) {
+        untagged: allMdx(filter: { frontmatter: { tags: { eq: null } } }) {
           edges {
             node {
               id
-              frontmatter {
-                title
-                tags
-              }
-              parent {
-                ... on File {
-                  name
-                }
-              }
             }
           }
         }
@@ -72,26 +64,21 @@ exports.createPages = async ({ graphql, actions }, options) => {
     throw mdxDocs.errorsd
   }
 
-  // console.log('TCL: exports.createPages -> tags', mdxDocs.data.allNotes.tags)
-  // console.log(
-  //   'TCL: exports.createPages -> untaggedNotes',
-  //   mdxDocs.data.untaggedNotes
-  // )
-
-  const { untaggedNotes, allNotes } = mdxDocs.data
+  const { allNotes, untagged } = mdxDocs.data
 
   const globalTagsList = allNotes.tags
   const notesData = allNotes.edges
+  const hasUntagged = !!untagged.edges.length
+  console.log('TCL: hasUntagged', hasUntagged)
+  console.log('TCL: untagged.edges.length', untagged.edges.length)
 
   // Create notes pages
   notesData.forEach((note, index) => {
     const previous =
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
-    const itemPath =
-      basePath === '/'
-        ? note.node.parent.name
-        : `${basePath}${note.node.parent.name}`
+    const parentName = slugify(note.node.parent.name)
+    const itemPath = basePath === '/' ? parentName : `${basePath}${parentName}`
     createPage({
       path: itemPath,
       component: path.join(__dirname, './src/templates', 'Note.js'),
@@ -99,6 +86,8 @@ exports.createPages = async ({ graphql, actions }, options) => {
         id: note.node.id,
         previous,
         next,
+        hasUntagged,
+        basePath,
       },
     })
   })
@@ -109,29 +98,33 @@ exports.createPages = async ({ graphql, actions }, options) => {
     component: path.join(__dirname, './src/templates', 'Notes.js'),
     context: {
       tags: globalTagsList,
-      basePath: basePath,
+      basePath,
+      hasUntagged,
     },
   })
 
   // Create tag pages
   globalTagsList.forEach(item => {
     createPage({
-      path: `${basePath}tag/${item.tag}`,
+      path: `${basePath}tag/${slugify(item.tag)}`,
       component: path.join(__dirname, './src/templates', 'TagPage.js'),
       context: {
         tag: item.tag,
         tags: globalTagsList,
+        hasUntagged,
       },
     })
   })
 
-  createPage({
-    path: `${basePath}tag/untagged`,
-    component: path.join(__dirname, './src/templates', 'UntaggedTagPage.js'),
-    context: {
-      tag: 'untagged',
-    },
-  })
+  if (hasUntagged) {
+    createPage({
+      path: `${basePath}tag/untagged`,
+      component: path.join(__dirname, './src/templates', 'UntaggedTagPage.js'),
+      context: {
+        tag: 'untagged',
+      },
+    })
+  }
 }
 
 exports.onCreateNode = ({ node, actions }) => {

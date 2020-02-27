@@ -9,12 +9,13 @@ export const NoteList: FunctionComponent<NoteListProps> = ({ notes }) => {
   return (
     <Fragment>
       {notes.map(({ node }) => {
-        const { title, tags } = node.frontmatter
+        const { title, tags, emoji } = node.frontmatter
         const { name } = node.parent
         const { dateModified } = node.fields
         return (
           <NoteListItem
             title={title}
+            emoji={emoji}
             tags={tags}
             name={name}
             dateModified={dateModified}

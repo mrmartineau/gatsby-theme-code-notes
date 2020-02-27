@@ -19,16 +19,34 @@ interface NotePageProps {
       }
     }
   }
+  pageContext: {
+    id: string
+    previous: boolean
+    next: boolean
+    hasUntagged: boolean
+    basePath?: string
+  }
+  location: {
+    pathname: string
+  }
 }
 
-export const NotePage: FunctionComponent<NotePageProps> = ({ data }) => {
+export const NotePage: FunctionComponent<NotePageProps> = ({
+  data,
+  pageContext,
+  location,
+}) => {
   const {
     frontmatter: { title, tags },
     fields: { dateModified },
     body,
   } = data.mdx
   return (
-    <Layout>
+    <Layout
+      hasUntagged={pageContext.hasUntagged}
+      basePath={pageContext.basePath}
+      path={location.pathname}
+    >
       <Helmet>
         <title>{title}</title>
       </Helmet>

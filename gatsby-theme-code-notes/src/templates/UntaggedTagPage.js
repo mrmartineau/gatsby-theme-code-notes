@@ -12,18 +12,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          frontmatter {
-            title
-            tags
-          }
-          fields {
-            dateModified(formatString: "Do MMM YYYY")
-          }
-          parent {
-            ... on File {
-              name
-            }
-          }
+          ...AllPages
         }
       }
     }

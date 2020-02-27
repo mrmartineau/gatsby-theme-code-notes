@@ -10,12 +10,14 @@ interface LayoutProps {
   activeTag?: string
   path?: string
   basePath?: string
+  hasUntagged?: boolean
 }
 
 export const Layout: FunctionComponent<LayoutProps> = ({
   activeTag,
   path,
   basePath,
+  hasUntagged,
   children,
 }) => {
   const tags = useAllTags()
@@ -32,24 +34,25 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           },
         })}
       />
-      <Flex>
-        <Sidebar>
-          <TagNav
-            tags={tags}
-            activeTag={activeTag}
-            rootPath={path === basePath}
-          />
-        </Sidebar>
-        <Box
-          as="section"
-          sx={{
-            flexGrow: 1,
-            p: 3,
-          }}
-        >
-          {children}
-        </Box>
-      </Flex>
+      <Sidebar>
+        <TagNav
+          tags={tags}
+          activeTag={activeTag}
+          rootPath={path === basePath}
+          basePath={basePath}
+          hasUntagged={hasUntagged}
+        />
+      </Sidebar>
+      <Box
+        as="section"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          ml: [0, '200px'],
+        }}
+      >
+        {children}
+      </Box>
     </Fragment>
   )
 }

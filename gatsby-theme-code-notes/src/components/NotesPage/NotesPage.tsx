@@ -11,6 +11,7 @@ export const NotesPage = ({ data, pageContext, location }) => {
       activeTag={pageContext.tag}
       path={location.pathname}
       basePath={pageContext.basePath}
+      hasUntagged={pageContext.hasUntagged}
     >
       <Helmet>
         <title>{pageContext.tag ? pageContext.tag : siteTitle}</title>

@@ -1,10 +1,10 @@
 // import codeTheme from '@theme-ui/prism/presets/github.json'
-import { base } from '@theme-ui/presets'
+import { tailwind } from '@theme-ui/presets'
 
 export default {
-  ...base,
+  ...tailwind,
   styles: {
-    ...base.styles,
+    ...tailwind.styles,
     code: {
       p: 2,
       fontSize: 1,

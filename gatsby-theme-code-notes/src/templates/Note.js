@@ -10,6 +10,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         tags
+        emoji
       }
       fields {
         dateModified(formatString: "Do MMM YYYY")

@@ -8,6 +8,7 @@ import { DateModified } from '../DateModified'
 interface NoteListItemProps {
   name: string
   title: string
+  emoji?: string
   dateModified: string
   tags: string[]
 }
@@ -17,12 +18,13 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   title,
   dateModified,
   tags,
+  emoji,
 }) => (
-  <Box as="article" sx={{ p: 2 }}>
+  <Box as="article" sx={{ p: 2, maxWidth: '900px' }}>
     <Flex sx={{ justifyContent: 'space-between' }}>
       <Styled.h3 sx={{ m: 0 }}>
         <Link as={GatsbyLink} to={`/${name}`} variant="bold">
-          {title}
+          {emoji} {title}
         </Link>
       </Styled.h3>
       <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>

@@ -592,6 +592,7 @@ export enum FileFieldsEnum {
   childMdx___frontmatter___title = 'childMdx.frontmatter.title',
   childMdx___frontmatter___tags = 'childMdx.frontmatter.tags',
   childMdx___frontmatter___source = 'childMdx.frontmatter.source',
+  childMdx___frontmatter___emoji = 'childMdx.frontmatter.emoji',
   childMdx___frontmatter___date = 'childMdx.frontmatter.date',
   childMdx___body = 'childMdx.body',
   childMdx___excerpt = 'childMdx.excerpt',
@@ -844,6 +845,7 @@ export enum MdxFieldsEnum {
   frontmatter___title = 'frontmatter.title',
   frontmatter___tags = 'frontmatter.tags',
   frontmatter___source = 'frontmatter.source',
+  frontmatter___emoji = 'frontmatter.emoji',
   frontmatter___date = 'frontmatter.date',
   body = 'body',
   excerpt = 'excerpt',
@@ -973,6 +975,7 @@ export type MdxFrontmatter = {
   readonly title: Scalars['String'],
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>,
   readonly source: Maybe<Scalars['String']>,
+  readonly emoji: Maybe<Scalars['String']>,
   readonly date: Maybe<Scalars['Date']>,
 };
 
@@ -988,6 +991,7 @@ export type MdxFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>,
   readonly tags: Maybe<StringQueryOperatorInput>,
   readonly source: Maybe<StringQueryOperatorInput>,
+  readonly emoji: Maybe<StringQueryOperatorInput>,
   readonly date: Maybe<DateQueryOperatorInput>,
 };
 
@@ -1660,8 +1664,9 @@ export type SitePageContext = {
   readonly id: Maybe<Scalars['String']>,
   readonly previous: Maybe<SitePageContextPrevious>,
   readonly next: Maybe<SitePageContextNext>,
-  readonly tags: Maybe<ReadonlyArray<Maybe<SitePageContextTags>>>,
+  readonly hasUntagged: Maybe<Scalars['Boolean']>,
   readonly basePath: Maybe<Scalars['String']>,
+  readonly tags: Maybe<ReadonlyArray<Maybe<SitePageContextTags>>>,
   readonly tag: Maybe<Scalars['String']>,
 };
 
@@ -1669,8 +1674,9 @@ export type SitePageContextFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>,
   readonly previous: Maybe<SitePageContextPreviousFilterInput>,
   readonly next: Maybe<SitePageContextNextFilterInput>,
-  readonly tags: Maybe<SitePageContextTagsFilterListInput>,
+  readonly hasUntagged: Maybe<BooleanQueryOperatorInput>,
   readonly basePath: Maybe<StringQueryOperatorInput>,
+  readonly tags: Maybe<SitePageContextTagsFilterListInput>,
   readonly tag: Maybe<StringQueryOperatorInput>,
 };
 
@@ -1856,10 +1862,11 @@ export enum SitePageFieldsEnum {
   context___next___frontmatter___title = 'context.next.frontmatter.title',
   context___next___frontmatter___tags = 'context.next.frontmatter.tags',
   context___next___parent___name = 'context.next.parent.name',
+  context___hasUntagged = 'context.hasUntagged',
+  context___basePath = 'context.basePath',
   context___tags = 'context.tags',
   context___tags___tag = 'context.tags.tag',
   context___tags___totalCount = 'context.tags.totalCount',
-  context___basePath = 'context.basePath',
   context___tag = 'context.tag',
   pluginCreator___id = 'pluginCreator.id',
   pluginCreator___parent___id = 'pluginCreator.parent.id',
@@ -2276,65 +2283,51 @@ export type NoteByIdQueryVariables = {
 
 export type NoteByIdQuery = { readonly mdx: Maybe<(
     Pick<Mdx, 'id' | 'body'>
-    & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly fields: Maybe<Pick<MdxFields, 'dateModified'>> }
+    & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags' | 'emoji'>>, readonly fields: Maybe<Pick<MdxFields, 'dateModified'>> }
   )> };
 
-export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesNotesJs3756197544QueryVariables = {};
+export type AllPagesFragment = (
+  Pick<Mdx, 'id'>
+  & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags' | 'emoji'>>, readonly fields: Maybe<Pick<MdxFields, 'dateModified'>>, readonly parent: Maybe<(
+    { readonly __typename: 'File' }
+    & Pick<File, 'id' | 'name'>
+  ) | (
+    { readonly __typename: 'Mdx' }
+    & Pick<Mdx, 'id'>
+  ) | (
+    { readonly __typename: 'Directory' }
+    & Pick<Directory, 'id'>
+  ) | (
+    { readonly __typename: 'SitePage' }
+    & Pick<SitePage, 'id'>
+  ) | (
+    { readonly __typename: 'SitePlugin' }
+    & Pick<SitePlugin, 'id'>
+  ) | (
+    { readonly __typename: 'OGImage' }
+    & Pick<OGImage, 'id'>
+  ) | (
+    { readonly __typename: 'Site' }
+    & Pick<Site, 'id'>
+  )> }
+);
+
+export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesNotesJs230674447QueryVariables = {};
 
 
-export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesNotesJs3756197544Query = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: (
+export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesNotesJs230674447Query = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<Mdx, 'id'>
-        & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly fields: Maybe<Pick<MdxFields, 'dateModified'>>, readonly parent: Maybe<(
-          { readonly __typename: 'File' }
-          & Pick<File, 'id' | 'name'>
-        ) | (
-          { readonly __typename: 'Mdx' }
-          & Pick<Mdx, 'id'>
-        ) | (
-          { readonly __typename: 'Directory' }
-          & Pick<Directory, 'id'>
-        ) | (
-          { readonly __typename: 'SitePage' }
-          & Pick<SitePage, 'id'>
-        ) | (
-          { readonly __typename: 'SitePlugin' }
-          & Pick<SitePlugin, 'id'>
-        ) | (
-          { readonly __typename: 'OGImage' }
-          & Pick<OGImage, 'id'>
-        ) | (
-          { readonly __typename: 'Site' }
-          & Pick<Site, 'id'>
-        )> }
+        & AllPagesFragment
       ) }> } };
 
-export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesUntaggedTagPageJs2979025570QueryVariables = {};
+export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesTagPageJs1674780605QueryVariables = {
+  tag: Scalars['String']
+};
 
 
-export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesUntaggedTagPageJs2979025570Query = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: (
+export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesTagPageJs1674780605Query = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<Mdx, 'id'>
-        & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly fields: Maybe<Pick<MdxFields, 'dateModified'>>, readonly parent: Maybe<(
-          { readonly __typename: 'File' }
-          & Pick<File, 'id' | 'name'>
-        ) | (
-          { readonly __typename: 'Mdx' }
-          & Pick<Mdx, 'id'>
-        ) | (
-          { readonly __typename: 'Directory' }
-          & Pick<Directory, 'id'>
-        ) | (
-          { readonly __typename: 'SitePage' }
-          & Pick<SitePage, 'id'>
-        ) | (
-          { readonly __typename: 'SitePlugin' }
-          & Pick<SitePlugin, 'id'>
-        ) | (
-          { readonly __typename: 'OGImage' }
-          & Pick<OGImage, 'id'>
-        ) | (
-          { readonly __typename: 'Site' }
-          & Pick<Site, 'id'>
-        )> }
+        & AllPagesFragment
       ) }> } };
 
 export type Unnamed_1_QueryVariables = {};
@@ -2345,35 +2338,12 @@ export type Unnamed_1_Query = { readonly allMdx: { readonly tags: ReadonlyArray<
       & { readonly tag: MdxGroupConnection['fieldValue'] }
     )> } };
 
-export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesTagPageJs1567174828QueryVariables = {
-  tag: Scalars['String']
-};
+export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesUntaggedTagPageJs2092658553QueryVariables = {};
 
 
-export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesTagPageJs1567174828Query = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: (
+export type userszandercodegatsbyThemeCodeNotesgatsbyThemeCodeNotessrctemplatesUntaggedTagPageJs2092658553Query = { readonly allMdx: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<Mdx, 'id'>
-        & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'tags'>>, readonly fields: Maybe<Pick<MdxFields, 'dateModified'>>, readonly parent: Maybe<(
-          { readonly __typename: 'File' }
-          & Pick<File, 'id' | 'name'>
-        ) | (
-          { readonly __typename: 'Mdx' }
-          & Pick<Mdx, 'id'>
-        ) | (
-          { readonly __typename: 'Directory' }
-          & Pick<Directory, 'id'>
-        ) | (
-          { readonly __typename: 'SitePage' }
-          & Pick<SitePage, 'id'>
-        ) | (
-          { readonly __typename: 'SitePlugin' }
-          & Pick<SitePlugin, 'id'>
-        ) | (
-          { readonly __typename: 'OGImage' }
-          & Pick<OGImage, 'id'>
-        ) | (
-          { readonly __typename: 'Site' }
-          & Pick<Site, 'id'>
-        )> }
+        & AllPagesFragment
       ) }> } };
 
 export type Unnamed_2_QueryVariables = {};
