@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-code-notes",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "index.js",
   "author": {
     "name": "Zander Martineau",
@@ -38,7 +38,6 @@
     "gatsby-source-filesystem": "^2.1.48",
     "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
-    "pick-to-array": "^1.1.0",
     "react-helmet": "^5.2.1",
     "remark-autolink-headings": "^5.2.1",
     "remark-github": "^8.0.0",

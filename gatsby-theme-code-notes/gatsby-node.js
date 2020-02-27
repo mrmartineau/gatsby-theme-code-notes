@@ -3,13 +3,14 @@ const fs = require('fs')
 const mkdirp = require('mkdirp')
 const slugify = require('slugify')
 
+const DEFAULT_BASE_PATH = '/'
 // These are customizable theme options we only need to check once
 let basePath
 let contentPath
 
 exports.onPreBootstrap = ({ store, reporter }, themeOptions) => {
   const { program } = store.getState()
-  basePath = themeOptions.basePath || `/`
+  basePath = themeOptions.basePath || DEFAULT_BASE_PATH
   contentPath = themeOptions.contentPath || `content/notes`
   const dirs = [path.join(program.directory, contentPath)]
   dirs.forEach(dir => {
@@ -22,7 +23,7 @@ exports.onPreBootstrap = ({ store, reporter }, themeOptions) => {
 
 exports.createPages = async ({ graphql, actions }, options) => {
   const { createPage } = actions
-  basePath = options.basePath || '/'
+  basePath = options.basePath || DEFAULT_BASE_PATH
 
   const mdxDocs = await graphql(
     `
@@ -78,7 +79,8 @@ exports.createPages = async ({ graphql, actions }, options) => {
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
     const parentName = slugify(note.node.parent.name)
-    const itemPath = basePath === '/' ? parentName : `${basePath}${parentName}`
+    const itemPath =
+      basePath === DEFAULT_BASE_PATH ? parentName : `${basePath}${parentName}`
     createPage({
       path: itemPath,
       component: path.join(__dirname, './src/templates', 'Note.js'),

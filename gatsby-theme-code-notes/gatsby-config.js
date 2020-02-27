@@ -6,9 +6,9 @@ module.exports = options => {
 
   return {
     siteMetadata: {
-      title: `Notes Title Placeholder`,
+      title: `Code Notes Title Placeholder`,
       description: `Description placeholder`,
-      siteUrl: `http://example.com/`,
+      siteUrl: `http://zander.wtf/`,
     },
     plugins: [
       'gatsby-plugin-typescript',

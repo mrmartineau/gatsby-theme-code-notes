@@ -1,6 +1,16 @@
-# The smallest possible Gatsby theme
+<div align="center">
+  <img src="https://brand.zander.wtf/Avatar.png" width="140">
+  <h1>
+    Gatsby Theme Code Notes
+  </h1>
 
-## Quick Start
+> A Gatsby theme for publishing code-related notes to your website.
+
+</div>
+
+## Installation
+
+1. Install the theme
 
 ```shell
 mkdir my-site
@@ -8,44 +18,43 @@ cd my-site
 yarn init
 # install gatsby-theme-minimal and it's dependencies
 yarn add gatsby react react-dom gatsby-theme-minimal
+# or
+npm install gatsby-theme-code-notes
 ```
 
-Then add the theme to your `gatsby-config.js`. We'll use the long form
-here for education purposes.
+2. Add the configuration to your `gatsby-config.js` file
 
-```javascript
+```js
+// gatsby-config.js
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-theme-minimal",
-      options: {},
+      resolve: `gatsby-theme-code-notes`,
+      options: {
+        // basePath defaults to `/`
+        contentPath: 'code-notes',
+        basePath: '/',
+      },
     },
   ],
 }
 ```
 
-That's it, you can now run your gatsby site using
+3. Add notes to your site by creating `md` or `mdx` files inside `/content/notes`.
+   > Note that if you've changed the default `contentPath` in the configuration, you'll want to add your markdown files in the directory specified by that path.
 
-```shell
-yarn gatsby develop
-```
+### Options
 
-Note that this site doesn't _do_ anything, so you're see a missing
-resources error. Create a simple page in `src/pages/index.js` to see a
-page on the root url.
+| Key           | Default value    | Description                                                                                                                                                                    |
+| ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `basePath`    | `/`              | Root url for all notes pages                                                                                                                                                   |
+| `contentPath` | `/content/notes` | Location of notes content                                                                                                                                                      |
+| `mdx`         | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
 
-```jsx
-import React from "react"
+---
 
-export default () => <div>My Site!</div>
-```
+## License
 
-## Doing more with themes
+[MIT](https://choosealicense.com/licenses/mit/) © [Zander Martineau](https://zander.wtf)
 
-You can use this as a place to start when developing themes. I
-generally suggest using [yarn
-workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) like the
-[gatsby-theme-examples repo
-does](https://github.com/ChristopherBiscardi/gatsby-theme-examples),
-but using `yarn link` or `npm link` is a viable alternative if you're
-not familiar with workspaces.
+> Made by [Zander ⚡](https://github.com/mrmartineau/)

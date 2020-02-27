@@ -40,7 +40,7 @@ If you add an abbr instead of an alias you'll get better auto-complete. In fish 
 abbr -a gco git checkout
 ```
 
-Will add a new abbreviation `gco` that expands to git checkout.
+Will add a new abbreviation `gco` that expands to `git checkout`.
 
 ## Fisher
 

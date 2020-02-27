@@ -1,30 +1,25 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Starter for creating a Gatsby Theme workspace
-</h1>
+<div align="center">
+  <img src="https://brand.zander.wtf/Avatar.png" width="140">
+  <h1>
+    Gatsby Theme Code Notes
+  </h1>
 
-A Gatsby theme for publishing notes to your website.
+> A Gatsby theme for publishing code-related notes to your website.
+
+</div>
 
 ## Installation
-
-### For a new site
-
-If you're creating a new site and want to use the notes theme, you can use the notes theme starter. This will generate a new site that pre-configures use of the notes theme.
-
-```shell
-gatsby new my-themed-notes https://github.com/gatsbyjs/gatsby-starter-notes-theme
-```
-
-### Manually add to your site
 
 1. Install the theme
 
 ```shell
-npm install gatsby-theme-notes
+mkdir my-site
+cd my-site
+yarn init
+# install gatsby-theme-minimal and it's dependencies
+yarn add gatsby react react-dom gatsby-theme-minimal
+# or
+npm install gatsby-theme-code-notes
 ```
 
 2. Add the configuration to your `gatsby-config.js` file
@@ -34,10 +29,11 @@ npm install gatsby-theme-notes
 module.exports = {
   plugins: [
     {
-      resolve: `gatsby-theme-notes`,
+      resolve: `gatsby-theme-code-notes`,
       options: {
         // basePath defaults to `/`
-        basePath: `/notes`,
+        contentPath: 'code-notes',
+        basePath: '/',
       },
     },
   ],
@@ -49,10 +45,16 @@ module.exports = {
 
 ### Options
 
-| Key                   | Default value    | Description                                                                                                                                                                    |
-| --------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `basePath`            | `/`              | Root url for all notes pages                                                                                                                                                   |
-| `contentPath`         | `/content/notes` | Location of notes content                                                                                                                                                      |
-| `mdx`                 | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
-| `homeText`            | `~`              | Root text for notes breadcrumb trail                                                                                                                                           |
-| `breadcrumbSeparator` | `/`              | Separator for the breadcrumb trail                                                                                                                                             |
+| Key           | Default value    | Description                                                                                                                                                                    |
+| ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `basePath`    | `/`              | Root url for all notes pages                                                                                                                                                   |
+| `contentPath` | `/content/notes` | Location of notes content                                                                                                                                                      |
+| `mdx`         | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
+
+---
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/) © [Zander Martineau](https://zander.wtf)
+
+> Made by [Zander ⚡](https://github.com/mrmartineau/)

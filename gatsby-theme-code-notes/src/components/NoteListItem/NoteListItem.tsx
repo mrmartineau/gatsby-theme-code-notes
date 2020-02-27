@@ -22,11 +22,11 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
 }) => (
   <Box as="article" sx={{ p: 2, maxWidth: '900px' }}>
     <Flex sx={{ justifyContent: 'space-between' }}>
-      <Styled.h3 sx={{ m: 0 }}>
+      <Styled.h4 sx={{ m: 0 }}>
         <Link as={GatsbyLink} to={`/${name}`} variant="bold">
           {emoji} {title}
         </Link>
-      </Styled.h3>
+      </Styled.h4>
       <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>
         {tags && <TagList tags={tags} />}
         {dateModified && (
