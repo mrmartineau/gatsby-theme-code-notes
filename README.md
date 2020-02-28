@@ -36,6 +36,8 @@ module.exports = {
         // basePath defaults to `/`
         contentPath: 'code-notes',
         basePath: '/',
+        gitRepoContentPath:
+          'https://github.com/mrmartineau/gatsby-theme-code-notes/tree/master/example/code-notes/',
       },
     },
   ],
@@ -47,11 +49,12 @@ module.exports = {
 
 ### Options
 
-| Key           | Default value    | Description                                                                                                                                                                    |
-| ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `basePath`    | `/`              | Root url for all notes pages                                                                                                                                                   |
-| `contentPath` | `/content/notes` | Location of notes content                                                                                                                                                      |
-| `mdx`         | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
+| Key                  | Default value    | Description                                                                                                                                                                    |
+| -------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `basePath`           | `/`              | Root url for all notes pages                                                                                                                                                   |
+| `contentPath`        | `/content/notes` | Location of notes content                                                                                                                                                      |
+| `mdx`                | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
+| `gitRepoContentPath` | `true`           | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                      |
 
 ---
 

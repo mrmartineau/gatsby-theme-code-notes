@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react'
-import { Heading, Box, Flex } from 'theme-ui'
+import { Heading, Box, Flex, Link } from 'theme-ui'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Helmet } from 'react-helmet'
 import { TagList } from '../TagList'
 import { Layout } from '../Layout'
 import { DateModified } from '../DateModified'
+import { useSiteMetadata } from '../../use-site-metadata'
 
 interface NotePageProps {
   data: {
@@ -16,6 +17,10 @@ interface NotePageProps {
       body: any
       fields: {
         dateModified: string
+      }
+      parent: {
+        name: string
+        fileName: string
       }
     }
   }
@@ -40,7 +45,10 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
     frontmatter: { title, tags },
     fields: { dateModified },
     body,
+    parent: { fileName },
   } = data.mdx
+
+  const { gitRepoContentPath } = useSiteMetadata()
   return (
     <Layout
       hasUntagged={pageContext.hasUntagged}
@@ -64,6 +72,10 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
         <TagList tags={tags} />
       </Flex>
       <MDXRenderer>{body}</MDXRenderer>
+
+      {gitRepoContentPath && (
+        <Link href={`${gitRepoContentPath}${fileName}`}>Edit this page</Link>
+      )}
     </Layout>
   )
 }

@@ -39,6 +39,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
               parent {
                 ... on File {
                   name
+                  base
                 }
               }
             }

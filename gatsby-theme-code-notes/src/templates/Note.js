@@ -15,6 +15,12 @@ export const pageQuery = graphql`
       fields {
         dateModified(formatString: "Do MMM YYYY")
       }
+      parent {
+        ... on File {
+          name
+          fileName: base
+        }
+      }
     }
   }
 `

@@ -2,13 +2,14 @@
 // var remarkGithub = require('remark-github')
 
 module.exports = options => {
-  const { mdx = true, mdxLayouts = {} } = options
+  const { mdx = true, mdxLayouts = {}, gitRepoContentPath = '' } = options
 
   return {
     siteMetadata: {
       title: `Code Notes Title Placeholder`,
-      description: `Description placeholder`,
+      description: `A Gatsby theme for your code-related notes`,
       siteUrl: `http://zander.wtf/`,
+      gitRepoContentPath,
     },
     plugins: [
       'gatsby-plugin-typescript',
