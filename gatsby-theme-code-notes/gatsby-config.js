@@ -13,7 +13,6 @@ module.exports = options => {
     plugins: [
       'gatsby-plugin-typescript',
       'gatsby-plugin-typescript-checker',
-      'gatsby-plugin-typegen',
       mdx && {
         resolve: `gatsby-plugin-mdx`,
         options: {
@@ -32,7 +31,6 @@ module.exports = options => {
         },
       },
       `gatsby-plugin-redirects`,
-      `gatsby-plugin-og-image`,
       `gatsby-plugin-react-helmet`,
       `gatsby-plugin-theme-ui`,
     ].filter(Boolean),
