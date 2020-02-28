@@ -23,7 +23,6 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
   basePath,
   hasUntagged,
 }) => {
-  console.log('TCL: tags', tags)
   return (
     <Box
       as="ul"

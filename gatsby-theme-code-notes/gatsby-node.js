@@ -70,8 +70,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
   const globalTagsList = allNotes.tags
   const notesData = allNotes.edges
   const hasUntagged = !!untagged.edges.length
-  console.log('TCL: hasUntagged', hasUntagged)
-  console.log('TCL: untagged.edges.length', untagged.edges.length)
 
   // Create notes pages
   notesData.forEach((note, index) => {
