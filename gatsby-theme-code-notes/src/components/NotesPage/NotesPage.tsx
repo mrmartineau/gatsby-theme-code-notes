@@ -2,10 +2,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { NoteList } from '../NoteList'
 import { Layout } from '../Layout'
+import { useSiteMetadata } from '../../use-site-metadata'
 
 export const NotesPage = ({ data, pageContext, location }) => {
   const notes = data.allMdx.edges
-  const siteTitle = 'Znippets'
+  const { title } = useSiteMetadata()
+  const siteTitle = title
   return (
     <Layout
       activeTag={pageContext.tag}

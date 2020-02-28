@@ -21,7 +21,7 @@ yarn init
 # install gatsby-theme-code-notes and it's dependencies
 yarn add gatsby react react-dom gatsby-theme-code-notes
 # or
-npm install gatsby-theme-code-notes
+npm install gatsby react react-dom gatsby-theme-code-notes
 ```
 
 2. Add the configuration to your `gatsby-config.js` file
