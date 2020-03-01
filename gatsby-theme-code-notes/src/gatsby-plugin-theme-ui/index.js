@@ -75,7 +75,7 @@ export default {
   },
 
   sizes: {
-    sidebar: '18%',
+    sidebar: '20%',
     contentMaxWidth: '900px',
   },
 
