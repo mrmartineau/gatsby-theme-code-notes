@@ -40,6 +40,7 @@ export default {
       },
     },
   },
+
   text: {
     noteTitle: {
       fontWeight: 'bold',
@@ -47,6 +48,7 @@ export default {
       mb: 2,
     },
   },
+
   links: {
     bold: {
       '&:link, &:visited': {
@@ -58,5 +60,28 @@ export default {
         textDecoration: 'underline',
       },
     },
+
+    nav: {
+      px: 3,
+      py: 1,
+      textTransform: 'uppercase',
+      display: 'block',
+      fontWeight: 'normal',
+      '&:hover': {
+        bg: '#ddd',
+        color: 'dark',
+      },
+    },
+  },
+
+  sizes: {
+    sidebar: '18%',
+    contentMaxWidth: '900px',
+  },
+
+  zIndices: {
+    low: 10,
+    mid: 20,
+    high: 30,
   },
 }

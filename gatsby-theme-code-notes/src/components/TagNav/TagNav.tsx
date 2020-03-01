@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import { FunctionComponent } from 'react'
-import { jsx, Box } from 'theme-ui'
+import { Link as GatsbyLink } from 'gatsby'
+import { jsx, Box, NavLink } from 'theme-ui'
 import { NavItem } from '../NavItem'
 
-interface TagItemInterface {
+export interface TagItemInterface {
   tag: string
   totalCount: number
+  slug: string
 }
 
 interface TagNavProps {
@@ -25,30 +27,48 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
 }) => {
   return (
     <Box
-      as="ul"
+      as="nav"
       sx={{
         listStyleType: 'none',
-        p: 3,
+        py: 3,
       }}
     >
-      <NavItem active={!!rootPath} to={basePath}>
+      <NavLink
+        sx={{
+          fontWeight: !!rootPath ? 'bold' : undefined,
+          bg: !!rootPath ? '#ddd' : undefined,
+        }}
+        to={basePath}
+        as={GatsbyLink}
+      >
         All tags
-      </NavItem>
+      </NavLink>
 
       {tags.map((item, index) => (
-        <NavItem
+        <NavLink
+          sx={{
+            fontWeight: activeTag === item.tag ? 'bold' : undefined,
+            bg: activeTag === item.tag ? '#ddd' : undefined,
+          }}
+          to={`/tag/${encodeURI(item.slug)}`}
+          as={GatsbyLink}
           key={index}
-          active={activeTag === item.tag}
-          to={`/tag/${encodeURI(item.tag.toLowerCase())}`}
         >
           {item.tag}
-        </NavItem>
+        </NavLink>
       ))}
 
       {hasUntagged && (
-        <NavItem active={activeTag === 'untagged'} to={`/tag/untagged`}>
+        <NavLink
+          sx={{
+            fontWeight: activeTag === 'untagged' ? 'bold' : undefined,
+            bg: activeTag === 'untagged' ? '#ddd' : undefined,
+          }}
+          to={`/tag/untagged`}
+          as={GatsbyLink}
+        >
           Untagged
-        </NavItem>
+        </NavLink>
       )}
     </Box>
   )

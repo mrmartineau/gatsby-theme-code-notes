@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
-const slugify = require('slugify')
+const slugify = require('@alexcarpenter/slugify')
 
 const DEFAULT_BASE_PATH = '/'
 // These are customizable theme options we only need to check once
@@ -71,6 +71,12 @@ exports.createPages = async ({ graphql, actions }, options) => {
   const globalTagsList = allNotes.tags
   const notesData = allNotes.edges
   const hasUntagged = !!untagged.edges.length
+  const slugifiedTags = globalTagsList.map(item => {
+    return {
+      ...item,
+      slug: slugify(item.tag),
+    }
+  })
 
   // Create notes pages
   notesData.forEach((note, index) => {
@@ -98,20 +104,22 @@ exports.createPages = async ({ graphql, actions }, options) => {
     path: basePath,
     component: path.join(__dirname, './src/templates', 'Notes.js'),
     context: {
-      tags: globalTagsList,
+      tags: slugifiedTags,
       basePath,
       hasUntagged,
     },
   })
 
   // Create tag pages
-  globalTagsList.forEach(item => {
+  slugifiedTags.forEach((item, index, list) => {
+    console.log('TCL: item', item)
+    console.log('TCL: item.slug', item.slug)
     createPage({
-      path: `${basePath}tag/${slugify(item.tag)}`,
+      path: `${basePath}tag/${item.slug}`,
       component: path.join(__dirname, './src/templates', 'TagPage.js'),
       context: {
         tag: item.tag,
-        tags: globalTagsList,
+        tags: list,
         hasUntagged,
       },
     })

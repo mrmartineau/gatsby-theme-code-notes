@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Box, Link } from 'theme-ui'
+import { NavLink, Link } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 
 interface NavItemProps {
@@ -12,15 +12,14 @@ export const NavItem: FunctionComponent<NavItemProps> = ({
   to,
   children,
 }) => (
-  <Box
-    as="li"
+  <NavLink
     sx={{
       p: 1,
       fontWeight: active ? 'bold' : 'normal',
     }}
+    to={to}
+    as={GatsbyLink}
   >
-    <Link as={GatsbyLink} to={to}>
-      {children}
-    </Link>
-  </Box>
+    {children}
+  </NavLink>
 )

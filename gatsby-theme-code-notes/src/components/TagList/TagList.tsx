@@ -2,6 +2,7 @@
 import { FunctionComponent } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { jsx, Box, Badge, Link } from 'theme-ui'
+import slugify from '@alexcarpenter/slugify'
 
 interface TagNavProps {
   tags: string[]
@@ -20,14 +21,14 @@ export const TagList: FunctionComponent<TagNavProps> = ({ tags }) => {
       }}
     >
       {tags.map((item, index) => {
-        if (item === 'untaged') {
+        if (item === 'untagged') {
           return null
         }
 
         return (
           <Link
             as={GatsbyLink}
-            to={`/tag/${encodeURI(item.toLowerCase())}`}
+            to={`/tag/${slugify(item)}`}
             key={index}
             sx={{ display: 'inline-flex' }}
           >

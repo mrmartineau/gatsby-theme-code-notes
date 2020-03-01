@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
+import slugify from '@alexcarpenter/slugify'
 
 export const useAllTags = () => {
   const data = useStaticQuery(graphql`
@@ -12,5 +13,10 @@ export const useAllTags = () => {
     }
   `)
 
-  return data.allMdx.tags.sort()
+  return data.allMdx.tags.sort().map(item => {
+    return {
+      ...item,
+      slug: slugify(item.tag),
+    }
+  })
 }

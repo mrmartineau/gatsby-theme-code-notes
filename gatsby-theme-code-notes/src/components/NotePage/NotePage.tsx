@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Heading, Box, Flex, Link } from 'theme-ui'
+import { Heading, Box, Flex, Link, useThemeUI } from 'theme-ui'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Helmet } from 'react-helmet'
 import { TagList } from '../TagList'
@@ -49,6 +49,8 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   } = data.mdx
 
   const { gitRepoContentPath } = useSiteMetadata()
+  const { theme } = useThemeUI()
+
   return (
     <Layout
       hasUntagged={pageContext.hasUntagged}
@@ -58,24 +60,28 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <Heading as="h1" variant="noteTitle">
-        {title}
-      </Heading>
 
-      {dateModified && (
-        <Box mb={3}>
-          <DateModified>{dateModified}</DateModified>
-        </Box>
-      )}
+      <Box sx={{ p: 2, maxWidth: theme.sizes.contentMaxWidth, mx: 'auto' }}>
+        <Heading as="h1" variant="noteTitle">
+          {title}
+        </Heading>
 
-      <Flex>
-        <TagList tags={tags} />
-      </Flex>
-      <MDXRenderer>{body}</MDXRenderer>
+        {dateModified && (
+          <Box mb={3}>
+            <DateModified>{dateModified}</DateModified>
+          </Box>
+        )}
 
-      {gitRepoContentPath && (
-        <Link href={`${gitRepoContentPath}${fileName}`}>Edit this page</Link>
-      )}
+        <Flex>
+          <TagList tags={tags} />
+        </Flex>
+
+        <MDXRenderer>{body}</MDXRenderer>
+
+        {gitRepoContentPath && (
+          <Link href={`${gitRepoContentPath}${fileName}`}>Edit this page</Link>
+        )}
+      </Box>
     </Layout>
   )
 }

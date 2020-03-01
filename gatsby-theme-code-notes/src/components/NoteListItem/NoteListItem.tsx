@@ -2,7 +2,7 @@
 import { FunctionComponent } from 'react'
 import { TagList } from '../TagList'
 import { Link as GatsbyLink } from 'gatsby'
-import { jsx, Styled, Flex, Box, Link } from 'theme-ui'
+import { jsx, Styled, Flex, Box, Link, useThemeUI } from 'theme-ui'
 import { DateModified } from '../DateModified'
 
 interface NoteListItemProps {
@@ -19,22 +19,28 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   dateModified,
   tags,
   emoji,
-}) => (
-  <Box as="article" sx={{ p: 2, maxWidth: '900px' }}>
-    <Flex sx={{ justifyContent: 'space-between' }}>
-      <Styled.h4 sx={{ m: 0 }}>
-        <Link as={GatsbyLink} to={`/${name}`} variant="bold">
-          {emoji} {title}
-        </Link>
-      </Styled.h4>
-      <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>
-        {tags && <TagList tags={tags} />}
-        {dateModified && (
-          <Box ml={2}>
-            <DateModified>{dateModified}</DateModified>
-          </Box>
-        )}
+}) => {
+  const { theme } = useThemeUI()
+  return (
+    <Box
+      as="article"
+      sx={{ p: 2, maxWidth: theme.sizes.contentMaxWidth, mx: 'auto' }}
+    >
+      <Flex sx={{ justifyContent: 'space-between' }}>
+        <Styled.h4 sx={{ m: 0 }}>
+          <Link as={GatsbyLink} to={`/${name}`} variant="bold">
+            {emoji} {title}
+          </Link>
+        </Styled.h4>
+        <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>
+          {tags && <TagList tags={tags} />}
+          {dateModified && (
+            <Box ml={2}>
+              <DateModified>{dateModified}</DateModified>
+            </Box>
+          )}
+        </Flex>
       </Flex>
-    </Flex>
-  </Box>
-)
+    </Box>
+  )
+}

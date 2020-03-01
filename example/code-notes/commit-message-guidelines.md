@@ -1,5 +1,7 @@
 ---
 title: Commit message guidelines
+tags:
+  - best practice
 ---
 
 We have very precise rules over how our git commit messages can be formatted. This leads to **more readable messages** that are easy to follow when looking through the **project history**. But also, we use the git commit messages to **generate the Angular change log**.
