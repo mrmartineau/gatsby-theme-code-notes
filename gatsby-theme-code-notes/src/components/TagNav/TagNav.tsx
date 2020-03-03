@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { FunctionComponent } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import { jsx, Box, NavLink } from 'theme-ui'
-import { NavItem } from '../NavItem'
+import { jsx, Box, NavLink, useThemeUI } from 'theme-ui'
 
 export interface TagItemInterface {
   tag: string
@@ -25,6 +24,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
   basePath,
   hasUntagged,
 }) => {
+  const { theme } = useThemeUI()
   return (
     <Box
       as="nav"
@@ -36,7 +36,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
       <NavLink
         sx={{
           fontWeight: !!rootPath ? 'bold' : undefined,
-          bg: !!rootPath ? '#ddd' : undefined,
+          bg: !!rootPath ? theme.colors.navHover : undefined,
         }}
         to={basePath}
         as={GatsbyLink}
@@ -48,7 +48,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
         <NavLink
           sx={{
             fontWeight: activeTag === item.tag ? 'bold' : undefined,
-            bg: activeTag === item.tag ? '#ddd' : undefined,
+            bg: activeTag === item.tag ? theme.colors.navHover : undefined,
           }}
           to={`/tag/${encodeURI(item.slug)}`}
           as={GatsbyLink}
@@ -62,7 +62,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
         <NavLink
           sx={{
             fontWeight: activeTag === 'untagged' ? 'bold' : undefined,
-            bg: activeTag === 'untagged' ? '#ddd' : undefined,
+            bg: activeTag === 'untagged' ? theme.colors.navHover : undefined,
           }}
           to={`/tag/untagged`}
           as={GatsbyLink}

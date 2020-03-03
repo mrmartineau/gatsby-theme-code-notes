@@ -2,7 +2,12 @@
 // var remarkGithub = require('remark-github')
 
 module.exports = options => {
-  const { mdx = true, mdxLayouts = {}, gitRepoContentPath = '' } = options
+  const {
+    mdxOtherwiseConfigured = true,
+    mdxLayouts = {},
+    gitRepoContentPath = '',
+    showThemeInfo = true,
+  } = options
 
   return {
     siteMetadata: {
@@ -10,11 +15,12 @@ module.exports = options => {
       description: `A Gatsby theme for your code-related notes`,
       siteUrl: `http://zander.wtf/`,
       gitRepoContentPath,
+      showThemeInfo,
     },
     plugins: [
       'gatsby-plugin-typescript',
       'gatsby-plugin-typescript-checker',
-      mdx && {
+      mdxOtherwiseConfigured && {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.md`, `.mdx`],

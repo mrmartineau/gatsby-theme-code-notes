@@ -112,8 +112,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
 
   // Create tag pages
   slugifiedTags.forEach((item, index, list) => {
-    console.log('TCL: item', item)
-    console.log('TCL: item.slug', item.slug)
     createPage({
       path: `${basePath}tag/${item.slug}`,
       component: path.join(__dirname, './src/templates', 'TagPage.js'),

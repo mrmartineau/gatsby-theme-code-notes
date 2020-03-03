@@ -3,10 +3,19 @@
   <h1>
     Gatsby Theme Code Notes
   </h1>
-
-> A Gatsby theme for publishing code-related notes to your website.
-
+  <h3>
+    A Gatsby theme for publishing code-related Markdown or MDX notes to your website.
+  </h3>
 </div>
+
+---
+
+## Theme features
+
+- Notes can be written using Markdown (`.md`) or MDX (`.mdx`)
+- Each note can have zero, one or many tags
+
+---
 
 #### 🚧 This is in beta right now. It works, but it is by no means complete. You can see an example of the theme at any time at [notes.zander.wtf](https://notes.zander.wtf)
 
@@ -49,12 +58,13 @@ module.exports = {
 
 ### Options
 
-| Key                  | Default value    | Description                                                                                                                                                                    |
-| -------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `basePath`           | `/`              | Root url for all notes pages                                                                                                                                                   |
-| `contentPath`        | `/content/notes` | Location of notes content                                                                                                                                                      |
-| `mdx`                | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
-| `gitRepoContentPath` | `true`           | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                      |
+| Key                      | Default value    | Description                                                                                                                                                                    |
+| ------------------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `basePath`               | `/`              | Root url for all notes pages                                                                                                                                                   |
+| `contentPath`            | `/content/notes` | Location of notes content                                                                                                                                                      |
+| `mdxOtherwiseConfigured` | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
+| `gitRepoContentPath`     | `true`           | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                      |
+| `showThemeInfo`          | `true`           | Show info about this Gatsby theme                                                                                                                                              |
 
 ---
 

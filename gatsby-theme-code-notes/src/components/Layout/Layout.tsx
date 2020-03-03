@@ -1,9 +1,9 @@
 import React, { Fragment, FunctionComponent, useState } from 'react'
 import { Global } from '@emotion/core'
-import { css, Box, useThemeUI, MenuButton } from 'theme-ui'
+import { css, Box, useThemeUI, MenuButton, Link } from 'theme-ui'
 import { TagNav } from '../TagNav'
 import { useAllTags } from '../../use-all-tags'
-import { Sidebar } from '../Sidebar'
+import { useSiteMetadata } from '../../use-site-metadata'
 
 interface LayoutProps {
   activeTag?: string
@@ -21,6 +21,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 }) => {
   const { theme } = useThemeUI()
   const tags = useAllTags()
+  const { showThemeInfo } = useSiteMetadata()
   const [navOpen, setNavOpen] = useState(false)
 
   return (
@@ -40,15 +41,24 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       <Box
         as="main"
         sx={{
-          position: 'relative',
+          position: ['relative', 'fixed'],
+          top: [0, 3],
+          right: [0, 3],
+          bottom: [0, 3],
+          left: [0, theme.sizes.sidebar],
+          overflowX: 'hidden',
+          overflowY: 'auto',
           zIndex: 'low',
           p: 3,
-          ml: [0, theme.sizes.sidebar],
-          bg: 'background',
-          transform: [navOpen && 'translateX(50%)', 'translateX(0)'],
+          bg: 'light',
+          transform: [
+            navOpen && `translateX(${theme.sizes.sidebarSkinny})`,
+            'translateX(0)',
+          ],
           transition: 'all 200ms ease-in-out ',
-          minHeight: '100vh',
-          boxShadow: ['-10px -1px 16px rgba(0,0,0,0.1)', 'none'],
+          boxShadow: ['md', 'md'],
+          borderRadius: [0, 'default'],
+          minHeight: ['100vh', 'unset'],
         }}
       >
         <Box>
@@ -67,7 +77,10 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       <Box
         as="header"
         sx={{
-          width: [null, theme.sizes.sidebar],
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: [theme.sizes.sidebarSkinny, theme.sizes.sidebar],
           position: 'fixed',
           top: 0,
           right: [0, 'none'],
@@ -75,7 +88,8 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           bottom: 0,
           overflowX: 'hidden',
           overflowY: 'auto',
-          bg: '#f1f1f1',
+          bg: 'background',
+          py: '4',
         }}
       >
         <TagNav
@@ -85,6 +99,22 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           basePath={basePath}
           hasUntagged={hasUntagged}
         />
+
+        {showThemeInfo && (
+          <Box
+            sx={{
+              mt: 4,
+              px: 3,
+              fontSize: 0,
+            }}
+          >
+            Want to make your own site like this? Try{' '}
+            <Link href="https://github.com/mrmLinkrtineau/gatsby-theme-code-notes">
+              gatsby-theme-code-notes
+            </Link>{' '}
+            by <Link href="https://zander.wtf">Zander Martineau</Link>.
+          </Box>
+        )}
       </Box>
     </Fragment>
   )

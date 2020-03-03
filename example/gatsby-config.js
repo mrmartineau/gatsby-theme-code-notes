@@ -13,6 +13,7 @@ module.exports = {
         basePath: '/',
         gitRepoContentPath:
           'https://github.com/mrmartineau/gatsby-theme-code-notes/tree/master/example/code-notes/',
+        showThemeInfo: true,
       },
     },
   ],

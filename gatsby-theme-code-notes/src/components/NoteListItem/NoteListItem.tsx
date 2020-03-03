@@ -2,7 +2,7 @@
 import { FunctionComponent } from 'react'
 import { TagList } from '../TagList'
 import { Link as GatsbyLink } from 'gatsby'
-import { jsx, Styled, Flex, Box, Link } from 'theme-ui'
+import { jsx, Heading, Flex, Box, Link } from 'theme-ui'
 import { DateModified } from '../DateModified'
 
 interface NoteListItemProps {
@@ -23,11 +23,11 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   return (
     <Box as="article" sx={{ p: 2 }}>
       <Flex sx={{ justifyContent: 'space-between' }}>
-        <Styled.h4 sx={{ m: 0 }}>
+        <Heading as="h3" variant="noteListItem">
           <Link as={GatsbyLink} to={`/${name}`} variant="bold">
             {emoji} {title}
           </Link>
-        </Styled.h4>
+        </Heading>
         <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>
           {tags && <TagList tags={tags} />}
           {dateModified && (
