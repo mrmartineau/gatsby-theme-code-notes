@@ -21,22 +21,22 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   emoji,
 }) => {
   return (
-    <Box as="article" sx={{ p: 2 }}>
-      <Flex sx={{ justifyContent: 'space-between' }}>
-        <Heading as="h3" variant="noteListItem">
-          <Link as={GatsbyLink} to={`/${name}`} variant="bold">
+    <Box as="article">
+      <Link as={GatsbyLink} to={`/${name}`} variant="noteListItem">
+        <Flex sx={{ justifyContent: 'space-between' }}>
+          <Heading as="h3" variant="noteListItem">
             {emoji} {title}
-          </Link>
-        </Heading>
-        <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>
-          {tags && <TagList tags={tags} />}
-          {dateModified && (
-            <Box ml={2}>
-              <DateModified>{dateModified}</DateModified>
-            </Box>
-          )}
+          </Heading>
+          <Flex sx={{ alignItems: 'center', flexShrink: 0 }}>
+            {tags && <TagList tags={tags} asLinks={false} />}
+            {dateModified && (
+              <Box ml={2}>
+                <DateModified>{dateModified}</DateModified>
+              </Box>
+            )}
+          </Flex>
         </Flex>
-      </Flex>
+      </Link>
     </Box>
   )
 }

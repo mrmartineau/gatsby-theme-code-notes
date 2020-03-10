@@ -6,9 +6,13 @@ import slugify from '@alexcarpenter/slugify'
 
 interface TagNavProps {
   tags: string[]
+  asLinks?: boolean
 }
 
-export const TagList: FunctionComponent<TagNavProps> = ({ tags }) => {
+export const TagList: FunctionComponent<TagNavProps> = ({
+  tags,
+  asLinks = true,
+}) => {
   if (!tags) {
     return null
   }
@@ -25,15 +29,27 @@ export const TagList: FunctionComponent<TagNavProps> = ({ tags }) => {
           return null
         }
 
+        if (asLinks) {
+          return (
+            <Link
+              as={GatsbyLink}
+              to={`/tag/${slugify(item)}`}
+              key={index}
+              sx={{
+                display: 'inline-flex',
+                mr: 1,
+              }}
+              variant="badge"
+            >
+              {item}
+            </Link>
+          )
+        }
+
         return (
-          <Link
-            as={GatsbyLink}
-            to={`/tag/${slugify(item)}`}
-            key={index}
-            sx={{ display: 'inline-flex' }}
-          >
-            <Badge sx={{ mr: 1 }}>{item}</Badge>
-          </Link>
+          <Badge sx={{ mr: 1 }} variant="primary">
+            {item}
+          </Badge>
         )
       })}
     </Box>

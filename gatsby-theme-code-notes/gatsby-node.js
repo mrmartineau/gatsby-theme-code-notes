@@ -129,6 +129,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
       component: path.join(__dirname, './src/templates', 'UntaggedTagPage.js'),
       context: {
         tag: 'untagged',
+        hasUntagged,
       },
     })
   }

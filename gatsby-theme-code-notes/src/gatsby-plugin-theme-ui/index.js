@@ -41,6 +41,7 @@ const fonts = {
 }
 
 const fontSizes = [
+  '0.7rem',
   '0.875rem',
   '1rem',
   '1.25rem',
@@ -141,38 +142,40 @@ const styles = {
     fontWeight: 'body',
   },
   a: {
-    color: 'primary',
-    textDecoration: 'none',
-    ':hover': {
+    '&:link, &:visited': {
+      color: 'primary',
+      textDecoration: 'none',
+    },
+    '&:hover': {
       textDecoration: 'underline',
     },
   },
   h1: {
     ...heading,
-    fontSize: 6,
+    fontSize: 7,
     mt: 2,
   },
   h2: {
     ...heading,
-    fontSize: 5,
+    fontSize: 6,
     mt: 2,
   },
   h3: {
     ...heading,
-    fontSize: 4,
+    fontSize: 5,
     mt: 3,
   },
   h4: {
     ...heading,
-    fontSize: 3,
+    fontSize: 4,
   },
   h5: {
     ...heading,
-    fontSize: 2,
+    fontSize: 3,
   },
   h6: {
     ...heading,
-    fontSize: 1,
+    fontSize: 2,
     mb: 2,
   },
   code: {
@@ -218,6 +221,17 @@ const styles = {
   },
 }
 
+const badgePrimary = {
+  borderRadius: '50px',
+  color: 'text',
+  bg: 'hsl(210, 25%, 97%)',
+  border: '1px solid hsl(207, 24%, 83%)',
+  textDecoration: 'none',
+  px: 2,
+  fontWeight: 'bold',
+  fontSize: 0,
+}
+
 export default {
   colors,
   shadows,
@@ -241,18 +255,25 @@ export default {
     noteListItem: {
       fontSize: 2,
       m: 0,
+      fontFamily: 'mono',
+      fontWeight: 'normal',
+      color: 'dark',
     },
   },
 
   links: {
-    bold: {
+    noteListItem: {
+      p: 2,
+      borderRadius: 2,
+      display: 'block',
+      transition: 'all 200ms ease-in-out ',
+      color: 'dark',
       '&:link, &:visited': {
-        fontWeight: 'bold',
         color: 'primary',
         textDecoration: 'none',
       },
       '&:hover': {
-        textDecoration: 'underline',
+        bg: 'muted',
       },
     },
 
@@ -263,10 +284,20 @@ export default {
       display: 'block',
       fontWeight: 'normal',
       fontFamily: 'mono',
-      fontSize: 0,
+      fontSize: 1,
+      transition: 'all 200ms ease-in-out ',
       '&:hover': {
         bg: 'navHover',
         color: 'dark',
+      },
+    },
+
+    badge: {
+      ...badgePrimary,
+      transition: 'all 200ms ease-in-out ',
+      '&:hover': {
+        textDecoration: 'none',
+        bg: 'hsl(210, 25%, 89%)',
       },
     },
   },
@@ -281,5 +312,9 @@ export default {
     low: 10,
     mid: 20,
     high: 30,
+  },
+
+  badges: {
+    primary: badgePrimary,
   },
 }
