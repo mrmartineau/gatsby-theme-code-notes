@@ -1,10 +1,9 @@
-// const remarkHeadings = require('remark-autolink-headings')
-// var remarkGithub = require('remark-github')
+const remarkSlug = require('remark-slug')
+const remarkEmoji = require('remark-emoji')
 
 module.exports = options => {
   const {
     mdxOtherwiseConfigured = true,
-    mdxLayouts = {},
     gitRepoContentPath = '',
     showThemeInfo = true,
   } = options
@@ -24,10 +23,7 @@ module.exports = options => {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.md`, `.mdx`],
-          defaultLayouts: {
-            ...mdxLayouts,
-          },
-          // remarkPlugins: [remarkHeadings, remarkGithub],
+          remarkPlugins: [remarkSlug, remarkEmoji],
         },
       },
       {
