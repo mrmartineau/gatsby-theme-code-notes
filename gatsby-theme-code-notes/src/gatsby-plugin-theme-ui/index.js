@@ -30,7 +30,7 @@ const baseFonts = {
     '-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"',
   serif: 'Georgia, Cambria, "Times New Roman", Times, serif',
   mono:
-    '"JetBrains Mono", "Input Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    '"JetBrains Mono", "Fira Code", "Input Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 }
 
 const fonts = {
@@ -179,10 +179,10 @@ const styles = {
     mb: 2,
   },
   code: {
-    p: 2,
-    fontSize: 1,
+    p: 3,
+    fontSize: 2,
     color: 'text',
-    backgroundColor: 'light',
+    backgroundColor: 'background',
     '.comment,.prolog,.doctype,.cdata': {
       color: '#999988',
       fontStyle: 'italic',
@@ -212,7 +212,7 @@ const styles = {
       color: '#00009f',
     },
   },
-  pre: { p: 3, color: 'text', backgroundColor: 'light' },
+  pre: { p: 3, color: 'text', bg: 'background', borderRadius: 'default' },
   hr: {
     bg: 'muted',
     border: 0,
