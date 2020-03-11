@@ -41,6 +41,9 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   pageContext,
   location,
 }) => {
+  if (!data) {
+    return null
+  }
   const {
     frontmatter: { title, tags },
     fields: { dateModified },

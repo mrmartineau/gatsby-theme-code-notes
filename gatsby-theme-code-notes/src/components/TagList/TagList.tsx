@@ -22,6 +22,7 @@ export const TagList: FunctionComponent<TagNavProps> = ({
       sx={{
         display: 'flex',
         alignItems: 'center',
+        flexShrink: 0,
       }}
     >
       {tags.map((item, index) => {
@@ -47,7 +48,7 @@ export const TagList: FunctionComponent<TagNavProps> = ({
         }
 
         return (
-          <Badge sx={{ mr: 1 }} variant="primary">
+          <Badge sx={{ mr: 1 }} variant="primary" key={index}>
             {item}
           </Badge>
         )

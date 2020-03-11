@@ -295,6 +295,7 @@ export default {
     badge: {
       ...badgePrimary,
       transition: 'all 200ms ease-in-out ',
+      flexShrink: 0,
       '&:hover': {
         textDecoration: 'none',
         bg: 'hsl(210, 25%, 89%)',
