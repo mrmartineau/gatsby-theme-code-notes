@@ -6,22 +6,22 @@ tags:
 
 Say we have two repos:
 
-`fx-holiday-app` which depends on `@fairfx/fuji`
+`repo-a` which depends on npm `package-a`
 
 ## Step 1
 
-Run `yalc publish` in the `@fairfx/fuji`
+Run `yalc publish` in the `package-a` repo
 
 ## Step 2
 
-Run `yalc add @fairfx/fuji` in the `fx-holiday-app`
+Run `yalc add package-a` in the `repo-a` repo
 
 ## Step 3
 
-Run `yarn` in `fx-holiday-app`
+Run `yarn` in `repo-a`
 
 ## Step 4
 
-Run `yalc push` whenever you update `@fairfx/fuji`
+Whenever you update `package-a`, run `yalc push` in the `package-a`, and run `yalc add package-a` in the `repo-a` repo
 
 You may need to run `yarn build && yarn push` if you package needs building first.

@@ -1,12 +1,39 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import Prism from '@theme-ui/prism'
 
 const heading = Tag => props => {
   if (!props.id) return <Tag {...props} />
 
   return (
-    <Tag {...props}>
-      <a href={`#${props.id}`}>{props.children}</a>
+    <Tag
+      {...props}
+      sx={{
+        position: 'relative',
+        '&:hover .slug': {
+          display: 'block',
+        },
+      }}
+    >
+      <a
+        className="slug"
+        href={`#${props.id}`}
+        sx={{
+          position: 'absolute',
+          right: '100%',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          fontSize: [2, 3],
+          textDecoration: 'none',
+          py: 2,
+          pr: 1,
+          pl: 2,
+          display: 'none',
+        }}
+      >
+        🔗
+      </a>
+      {props.children}
     </Tag>
   )
 }

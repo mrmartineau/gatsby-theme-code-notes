@@ -150,6 +150,13 @@ const styles = {
       textDecoration: 'underline',
     },
   },
+  p: {
+    fontFamily: 'body',
+    lineHeight: 'body',
+    fontWeight: 'body',
+    color: 'text',
+    mb: '1.25rem',
+  },
   h1: {
     ...heading,
     fontSize: 7,
@@ -178,11 +185,20 @@ const styles = {
     fontSize: 2,
     mb: 2,
   },
+  inlineCode: {
+    backgroundColor: 'background',
+    p: 1,
+    fontSize: '1.2em',
+    borderRadius: 'default',
+    fontWeight: 'inherit',
+  },
   code: {
     p: 3,
     fontSize: 2,
     color: 'text',
-    backgroundColor: 'background',
+    bg: 'background',
+    overflowX: 'auto',
+    borderRadius: 'default',
     '.comment,.prolog,.doctype,.cdata': {
       color: '#999988',
       fontStyle: 'italic',
@@ -212,7 +228,13 @@ const styles = {
       color: '#00009f',
     },
   },
-  pre: { p: 3, color: 'text', bg: 'background', borderRadius: 'default' },
+  pre: {
+    p: 3,
+    color: 'text',
+    bg: 'background',
+    borderRadius: 'default',
+    overflowX: 'auto',
+  },
   hr: {
     bg: 'muted',
     border: 0,
