@@ -109,7 +109,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
             }}
           >
             Want to make your own site like this? Try{' '}
-            <Link href="https://github.com/mrmLinkrtineau/gatsby-theme-code-notes">
+            <Link href="https://github.com/mrmartineau/gatsby-theme-code-notes">
               gatsby-theme-code-notes
             </Link>{' '}
             by <Link href="https://zander.wtf">Zander Martineau</Link>.

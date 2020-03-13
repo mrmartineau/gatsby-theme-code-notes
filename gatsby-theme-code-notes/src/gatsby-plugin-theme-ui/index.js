@@ -270,16 +270,18 @@ export default {
   text: {
     noteTitle: {
       fontWeight: 'bold',
-      fontSize: 6,
-      mb: 2,
+      fontSize: 7,
+      mb: 3,
     },
 
     noteListItem: {
+      position: 'relative',
       fontSize: 2,
       m: 0,
       fontFamily: 'mono',
       fontWeight: 'normal',
       color: 'dark',
+      pl: 4,
     },
   },
 

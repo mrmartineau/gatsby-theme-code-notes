@@ -31,7 +31,7 @@ const heading = Tag => props => {
           display: 'none',
         }}
       >
-        🔗
+        <span role="img">🔗</span>
       </a>
       {props.children}
     </Tag>

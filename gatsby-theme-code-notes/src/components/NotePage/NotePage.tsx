@@ -13,6 +13,7 @@ interface NotePageProps {
       frontmatter: {
         tags: string[]
         title: string
+        emoji: string
       }
       body: any
       fields: {
@@ -45,7 +46,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
     return null
   }
   const {
-    frontmatter: { title, tags },
+    frontmatter: { title, tags, emoji },
     fields: { dateModified },
     body,
     parent: { fileName },
@@ -65,6 +66,16 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
       </Helmet>
 
       <Box sx={{ p: 2, maxWidth: theme.sizes.contentMaxWidth, mx: 'auto' }}>
+        {emoji && (
+          <Box
+            sx={{
+              fontSize: 7,
+            }}
+          >
+            <span role="img">{emoji}</span>
+          </Box>
+        )}
+
         <Heading as="h1" variant="noteTitle">
           {title}
         </Heading>
@@ -81,9 +92,13 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
 
         <MDXRenderer>{body}</MDXRenderer>
 
-        {gitRepoContentPath && (
-          <Link href={`${gitRepoContentPath}${fileName}`}>Edit this page</Link>
-        )}
+        <Box mt={4}>
+          {gitRepoContentPath && (
+            <Link href={`${gitRepoContentPath}${fileName}`}>
+              Edit this page
+            </Link>
+          )}
+        </Box>
       </Box>
     </Layout>
   )
