@@ -119,6 +119,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
         tag: item.tag,
         tags: list,
         hasUntagged,
+        basePath,
       },
     })
   })
@@ -130,6 +131,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
       context: {
         tag: 'untagged',
         hasUntagged,
+        basePath,
       },
     })
   }
