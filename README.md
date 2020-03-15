@@ -42,11 +42,13 @@ module.exports = {
     {
       resolve: `gatsby-theme-code-notes`,
       options: {
-        // basePath defaults to `/`
-        contentPath: 'code-notes',
         basePath: '/',
+        contentPath: 'code-notes',
         gitRepoContentPath:
           'https://github.com/mrmartineau/gatsby-theme-code-notes/tree/master/example/code-notes/',
+        showDescriptionInSidebar: true,
+        showThemeInfo: false,
+        logo: 'https://brand.zander.wtf/Avatar.png',
       },
     },
   ],
@@ -58,13 +60,15 @@ module.exports = {
 
 ### Options
 
-| Key                      | Default value    | Description                                                                                                                                                                    |
-| ------------------------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `basePath`               | `/`              | Root url for all notes pages                                                                                                                                                   |
-| `contentPath`            | `/content/notes` | Location of notes content                                                                                                                                                      |
-| `mdxOtherwiseConfigured` | `true`           | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
-| `gitRepoContentPath`     | `true`           | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                      |
-| `showThemeInfo`          | `true`           | Show info about this Gatsby theme                                                                                                                                              |
+| Key                        | Default value     | Description                                                                                                                                                                    |
+| -------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `basePath`                 | `/`               | Root url for all notes pages                                                                                                                                                   |
+| `contentPath`              | `/content/notes`  | Location of notes content                                                                                                                                                      |
+| `logo`                     | '' (empty string) | Path to your site's logo. Will be used as the `src` attribute for an image                                                                                                     |
+| `showDescriptionInSidebar` | `true`            | Show `config.site.description` in the sidebar                                                                                                                                  |
+| `gitRepoContentPath`       | `true`            | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                      |
+| `showThemeInfo`            | `true`            | Show info about this Gatsby theme                                                                                                                                              |
+| `mdxOtherwiseConfigured`   | `true`            | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
 
 ---
 
