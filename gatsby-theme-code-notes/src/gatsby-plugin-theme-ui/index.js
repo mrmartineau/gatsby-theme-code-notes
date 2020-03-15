@@ -272,6 +272,7 @@ export default {
       fontWeight: 'bold',
       fontSize: 7,
       mb: 3,
+      lineHeight: 'none',
     },
 
     noteListItem: {
@@ -287,6 +288,7 @@ export default {
 
   links: {
     noteListItem: {
+      mx: theme => `-${theme.space[2]}`,
       p: 2,
       borderRadius: 2,
       display: 'block',
@@ -341,5 +343,12 @@ export default {
 
   badges: {
     primary: badgePrimary,
+  },
+
+  images: {
+    logo: {
+      maxWidth: '100%',
+      display: 'block',
+    },
   },
 }

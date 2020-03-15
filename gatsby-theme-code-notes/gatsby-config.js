@@ -6,15 +6,19 @@ module.exports = options => {
     mdxOtherwiseConfigured = true,
     gitRepoContentPath = '',
     showThemeInfo = true,
+    showDescriptionInSidebar = true,
+    logo = '',
   } = options
 
   return {
     siteMetadata: {
-      title: `Code Notes Title Placeholder`,
+      title: `Code Notes`,
       description: `A Gatsby theme for your code-related notes`,
       siteUrl: `http://zander.wtf/`,
       gitRepoContentPath,
       showThemeInfo,
+      showDescriptionInSidebar,
+      logo,
     },
     plugins: [
       'gatsby-plugin-typescript',

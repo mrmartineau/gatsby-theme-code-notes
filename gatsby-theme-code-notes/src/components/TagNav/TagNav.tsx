@@ -29,7 +29,6 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
       as="nav"
       sx={{
         listStyleType: 'none',
-        py: 3,
       }}
     >
       <NavLink

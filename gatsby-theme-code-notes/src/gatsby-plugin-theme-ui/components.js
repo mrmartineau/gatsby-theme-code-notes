@@ -31,7 +31,9 @@ const heading = Tag => props => {
           display: 'none',
         }}
       >
-        <span role="img">🔗</span>
+        <span role="img" aria-label="link emoji">
+          🔗
+        </span>
       </a>
       {props.children}
     </Tag>

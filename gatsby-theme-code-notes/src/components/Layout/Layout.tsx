@@ -1,6 +1,6 @@
 import React, { Fragment, FunctionComponent, useState } from 'react'
 import { Global } from '@emotion/core'
-import { css, Box, useThemeUI, MenuButton, Link } from 'theme-ui'
+import { css, Box, useThemeUI, MenuButton, Link, Text, Image } from 'theme-ui'
 import { TagNav } from '../TagNav'
 import { useAllTags } from '../../use-all-tags'
 import { useSiteMetadata } from '../../use-site-metadata'
@@ -21,7 +21,12 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 }) => {
   const { theme } = useThemeUI()
   const tags = useAllTags()
-  const { showThemeInfo } = useSiteMetadata()
+  const {
+    showThemeInfo,
+    showDescriptionInSidebar,
+    description,
+    logo,
+  } = useSiteMetadata()
   const [navOpen, setNavOpen] = useState(false)
 
   return (
@@ -34,6 +39,24 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           body: {
             margin: 0,
             fontFamily: `body`,
+          },
+
+          ':root': {
+            fontSize: '14px',
+          },
+
+          /* 16px @ 480px increasing to 32px @ 1920px */
+          '@media (min-width: 480px)': {
+            ':root': {
+              fontSize: 'calc(0.875rem + ((1vw - 4.8px) * 0.4167))',
+              /* Where: * 0.4167 = 100 * font_Size_Difference / viewport_Width_Difference */
+            },
+          },
+          /* Prevent font scaling beyond this breakpoint */
+          '@media (min-width: 1920px)': {
+            ':root': {
+              fontSize: '20px',
+            },
           },
         })}
       />
@@ -83,7 +106,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           width: [theme.sizes.sidebarSkinny, theme.sizes.sidebar],
           position: 'fixed',
           top: 0,
-          right: [0, 'none'],
+          right: [0, 'auto'],
           left: 0,
           bottom: 0,
           overflowX: 'hidden',
@@ -92,13 +115,31 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           py: '4',
         }}
       >
-        <TagNav
-          tags={tags}
-          activeTag={activeTag}
-          rootPath={path === basePath}
-          basePath={basePath}
-          hasUntagged={hasUntagged}
-        />
+        <Box>
+          {!!logo && (
+            <Box px={3} pb={3}>
+              <Image src={logo} variant="logo" />
+            </Box>
+          )}
+
+          {showDescriptionInSidebar && description && (
+            <Box px={3} pb={3}>
+              <Text
+                sx={{ color: 'text', lineHeight: 'snug', fontWeight: 'bold' }}
+              >
+                {description}
+              </Text>
+            </Box>
+          )}
+
+          <TagNav
+            tags={tags}
+            activeTag={activeTag}
+            rootPath={path === basePath}
+            basePath={basePath}
+            hasUntagged={hasUntagged}
+          />
+        </Box>
 
         {showThemeInfo && (
           <Box

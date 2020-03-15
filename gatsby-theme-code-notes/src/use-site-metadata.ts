@@ -9,6 +9,8 @@ export const useSiteMetadata = () => {
           description
           gitRepoContentPath
           showThemeInfo
+          showDescriptionInSidebar
+          logo
         }
       }
     }
