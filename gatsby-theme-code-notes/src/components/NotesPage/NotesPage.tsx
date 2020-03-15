@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Heading, Box, useThemeUI } from 'theme-ui'
-import { Helmet } from 'react-helmet'
 import { NoteList } from '../NoteList'
 import { Layout } from '../Layout'
 import { useSiteMetadata } from '../../use-site-metadata'
@@ -16,11 +15,8 @@ export const NotesPage = ({ data, pageContext, location }) => {
       path={location.pathname}
       basePath={pageContext.basePath}
       hasUntagged={pageContext.hasUntagged}
+      title={pageContext.tag ? `Tag: ${pageContext.tag}` : siteTitle}
     >
-      <Helmet>
-        <title>{pageContext.tag ? pageContext.tag : siteTitle}</title>
-      </Helmet>
-
       <Box sx={{ p: 2, maxWidth: theme.sizes.contentMaxWidth, mx: 'auto' }}>
         {pageContext.tag && (
           <Heading as="h1" variant="noteTitle">

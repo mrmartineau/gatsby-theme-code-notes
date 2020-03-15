@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent, useState } from 'react'
 import { Global } from '@emotion/core'
 import { css, Box, useThemeUI, MenuButton, Link, Text, Image } from 'theme-ui'
+import { Helmet } from 'react-helmet'
 import { TagNav } from '../TagNav'
 import { useAllTags } from '../../use-all-tags'
 import { useSiteMetadata } from '../../use-site-metadata'
@@ -9,6 +10,7 @@ interface LayoutProps {
   activeTag?: string
   path?: string
   basePath?: string
+  title?: string
   hasUntagged?: boolean
 }
 
@@ -17,6 +19,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   path,
   basePath,
   hasUntagged,
+  title,
   children,
 }) => {
   const { theme } = useThemeUI()
@@ -31,7 +34,18 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 
   return (
     <Fragment>
+      <Helmet
+        key="app-metadata"
+        titleTemplate={`%s · ${description}`}
+        defaultTitle={description}
+      >
+        <html lang="en" />
+        <meta charSet="utf-8" />
+        <title>{title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Helmet>
       <Global
+        key="global-styles"
         styles={css({
           '*': {
             boxSizing: `border-box`,
@@ -44,7 +58,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           ':root': {
             fontSize: '14px',
           },
-
           /* 16px @ 480px increasing to 32px @ 1920px */
           '@media (min-width: 480px)': {
             ':root': {

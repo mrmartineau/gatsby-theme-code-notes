@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Heading, Box, Flex, Link, useThemeUI } from 'theme-ui'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Helmet } from 'react-helmet'
 import { TagList } from '../TagList'
 import { Layout } from '../Layout'
 import { DateModified } from '../DateModified'
@@ -60,11 +59,8 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
       hasUntagged={pageContext.hasUntagged}
       basePath={pageContext.basePath}
       path={location.pathname}
+      title={title}
     >
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
-
       <Box
         as="article"
         sx={{ p: 2, maxWidth: theme.sizes.contentMaxWidth, mx: 'auto' }}
