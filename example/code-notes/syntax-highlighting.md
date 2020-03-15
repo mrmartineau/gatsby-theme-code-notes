@@ -11,6 +11,8 @@ tags:
 emoji: 🌭
 ---
 
+Here is some `inline code`..
+
 ## CSS
 
 ```css
@@ -70,8 +72,6 @@ type NewType = WithOptional<OldInterface, 'date' | 'title'>
 
 ```jsx
 import React from 'react'
-import { connect } from 'react-redux'
-import { doClearQuery } from './some/file/of/action/creators'
 
 // We again use a simple, functional component.
 const OurComponent = ({ query, results, clearQuery }) => (

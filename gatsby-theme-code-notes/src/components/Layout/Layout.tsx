@@ -72,7 +72,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           overflowX: 'hidden',
           overflowY: 'auto',
           zIndex: 'low',
-          p: 3,
+          p: 4,
           bg: 'light',
           transform: [
             navOpen && `translateX(${theme.sizes.sidebarSkinny})`,

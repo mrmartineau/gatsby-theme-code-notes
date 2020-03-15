@@ -65,30 +65,35 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
         <title>{title}</title>
       </Helmet>
 
-      <Box sx={{ p: 2, maxWidth: theme.sizes.contentMaxWidth, mx: 'auto' }}>
-        {emoji && (
-          <Box
-            sx={{
-              fontSize: 7,
-            }}
-          >
-            <span role="img">{emoji}</span>
-          </Box>
-        )}
+      <Box
+        as="article"
+        sx={{ p: 2, maxWidth: theme.sizes.contentMaxWidth, mx: 'auto' }}
+      >
+        <Box as="header" mb={4}>
+          {emoji && (
+            <Box
+              sx={{
+                fontSize: 7,
+              }}
+            >
+              <span role="img">{emoji}</span>
+            </Box>
+          )}
 
-        <Heading as="h1" variant="noteTitle">
-          {title}
-        </Heading>
+          <Heading as="h1" variant="noteTitle">
+            {title}
+          </Heading>
 
-        {dateModified && (
-          <Box mb={3}>
-            <DateModified>{dateModified}</DateModified>
-          </Box>
-        )}
+          {dateModified && (
+            <Box mb={3}>
+              <DateModified>{dateModified}</DateModified>
+            </Box>
+          )}
 
-        <Flex>
-          <TagList tags={tags} />
-        </Flex>
+          <Flex>
+            <TagList tags={tags} />
+          </Flex>
+        </Box>
 
         <MDXRenderer>{body}</MDXRenderer>
 

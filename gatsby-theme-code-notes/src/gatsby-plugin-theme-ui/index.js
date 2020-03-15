@@ -131,8 +131,8 @@ const heading = {
   fontFamily: 'heading',
   fontWeight: 'heading',
   lineHeight: 'heading',
-  m: 0,
-  mb: 1,
+  mt: 4,
+  mb: 3,
 }
 
 const styles = {
@@ -160,17 +160,14 @@ const styles = {
   h1: {
     ...heading,
     fontSize: 7,
-    mt: 2,
   },
   h2: {
     ...heading,
     fontSize: 6,
-    mt: 2,
   },
   h3: {
     ...heading,
     fontSize: 5,
-    mt: 3,
   },
   h4: {
     ...heading,
@@ -179,6 +176,7 @@ const styles = {
   h5: {
     ...heading,
     fontSize: 3,
+    mb: 2,
   },
   h6: {
     ...heading,
@@ -187,14 +185,14 @@ const styles = {
   },
   inlineCode: {
     backgroundColor: 'background',
-    p: 1,
-    fontSize: '1.2em',
+    p: '0.1em 0.2em',
+    fontSize: '1em',
     borderRadius: 'default',
     fontWeight: 'inherit',
   },
   code: {
     p: 3,
-    fontSize: 2,
+    fontSize: 1,
     color: 'text',
     bg: 'background',
     overflowX: 'auto',
