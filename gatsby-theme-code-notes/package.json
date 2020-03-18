@@ -12,6 +12,13 @@
     "dev": "gatsby develop"
   },
   "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-theme",
+    "markdown",
+    "mdx"
+  ],
   "peerDependencies": {
     "gatsby": "^2.19.12",
     "react": "^16.12.0",
