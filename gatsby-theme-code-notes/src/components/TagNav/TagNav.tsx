@@ -39,7 +39,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
         to={basePath}
         as={GatsbyLink}
       >
-        All tags
+        All notes
       </NavLink>
 
       {tags.map((item, index) => (
