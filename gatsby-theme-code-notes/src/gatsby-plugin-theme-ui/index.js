@@ -1,8 +1,15 @@
-const colors = {
+const baseColors = {
   grayDark: '#2d3748',
+  white: '#fff',
+  light: '#f7fafc',
+  dark: '#2d3748',
+}
+
+const colors = {
+  ...baseColors,
   text: '#2d3748',
   background: '#edf2f7',
-  white: '#fff',
+  contentBg: baseColors.light,
   primary: '#2b6cb0',
   primaryHover: '#2c5282',
   secondary: '#718096',
@@ -11,10 +18,34 @@ const colors = {
   info: '#63b3ed',
   warning: '#faf089',
   danger: '#feb2b2',
-  light: '#f7fafc',
-  dark: '#2d3748',
   textMuted: '#718096',
   navHover: '#cbd5e0',
+  codeBackground: '#fbf2e9',
+  badgeBg: 'hsl(210, 25%, 97%)',
+  badgeBgHover: 'hsl(210, 25%, 89%)',
+  badgeBorder: 'hsl(207, 24%, 83%)',
+
+  modes: {
+    dark: {
+      text: '#edf2f7',
+      background: '#2d2a2e',
+      contentBg: '#383539',
+      primary: '#2b6cb0',
+      primaryHover: '#2c5282',
+      secondary: '#718096',
+      muted: '#e2e8f0',
+      success: '#9ae6b4',
+      info: '#63b3ed',
+      warning: '#faf089',
+      danger: '#feb2b2',
+      textMuted: '#718096',
+      navHover: '#cbd5e0',
+      codeBackground: '#2d2a2e',
+      badgeBg: 'hsl(285, 5%, 17%)',
+      badgeBgHover: 'hsl(285, 5%, 20%)',
+      badgeBorder: 'hsl(285, 5%, 12%)',
+    },
+  },
 }
 
 const borderWidths = {
@@ -244,8 +275,10 @@ const styles = {
 const badgePrimary = {
   borderRadius: '50px',
   color: 'text',
-  bg: 'hsl(210, 25%, 97%)',
-  border: '1px solid hsl(207, 24%, 83%)',
+  bg: 'badgeBg',
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  borderColor: 'badgeBorder',
   textDecoration: 'none',
   px: 2,
   fontWeight: 'bold',
@@ -279,7 +312,7 @@ export default {
       m: 0,
       fontFamily: 'body',
       fontWeight: 'bold',
-      color: 'dark',
+      color: 'text',
       pl: 4,
     },
   },
@@ -291,7 +324,7 @@ export default {
       borderRadius: 2,
       display: 'block',
       transition: 'all 200ms ease-in-out ',
-      color: 'dark',
+      color: 'text',
       '&:link, &:visited': {
         color: 'primary',
         textDecoration: 'none',
@@ -312,7 +345,7 @@ export default {
       transition: 'all 200ms ease-in-out ',
       '&:hover': {
         bg: 'navHover',
-        color: 'dark',
+        color: 'text',
       },
     },
 
@@ -322,7 +355,7 @@ export default {
       flexShrink: 0,
       '&:hover': {
         textDecoration: 'none',
-        bg: 'hsl(210, 25%, 89%)',
+        bg: 'badgeBgHover',
       },
     },
   },
