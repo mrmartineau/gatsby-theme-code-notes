@@ -25,8 +25,23 @@ const colors = {
   badgeBgHover: 'hsl(210, 25%, 89%)',
   badgeBorder: 'hsl(207, 24%, 83%)',
 
+  code1: 'hsl(211, 61%, 23%)',
+  code2: '#fc9867',
+  code3: '#e3116c',
+  code4: '#d73a49',
+  code5: 'hsl(211, 61%, 43%)',
+  code6: '#6f42c1',
+  code7: '#999988',
+
   modes: {
     dark: {
+      code1: '#ff6188',
+      code2: '#fc9867',
+      code3: '#ffd866',
+      code4: '#a9dc76',
+      code5: '#78dce8',
+      code6: '#ab9df2',
+      code7: '#999988',
       text: '#edf2f7',
       background: '#2d2a2e',
       contentBg: '#383539',
@@ -39,7 +54,7 @@ const colors = {
       warning: '#faf089',
       danger: '#feb2b2',
       textMuted: '#718096',
-      navHover: '#cbd5e0',
+      navHover: 'hsl(285, 5%, 13%)',
       codeBackground: '#2d2a2e',
       badgeBg: 'hsl(285, 5%, 17%)',
       badgeBgHover: 'hsl(285, 5%, 20%)',
@@ -229,32 +244,38 @@ const styles = {
     overflowX: 'auto',
     borderRadius: 'default',
     '.comment,.prolog,.doctype,.cdata': {
-      color: '#999988',
+      color: 'code7',
       fontStyle: 'italic',
     },
     '.namespace': {
       opacity: 0.7,
     },
-    '.string,.attr-value': {
-      color: '#e3116c',
+    '.string,.attr-value,.punctuation,.tag.script-punctuation,.tag.attr-value.punctuation': {
+      color: 'code3',
     },
-    '.punctuation,.operator': {
-      color: '#393A34',
+    '.entity,.url,.symbol,.number,.boolean,.constant,.property,.regex,.inserted,.attr-value,.tag.attr-value': {
+      color: 'text',
     },
-    '.entity,.url,.symbol,.number,.boolean,.variable,.constant,.property,.regex,.inserted': {
-      color: '#36acaa',
-    },
-    '.atrule,.keyword,.attr-name,.selector': {
-      color: '#00a4db',
-    },
-    '.function,.deleted,.tag': {
-      color: '#d73a49',
+    '.function,.tag.function,.deleted,.variable,.unit': {
+      color: 'code3',
     },
     '.function-variable': {
-      color: '#6f42c1',
+      color: 'code6',
     },
-    '.tag,.selector,.keyword': {
-      color: '#00009f',
+    '.tag,.keyword,.selector,.attr-name,.tag.attr-name': {
+      color: 'code5',
+    },
+    '.symbol,.tag.punctuation': {
+      color: 'code7',
+    },
+    '.property,.number': {
+      color: 'code6',
+    },
+    '.rule,.class-name,.keyword.module,.operator,.tag': {
+      color: 'code1',
+    },
+    '.function,.tag.function': {
+      color: 'code4',
     },
   },
   pre: {
@@ -330,7 +351,7 @@ export default {
         textDecoration: 'none',
       },
       '&:hover': {
-        bg: 'muted',
+        bg: 'navHover',
       },
     },
 
@@ -343,7 +364,7 @@ export default {
       fontFamily: 'mono',
       fontSize: 1,
       transition: 'all 200ms ease-in-out ',
-      '&:hover': {
+      '&:hover,&:focus': {
         bg: 'navHover',
         color: 'text',
       },

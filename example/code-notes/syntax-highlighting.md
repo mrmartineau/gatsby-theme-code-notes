@@ -43,6 +43,8 @@ Here is some `inline code`..
 ```js
 import { graphql, useStaticQuery } from 'gatsby'
 
+const testVar = '22'
+
 export const useAllTags = () => {
   const data = useStaticQuery(graphql`
     {
@@ -57,6 +59,12 @@ export const useAllTags = () => {
 
   return data
 }
+
+const three = [1, 2, 3]
+const doubled = three.map(item => {
+  return item * 2
+})
+console.log(three === doubled, doubled) // false, [2, 4, 6]
 ```
 
 ## TypeScript
@@ -94,10 +102,63 @@ const OurComponent = ({ query, results, clearQuery }) => (
 
 ```html
 <img src="../path/to/image.jpg" loading="lazy" />
+
+<picture>
+  <source
+    type="image/webp"
+    srcset="/images/free-cash.webp, /images/free-cash@2x.webp 2x"
+  />
+  <source
+    type="image/png"
+    srcset="/images/free-cash.png, /images/free-cash@2x.png 2x"
+  />
+  <img src="/images/free-cash.png" alt="Free Cash!" />
+</picture>
 ```
 
 ## Shell
 
 ```sh
 git branch --merged | egrep -v "(^\*|master|develop)"
+```
+
+| Tables        |      Are      |   Cool |
+| :------------ | :-----------: | -----: |
+| col 3 is      | right-aligned | \$1600 |
+| col 2 is      |   centered    |   \$12 |
+| zebra stripes |   are neat    |    \$1 |
+
+## YAML
+
+```yml
+version: 2
+
+references:
+  npm_auth: &npm_auth
+    run:
+      name: Authenticate with registry
+      command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:13.1.0-stretch
+    steps:
+      - checkout
+      - *npm_auth
+      - run:
+          name: install
+          command: yarn install
+      - run:
+          name: build
+          command: yarn build
+      - run:
+          name: test
+          command: yarn test
+
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - build
 ```
