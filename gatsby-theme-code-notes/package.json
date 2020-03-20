@@ -30,9 +30,6 @@
     "@mdx-js/react": "^1.5.7",
     "@theme-ui/presets": "^0.3.0",
     "@theme-ui/prism": "^0.3.0",
-    "@types/node": "^13.9.1",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
     "gatsby-core-utils": "^1.0.33",
     "gatsby-plugin-mdx": "^1.0.82",
     "gatsby-plugin-meta-redirect": "^1.1.1",
@@ -42,7 +39,6 @@
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-plugin-typegen": "^2.0.0",
     "gatsby-plugin-typescript": "2.1.27",
-    "gatsby-plugin-typescript-checker": "^1.1.1",
     "gatsby-source-filesystem": "^2.1.55",
     "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
@@ -52,17 +48,20 @@
     "remark-github": "^8.0.0",
     "remark-slug": "^5.1.2",
     "theme-ui": "^0.3.1",
-    "typescript": "^3.8.3"
-  },
-  "devDependencies": {
-    "eslint-plugin-react-hooks": "^2.5.0",
-    "gatsby": "^2.19.25",
-    "lint-staged": "^10.0.8",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "typescript": "^3.8.3",
     "remark-normalize-headings": "^1.0.2",
     "remark-squeeze-paragraphs": "^3.0.4",
     "remark-toc": "^7.0.0",
     "remark-truncate-links": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.1",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "gatsby": "^2.19.25",
+    "lint-staged": "^10.0.8",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   }
 }

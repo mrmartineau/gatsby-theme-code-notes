@@ -25,7 +25,6 @@ module.exports = options => {
     },
     plugins: [
       'gatsby-plugin-typescript',
-      'gatsby-plugin-typescript-checker',
       mdxOtherwiseConfigured && {
         resolve: `gatsby-plugin-mdx`,
         options: {

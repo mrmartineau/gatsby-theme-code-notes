@@ -166,7 +166,11 @@ const space = [
   '0.25rem',
   '0.5rem',
   '1rem',
+  '1.5rem',
   '2rem',
+  '2.5rem',
+  '3rem',
+  '3.5rem',
   '4rem',
   '8rem',
   '16rem',
@@ -186,18 +190,19 @@ const styles = {
     fontFamily: 'body',
     lineHeight: 'body',
     fontWeight: 'body',
+    fontSize: 2,
   },
   a: {
     transition: 'all 200ms ease-in-out ',
     '&:link, &:visited': {
-      color: 'text',
+      color: 'primary',
       textDecoration: 'none',
       borderBottom: '2px solid',
-      borderBottomColor: 'primarySemiTransparent',
+      borderBottomColor: 'transparent',
     },
     '&:hover': {
+      color: 'text',
       borderBottomColor: 'primary',
-      color: 'primary',
     },
   },
   p: {
@@ -303,10 +308,17 @@ const styles = {
   th: {
     textAlign: 'left',
     borderBottomStyle: 'solid',
+    borderBottomColor: 'background',
+    p: 2,
+    fontWeight: 'bold',
+    fontSize: 3,
+    lineHeight: 1,
   },
   td: {
     textAlign: 'left',
     borderBottomStyle: 'solid',
+    borderBottomColor: 'background',
+    p: 2,
   },
 }
 

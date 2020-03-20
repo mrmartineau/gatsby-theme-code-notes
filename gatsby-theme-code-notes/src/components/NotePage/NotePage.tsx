@@ -95,7 +95,14 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
 
         <MDXRenderer>{body}</MDXRenderer>
 
-        <Box mt={4}>
+        <Box
+          sx={{
+            mt: 6,
+            pt: 4,
+            borderTop: '2px solid',
+            borderTopColor: 'background',
+          }}
+        >
           {gitRepoContentPath && (
             <Link href={`${gitRepoContentPath}${fileName}`}>
               Edit this page

@@ -38,7 +38,7 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
           </Heading>
           <Flex sx={{ alignItems: 'center', textAlign: 'right' }}>
             {tags && <TagList tags={tags} asLinks={false} />}
-            {dateModified && (
+            {false && (
               <Box ml={2}>
                 <DateModified>{dateModified}</DateModified>
               </Box>
