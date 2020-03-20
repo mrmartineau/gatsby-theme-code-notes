@@ -70,6 +70,8 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
             <Box
               sx={{
                 fontSize: 7,
+                lineHeight: 1,
+                mb: 3,
               }}
             >
               <span role="img">{emoji}</span>
