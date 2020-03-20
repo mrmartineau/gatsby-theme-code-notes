@@ -6,6 +6,9 @@
   <h3>
     A Gatsby theme for publishing code-related Markdown or MDX notes to your website.
   </h3>
+
+Example: [code-notes-example.netlify.com](https://code-notes-example.netlify.com/)
+
 </div>
 
 ---
@@ -15,6 +18,7 @@
 - Notes can be written using Markdown (`.md`) or [MDX](https://mdxjs.com/) (`.mdx`)
 - Each note can have zero, one or many tags. See an example [here](https://github.com/mrmartineau/gatsby-theme-code-notes/blob/master/example/code-notes/syntax-highlighting.md)
 - Extra markdown features have also been added. Find out more [here](https://github.com/mrmartineau/gatsby-theme-code-notes/blob/master/example/code-notes/markdown-features.md)
+- An example of this theme can be found [here](https://code-notes-example.netlify.com/)
 
 ---
 
