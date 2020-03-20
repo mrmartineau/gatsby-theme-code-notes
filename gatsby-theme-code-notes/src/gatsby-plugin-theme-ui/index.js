@@ -35,7 +35,7 @@ const colors = {
 
   modes: {
     dark: {
-      code1: '#ff6188',
+      code1: 'hsl(345, 100%, 69%);',
       code2: '#fc9867',
       code3: '#ffd866',
       code4: '#a9dc76',
@@ -45,8 +45,8 @@ const colors = {
       text: '#edf2f7',
       background: '#2d2a2e',
       contentBg: '#383539',
-      primary: '#2b6cb0',
-      primaryHover: '#2c5282',
+      primary: 'hsl(345, 100%, 69%)',
+      primaryHover: 'hsl(345, 100%, 79%)',
       secondary: '#718096',
       muted: '#e2e8f0',
       success: '#9ae6b4',
@@ -114,7 +114,7 @@ const baseFontWeights = {
 const fontWeights = {
   ...baseFontWeights,
   body: baseFontWeights.normal,
-  heading: baseFontWeights.bold,
+  heading: baseFontWeights.normal,
 }
 
 const letterSpacings = {
@@ -188,12 +188,15 @@ const styles = {
     fontWeight: 'body',
   },
   a: {
+    transition: 'all 200ms ease-in-out ',
     '&:link, &:visited': {
-      color: 'primary',
+      color: 'text',
       textDecoration: 'none',
+      borderBottom: '1px solid',
+      borderBottomColor: 'primary',
     },
     '&:hover': {
-      textDecoration: 'underline',
+      borderBottomColor: 'text',
     },
   },
   p: {
@@ -290,6 +293,19 @@ const styles = {
     border: 0,
     height: '1px',
     m: 3,
+  },
+  table: {
+    width: '100%',
+    borderCollapse: 'separate',
+    borderSpacing: 0,
+  },
+  th: {
+    textAlign: 'left',
+    borderBottomStyle: 'solid',
+  },
+  td: {
+    textAlign: 'left',
+    borderBottomStyle: 'solid',
   },
 }
 
