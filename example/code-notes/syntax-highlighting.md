@@ -11,6 +11,8 @@ tags:
 emoji: 🌭
 ---
 
+### Table of Contents
+
 Here is some `inline code`..
 
 ## CSS
@@ -29,6 +31,8 @@ Here is some `inline code`..
   grid-gap: 20px;
 }
 ```
+
+### Another CSS item
 
 ```css
 @font-face {
@@ -121,12 +125,6 @@ const OurComponent = ({ query, results, clearQuery }) => (
 ```sh
 git branch --merged | egrep -v "(^\*|master|develop)"
 ```
-
-| Tables        |      Are      |   Cool |
-| :------------ | :-----------: | -----: |
-| col 3 is      | right-aligned | \$1600 |
-| col 2 is      |   centered    |   \$12 |
-| zebra stripes |   are neat    |    \$1 |
 
 ## YAML
 

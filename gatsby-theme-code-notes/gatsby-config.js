@@ -1,5 +1,8 @@
 const remarkSlug = require('remark-slug')
 const remarkEmoji = require('remark-emoji')
+const squeezeParagraphs = require('remark-squeeze-paragraphs')
+const toc = require('remark-toc')
+const remarkTruncateLinks = require('remark-truncate-links').remarkTruncateLinks
 
 module.exports = options => {
   const {
@@ -27,7 +30,13 @@ module.exports = options => {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.md`, `.mdx`],
-          remarkPlugins: [remarkSlug, remarkEmoji],
+          remarkPlugins: [
+            remarkSlug,
+            remarkEmoji,
+            squeezeParagraphs,
+            [toc, { tight: true }],
+            [remarkTruncateLinks, { style: 'smart' }],
+          ],
         },
       },
       {

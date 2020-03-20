@@ -12,8 +12,9 @@
 
 ## Theme features
 
-- Notes can be written using Markdown (`.md`) or MDX (`.mdx`)
-- Each note can have zero, one or many tags
+- Notes can be written using Markdown (`.md`) or [MDX](https://mdxjs.com/) (`.mdx`)
+- Each note can have zero, one or many tags. See an example [here](https://github.com/mrmartineau/gatsby-theme-code-notes/blob/master/example/code-notes/syntax-highlighting.md)
+- Extra markdown features have also been added. Find out more [here](https://github.com/mrmartineau/gatsby-theme-code-notes/blob/master/example/code-notes/markdown-features.md)
 
 ---
 
@@ -56,7 +57,8 @@ module.exports = {
 ```
 
 3. Add notes to your site by creating `md` or `mdx` files inside `/content/notes`.
-   > Note that if you've changed the default `contentPath` in the configuration, you'll want to add your markdown files in the directory specified by that path.
+
+> Note that if you've changed the default `contentPath` in the configuration, you'll want to add your markdown files in the directory specified by that path.
 
 ### Options
 
