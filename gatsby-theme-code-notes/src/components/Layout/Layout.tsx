@@ -12,7 +12,7 @@ import {
   Image,
   useColorMode,
   IconButton,
-  Flex,
+  Container,
 } from 'theme-ui'
 import { Helmet } from 'react-helmet'
 import { TagNav } from '../TagNav'
@@ -69,13 +69,13 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           },
 
           ':root': {
-            fontSize: '14px',
+            fontSize: '16px',
           },
           /* 16px @ 480px increasing to 32px @ 1920px */
           '@media (min-width: 480px)': {
             ':root': {
-              fontSize: 'calc(0.875rem + ((1vw - 4.8px) * 0.4167))',
-              /* Where: * 0.4167 = 100 * font_Size_Difference / viewport_Width_Difference */
+              fontSize: 'calc(1rem + ((1vw - 4.8px) * 0.2778))',
+              /* Where: * 0.2778 = 100 * font_Size_Difference / viewport_Width_Difference */
             },
           },
           /* Prevent font scaling beyond this breakpoint */
@@ -98,7 +98,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           overflowX: 'hidden',
           overflowY: 'auto',
           zIndex: 'low',
-          p: 4,
+          p: 6,
           bg: 'contentBg',
           transform: [
             navOpen && `translateX(${theme.sizes.sidebarSkinny})`,
@@ -119,15 +119,31 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           }}
         />
 
-        {children}
+        <Container
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            minHeight: '100%',
+          }}
+        >
+          <div>{children}</div>
+
+          {showThemeInfo && (
+            <Box sx={{ mt: 4, fontSize: 0 }}>
+              Want to make your own site like this? Try{' '}
+              <Link href="https://github.com/mrmartineau/gatsby-theme-code-notes">
+                gatsby-theme-code-notes
+              </Link>{' '}
+              by <Link href="https://zander.wtf">Zander Martineau</Link>.
+            </Box>
+          )}
+        </Container>
       </Box>
 
       <Box
         as="header"
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
           width: [theme.sizes.sidebarSkinny, theme.sizes.sidebar],
           position: 'fixed',
           top: 0,
@@ -136,53 +152,44 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           bottom: 0,
           overflowX: 'hidden',
           overflowY: 'auto',
-          bg: 'background',
-          py: '4',
+          pt: 4,
+          pb: 9,
         }}
       >
-        <Box>
-          {!!logo && (
-            <Box px={3} pb={3}>
-              <Image src={logo} variant="logo" />
-            </Box>
-          )}
+        {!!logo && (
+          <Box px={3} pb={3}>
+            <Image src={logo} variant="logo" />
+          </Box>
+        )}
 
-          {showDescriptionInSidebar && description && (
-            <Box px={3} pb={3}>
-              <Text
-                sx={{ color: 'text', lineHeight: 'snug', fontWeight: 'bold' }}
-              >
-                {description}
-              </Text>
-            </Box>
-          )}
+        {showDescriptionInSidebar && description && (
+          <Box px={3} pb={3}>
+            <Text
+              sx={{ color: 'text', lineHeight: 'snug', fontWeight: 'bold' }}
+            >
+              {description}
+            </Text>
+          </Box>
+        )}
 
-          <TagNav
-            tags={tags}
-            activeTag={activeTag}
-            rootPath={path === basePath}
-            basePath={basePath}
-            hasUntagged={hasUntagged}
-          />
-        </Box>
+        <TagNav
+          tags={tags}
+          activeTag={activeTag}
+          rootPath={path === basePath}
+          basePath={basePath}
+          hasUntagged={hasUntagged}
+        />
 
         <Box
           sx={{
-            mt: 4,
-            px: 3,
-            fontSize: 0,
+            position: 'fixed',
+            left: 0,
+            width: [theme.sizes.sidebarSkinny, theme.sizes.sidebar],
+            bottom: 0,
+            bg: 'backgroundTransparent',
+            py: 3,
           }}
         >
-          {showThemeInfo && (
-            <Fragment>
-              Want to make your own site like this? Try{' '}
-              <Link href="https://github.com/mrmartineau/gatsby-theme-code-notes">
-                gatsby-theme-code-notes
-              </Link>{' '}
-              by <Link href="https://zander.wtf">Zander Martineau</Link>.
-            </Fragment>
-          )}
-
           <IconButton
             onClick={e => {
               setColorMode(colorMode === 'default' ? 'dark' : 'default')
@@ -193,8 +200,12 @@ export const Layout: FunctionComponent<LayoutProps> = ({
               zIndex: 11,
               p: 0,
               display: 'block',
-              mt: 2,
               mx: 'auto',
+              transition: 'all 200ms ease-in-out ',
+              cursor: 'pointer',
+              '&:hover': {
+                color: 'primary',
+              },
             }}
           >
             <svg

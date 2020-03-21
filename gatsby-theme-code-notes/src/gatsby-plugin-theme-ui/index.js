@@ -8,7 +8,8 @@ const baseColors = {
 const colors = {
   ...baseColors,
   text: '#2d3748',
-  background: '#edf2f7',
+  background: 'hsl(210, 38%, 95%)',
+  backgroundTransparent: 'hsla(210, 38%, 95%, 0.72)',
   contentBg: baseColors.light,
   primary: 'hsl(334, 86%, 48%)',
   primarySemiTransparent: 'hsla(334, 86%, 48%, 0.5)',
@@ -43,7 +44,8 @@ const colors = {
       code6: '#ab9df2',
       code7: '#999988',
       text: '#edf2f7',
-      background: '#2d2a2e',
+      background: 'hsl(285, 5%, 17%)',
+      backgroundTransparent: 'hsla(285, 5%, 17%, 0.72)',
       contentBg: '#383539',
       primary: 'hsl(345, 100%, 69%)',
       primarySemiTransparent: 'hsl(345, 100%, 79%, 0.5)',
@@ -363,7 +365,7 @@ export default {
       fontFamily: 'body',
       fontWeight: 'bold',
       color: 'text',
-      pl: 4,
+      pl: 5,
     },
   },
 
@@ -411,10 +413,17 @@ export default {
   },
 
   sizes: {
+    container: 900,
     sidebar: '210px',
     sidebarSkinny: '50%',
     contentMaxWidth: '900px',
   },
+
+  // layout: {
+  //   container: {
+  //     px: 2,
+  //   },
+  // },
 
   zIndices: {
     low: 10,

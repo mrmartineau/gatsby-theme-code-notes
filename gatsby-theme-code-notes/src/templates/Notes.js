@@ -22,7 +22,7 @@ export const pageQuery = graphql`
   }
 
   query {
-    allMdx(sort: { fields: fields___dateModified, order: DESC }) {
+    allMdx(sort: { fields: frontmatter___title, order: ASC }) {
       edges {
         node {
           ...AllPages

@@ -1,13 +1,8 @@
 ---
 title: Syntax highlighting examples
 tags:
-  - syntax
   - html
   - css
-  - js
-  - javascript
-  - typescript
-  - shell
 emoji: 🌭
 ---
 

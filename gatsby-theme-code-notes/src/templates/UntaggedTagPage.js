@@ -6,7 +6,7 @@ export default NotesPage
 export const pageQuery = graphql`
   query {
     allMdx(
-      sort: { fields: fields___dateModified, order: DESC }
+      sort: { fields: frontmatter___title, order: ASC }
       filter: { frontmatter: { tags: { eq: null } } }
     ) {
       edges {

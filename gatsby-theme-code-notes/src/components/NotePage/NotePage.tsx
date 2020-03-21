@@ -61,10 +61,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
       path={location.pathname}
       title={title}
     >
-      <Box
-        as="article"
-        sx={{ p: 2, maxWidth: theme.sizes.contentMaxWidth, mx: 'auto' }}
-      >
+      <article>
         <Box as="header" mb={4}>
           {emoji && (
             <Box
@@ -109,7 +106,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
             </Link>
           )}
         </Box>
-      </Box>
+      </article>
     </Layout>
   )
 }

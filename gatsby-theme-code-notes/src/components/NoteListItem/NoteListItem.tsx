@@ -20,7 +20,7 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   tags,
   emoji,
 }) => {
-  const noteEmoji = emoji ?? '📃'
+  const noteEmoji = emoji ?? '🗒'
   return (
     <Box as="article">
       <Link as={GatsbyLink} to={`/${name}`} variant="noteListItem">
@@ -33,7 +33,7 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
           <Heading as="h3" variant="noteListItem" sx={{ mr: '3' }}>
             <Box as="span" sx={{ position: 'absolute', left: 1 }}>
               {noteEmoji}
-            </Box>{' '}
+            </Box>
             {title}
           </Heading>
           <Flex sx={{ alignItems: 'center', textAlign: 'right' }}>
