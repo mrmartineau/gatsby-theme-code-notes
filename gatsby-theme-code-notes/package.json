@@ -43,16 +43,17 @@
     "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.9.0",
     "remark-autolink-headings": "^5.2.2",
     "remark-emoji": "^2.0.2",
     "remark-github": "^8.0.0",
-    "remark-slug": "^5.1.2",
-    "theme-ui": "^0.3.1",
-    "typescript": "^3.8.3",
     "remark-normalize-headings": "^1.0.2",
+    "remark-slug": "^5.1.2",
     "remark-squeeze-paragraphs": "^3.0.4",
     "remark-toc": "^7.0.0",
-    "remark-truncate-links": "^1.0.3"
+    "remark-truncate-links": "^1.0.3",
+    "theme-ui": "^0.3.1",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@types/node": "^13.9.1",

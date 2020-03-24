@@ -79,7 +79,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
             {title}
           </Heading>
 
-          {dateModified && (
+          {false && (
             <Box mb={3}>
               <DateModified>{dateModified}</DateModified>
             </Box>
