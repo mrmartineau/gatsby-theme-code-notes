@@ -4,7 +4,7 @@ tags:
   - markdown
 ---
 
-This theme adds a few additional features to standard markdown.
+> This theme adds a few additional features to standard markdown.
 
 ## Contents
 
