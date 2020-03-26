@@ -32,7 +32,6 @@ export const TagList: FunctionComponent<TagNavProps> = ({
         }
         const colorHash = new ColorHash({
           lightness: 0.6,
-          // hue: { min: 100, max: 200 },
           saturation: 0.4,
         })
         const tagName = slugify(item)
