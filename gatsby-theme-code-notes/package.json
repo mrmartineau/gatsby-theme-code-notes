@@ -30,6 +30,7 @@
     "@mdx-js/react": "^1.5.7",
     "@theme-ui/presets": "^0.3.0",
     "@theme-ui/prism": "^0.3.0",
+    "color-hash": "^1.0.3",
     "gatsby-core-utils": "^1.0.33",
     "gatsby-plugin-mdx": "^1.0.82",
     "gatsby-plugin-meta-redirect": "^1.1.1",

@@ -7,7 +7,7 @@ const baseColors = {
 
 const colors = {
   ...baseColors,
-  text: '#2d3748',
+  text: baseColors.dark,
   background: 'hsl(210, 38%, 95%)',
   backgroundTransparent: 'hsla(210, 38%, 95%, 0.72)',
   contentBg: baseColors.light,
@@ -36,7 +36,7 @@ const colors = {
 
   modes: {
     dark: {
-      code1: 'hsl(345, 100%, 69%);',
+      code1: 'hsl(345, 100%, 69%)',
       code2: '#fc9867',
       code3: '#ffd866',
       code4: '#a9dc76',
@@ -337,12 +337,9 @@ const badgePrimary = {
   borderRadius: '50px',
   color: 'text',
   bg: 'badgeBg',
-  borderWidth: '1px',
-  borderStyle: 'solid',
-  borderColor: 'badgeBorder',
   textDecoration: 'none',
   px: 2,
-  fontWeight: 'bold',
+  fontWeight: 'normal',
   fontSize: 0,
 }
 
@@ -416,7 +413,8 @@ export default {
       flexShrink: 0,
       '&:hover': {
         textDecoration: 'none',
-        bg: 'badgeBgHover',
+        // bg: 'badgeBgHover',
+        opacity: '0.7',
       },
     },
   },

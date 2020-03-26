@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { jsx, Box, Badge, Link } from 'theme-ui'
 import slugify from '@alexcarpenter/slugify'
+import ColorHash from 'color-hash'
 
 interface TagNavProps {
   tags: string[]
@@ -29,6 +30,16 @@ export const TagList: FunctionComponent<TagNavProps> = ({
         if (item === 'untagged') {
           return null
         }
+        const colorHash = new ColorHash({
+          lightness: 0.6,
+          // hue: { min: 100, max: 200 },
+          saturation: 0.4,
+        })
+        const tagName = slugify(item)
+        const tagHsl = colorHash.hsl(tagName)
+        const tagColor = `hsla(${tagHsl[0]},${tagHsl[1] * 100}%,${tagHsl[2] *
+          100}%,0.5)`
+        console.log('tagColor', tagColor)
 
         if (asLinks) {
           return (
@@ -39,6 +50,7 @@ export const TagList: FunctionComponent<TagNavProps> = ({
               sx={{
                 display: 'inline-flex',
                 mr: 1,
+                bg: tagColor,
               }}
               variant="badge"
             >
@@ -48,7 +60,7 @@ export const TagList: FunctionComponent<TagNavProps> = ({
         }
 
         return (
-          <Badge sx={{ mr: 1 }} variant="primary" key={index}>
+          <Badge sx={{ mr: 1, bg: tagColor }} variant="primary" key={index}>
             {item}
           </Badge>
         )

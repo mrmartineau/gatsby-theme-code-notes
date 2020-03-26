@@ -3,6 +3,10 @@ title: Syntax highlighting examples
 tags:
   - html
   - css
+  - javascript
+  - Javascript
+  - JavaScript
+  - yaml
 emoji: 🌭
 ---
 
