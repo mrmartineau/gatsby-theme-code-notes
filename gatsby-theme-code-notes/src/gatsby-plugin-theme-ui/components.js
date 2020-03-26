@@ -28,7 +28,7 @@ const heading = Tag => props => {
           color: 'text',
           opacity: 0.2,
           transition: 'all 200ms ease-in-out ',
-          '&:hover': {
+          '&:hover,&:focus': {
             opacity: 1,
             color: 'primary',
           },
