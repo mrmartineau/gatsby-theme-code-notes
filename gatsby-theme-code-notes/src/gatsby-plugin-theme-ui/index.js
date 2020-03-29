@@ -9,6 +9,7 @@ const colors = {
   ...baseColors,
   text: baseColors.dark,
   background: 'hsl(210, 38%, 95%)',
+  scrollbar: 'hsl(210, 20%, 85%)',
   backgroundTransparent: 'hsla(210, 38%, 95%, 0.72)',
   contentBg: baseColors.light,
   primary: 'hsl(334, 86%, 48%)',
@@ -45,6 +46,7 @@ const colors = {
       code7: '#999988',
       text: 'hsl(210, 38%, 95%)',
       background: 'hsl(285, 5%, 17%)',
+      scrollbar: 'hsl(285, 5%, 12%)',
       backgroundTransparent: 'hsla(285, 5%, 17%, 0.72)',
       contentBg: '#383539',
       primary: 'hsl(345, 100%, 69%)',
@@ -287,6 +289,20 @@ const styles = {
     },
     '.function,.tag.function': {
       color: 'code4',
+    },
+    '&::-webkit-scrollbar': {
+      width: '0.5rem',
+      height: '0.5rem',
+      '&:hover': {
+        width: '1rem',
+        height: '1rem',
+      },
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: 'scrollbar',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'muted',
     },
   },
   pre: {

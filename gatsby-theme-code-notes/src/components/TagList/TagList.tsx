@@ -38,7 +38,6 @@ export const TagList: FunctionComponent<TagNavProps> = ({
         const tagHsl = colorHash.hsl(tagName)
         const tagColor = `hsla(${tagHsl[0]},${tagHsl[1] * 100}%,${tagHsl[2] *
           100}%,0.5)`
-        console.log('tagColor', tagColor)
 
         if (asLinks) {
           return (
