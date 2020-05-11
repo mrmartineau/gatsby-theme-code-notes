@@ -13,6 +13,7 @@ interface NotePageProps {
         tags: string[]
         title: string
         emoji: string
+        link: string
       }
       body: any
       fields: {
@@ -45,14 +46,13 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
     return null
   }
   const {
-    frontmatter: { title, tags, emoji },
+    frontmatter: { title, tags, emoji, link },
     fields: { dateModified },
     body,
     parent: { fileName },
   } = data.mdx
-
   const { gitRepoContentPath } = useSiteMetadata()
-  const { theme } = useThemeUI()
+  const showMetadata = !!(link || dateModified)
 
   return (
     <Layout
@@ -79,9 +79,10 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
             {title}
           </Heading>
 
-          {false && (
+          {showMetadata && (
             <Box mb={3}>
-              <DateModified>{dateModified}</DateModified>
+              {link && <Link href={link}>{link}</Link>}{' '}
+              {false && <DateModified>{dateModified}</DateModified>}
             </Box>
           )}
 

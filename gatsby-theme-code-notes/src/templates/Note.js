@@ -11,6 +11,7 @@ export const pageQuery = graphql`
         title
         tags
         emoji
+        link
       }
       fields {
         dateModified(formatString: "Do MMM YYYY")
