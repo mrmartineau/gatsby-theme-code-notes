@@ -17,6 +17,9 @@
     "gatsby-theme-code-notes",
     "example"
   ],
+  "dependencies": {
+    "eslint": "^7.0.0"
+  },
   "devDependencies": {
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.11.0",
