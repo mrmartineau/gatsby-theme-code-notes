@@ -53,11 +53,12 @@ Tada! :tada:
 
 ## Tables
 
-| Tables        | Are           | Cool   |
-| ------------- | ------------- | ------ |
-| col 3 is      | right-aligned | \$1600 |
-| col 2 is      | centered      | \$12   |
-| zebra stripes | are neat      | \$1    |
+Tables are responsive by default. If you need to limit line length for a cell, add a `<br/>` tag to break the lines.
+
+| Tables              | Are                                                                                 | Cool                                                      |
+| ------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| This is a row       | with some                                                                           | content                                                   |
+| This is another row | with a lot more content. <br/>Nullam netus eu fringilla turpis parturient dignissim | Velit ut mauris penatibus <br/>turpis commodo consectetur |
 
 ## Link truncation
 

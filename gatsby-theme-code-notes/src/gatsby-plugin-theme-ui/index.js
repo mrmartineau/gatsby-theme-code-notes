@@ -331,6 +331,8 @@ const styles = {
     width: '100%',
     borderCollapse: 'separate',
     borderSpacing: 0,
+    tableLayout: 'fixed',
+    my: 2,
   },
   th: {
     textAlign: 'left',
@@ -393,7 +395,7 @@ export default {
 
   links: {
     noteListItem: {
-      mx: theme => `-${theme.space[2]}`,
+      mx: (theme) => `-${theme.space[2]}`,
       p: 2,
       borderRadius: 2,
       display: 'block',
