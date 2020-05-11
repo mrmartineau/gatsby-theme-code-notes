@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
   )
 
   if (mdxDocs.errors) {
-    throw mdxDocs.errorsd
+    throw mdxDocs.errors
   }
 
   const { allNotes, untagged } = mdxDocs.data
