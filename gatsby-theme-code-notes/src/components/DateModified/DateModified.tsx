@@ -7,10 +7,11 @@ export const DateModified: FunctionComponent = ({ children }) => (
       fontFamily: 'monospace',
       fontSize: 0,
       opacity: 0.7,
-      color: 'text',
+      color: 'grayDark',
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
+      display: 'inline-block',
     }}
   >
     {children}

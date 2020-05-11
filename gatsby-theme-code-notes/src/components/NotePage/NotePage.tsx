@@ -80,15 +80,24 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           </Heading>
 
           {showMetadata && (
-            <Box mb={3}>
-              {link && <Link href={link}>{link}</Link>}{' '}
+            <Flex sx={{ mb: 3 }}>
+              {link && (
+                <Link
+                  href={link}
+                  sx={{ mr: 3, fontFamily: 'monospace', fontSize: 0 }}
+                >
+                  {link}
+                </Link>
+              )}
               {false && <DateModified>{dateModified}</DateModified>}
-            </Box>
+            </Flex>
           )}
 
-          <Flex>
-            <TagList tags={tags} />
-          </Flex>
+          {tags && (
+            <Flex>
+              <TagList tags={tags} />
+            </Flex>
+          )}
         </Box>
 
         <MDXRenderer>{body}</MDXRenderer>
