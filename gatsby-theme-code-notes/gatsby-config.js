@@ -4,7 +4,7 @@ const squeezeParagraphs = require('remark-squeeze-paragraphs')
 const toc = require('remark-toc')
 const remarkTruncateLinks = require('remark-truncate-links').remarkTruncateLinks
 
-module.exports = options => {
+module.exports = (options) => {
   const {
     mdxOtherwiseConfigured = true,
     gitRepoContentPath = '',
@@ -48,6 +48,42 @@ module.exports = options => {
       `gatsby-plugin-redirects`,
       `gatsby-plugin-react-helmet`,
       `gatsby-plugin-theme-ui`,
+      {
+        resolve: 'gatsby-plugin-local-search',
+        options: {
+          name: 'notes',
+          engine: 'flexsearch',
+          engineOptions: 'speed',
+          query: `{
+            allNotes: allMdx {
+              edges {
+                node {
+                  id
+                  frontmatter {
+                    title
+                  }
+                  parent {
+                    ... on File {
+                      name
+                    }
+                  }
+                  rawBody
+                }
+              }
+            }
+          }`,
+          ref: 'id',
+          index: ['title', 'body'],
+          store: ['id', 'path', 'title', 'body'],
+          normalizer: ({ data }) =>
+            data.allNotes.edges.map(({ node }) => ({
+              id: node.id,
+              path: node.parent.name,
+              title: node.frontmatter.title,
+              body: node.rawBody,
+            })),
+        },
+      },
     ].filter(Boolean),
   }
 }

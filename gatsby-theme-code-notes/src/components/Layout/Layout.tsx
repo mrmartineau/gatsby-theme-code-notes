@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Fragment, FunctionComponent, useState } from 'react'
+import { Fragment, FunctionComponent, useState, useContext } from 'react'
 import { Global } from '@emotion/core'
 import {
   jsx,
@@ -18,6 +18,7 @@ import { Helmet } from 'react-helmet'
 import { TagNav } from '../TagNav'
 import { useAllTags } from '../../use-all-tags'
 import { useSiteMetadata } from '../../use-site-metadata'
+import { SearchContext, SearchInput, SearchResults } from '../Search'
 
 interface LayoutProps {
   activeTag?: string
@@ -45,6 +46,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   } = useSiteMetadata()
   const [navOpen, setNavOpen] = useState(false)
   const [colorMode, setColorMode] = useColorMode()
+  const { query } = useContext(SearchContext)
 
   return (
     <Fragment>
@@ -127,7 +129,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
             minHeight: '100%',
           }}
         >
-          <div>{children}</div>
+          {query ? <SearchResults /> : <div>{children}</div>}
 
           {showThemeInfo && (
             <Box sx={{ mt: 4, fontSize: 0 }}>
@@ -156,21 +158,24 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           pb: 9,
         }}
       >
-        {!!logo && (
-          <Box px={3} pb={3}>
-            <Image src={logo} variant="logo" />
-          </Box>
-        )}
+        <Box px={3} mb={3}>
+          {!!logo && (
+            <Box mb={3}>
+              <Image src={logo} variant="logo" />
+            </Box>
+          )}
+          {showDescriptionInSidebar && description && (
+            <Box mb={3}>
+              <Text
+                sx={{ color: 'text', lineHeight: 'snug', fontWeight: 'bold' }}
+              >
+                {description}
+              </Text>
+            </Box>
+          )}
 
-        {showDescriptionInSidebar && description && (
-          <Box px={3} pb={3}>
-            <Text
-              sx={{ color: 'text', lineHeight: 'snug', fontWeight: 'bold' }}
-            >
-              {description}
-            </Text>
-          </Box>
-        )}
+          <SearchInput />
+        </Box>
 
         <TagNav
           tags={tags}
@@ -179,7 +184,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           basePath={basePath}
           hasUntagged={hasUntagged}
         />
-
         <Box
           sx={{
             position: 'fixed',
@@ -191,7 +195,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           }}
         >
           <IconButton
-            onClick={e => {
+            onClick={(e) => {
               setColorMode(colorMode === 'default' ? 'dark' : 'default')
             }}
             aria-label="Toggle dark mode"

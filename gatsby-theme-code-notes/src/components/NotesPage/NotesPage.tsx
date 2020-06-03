@@ -1,8 +1,10 @@
 /** @jsx jsx */
 import { jsx, Heading } from 'theme-ui'
+import { useContext, Fragment } from 'react'
 import { NoteList } from '../NoteList'
 import { Layout } from '../Layout'
 import { useSiteMetadata } from '../../use-site-metadata'
+import { SearchContext } from '../Search'
 
 export const NotesPage = ({ data, pageContext, location }) => {
   const notes = data.allMdx.edges
@@ -38,7 +40,6 @@ export const NotesPage = ({ data, pageContext, location }) => {
           {pageContext.tag}
         </Heading>
       )}
-
       <NoteList notes={notes} />
     </Layout>
   )
