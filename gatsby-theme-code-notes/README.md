@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/mrmartineau/notes.zander.wtf/master/static/logo.png" width="140">
+  <img src="https://raw.githubusercontent.com/mrmartineau/gatsby-theme-code-notes/master/static/logo.png" width="140">
+
   <h1>
     Code Notes
   </h1>
