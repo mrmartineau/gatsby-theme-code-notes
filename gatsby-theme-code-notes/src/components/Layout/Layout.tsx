@@ -125,10 +125,17 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between',
             minHeight: '100%',
           }}
         >
+          <Box
+            sx={{
+              mb: 5,
+            }}
+          >
+            <SearchInput />
+          </Box>
+
           {query ? <SearchResults /> : <div>{children}</div>}
 
           {showThemeInfo && (
@@ -173,8 +180,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({
               </Text>
             </Box>
           )}
-
-          <SearchInput />
         </Box>
 
         <TagNav

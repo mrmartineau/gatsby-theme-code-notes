@@ -6,7 +6,7 @@ import { NoteListItem } from '../NoteListItem'
 import { SearchContext } from './SearchProvider'
 
 export const SearchResults = () => {
-  const { query } = useContext(SearchContext)
+  const { query, setQuery } = useContext(SearchContext)
   const { localSearchNotes } = useStaticQuery(graphql`
     query {
       localSearchNotes {
@@ -15,6 +15,10 @@ export const SearchResults = () => {
       }
     }
   `)
+  console.log(
+    'SearchResults -> localSearchNotes.index',
+    JSON.stringify(localSearchNotes.index)
+  )
 
   const results = useFlexSearch(
     query,
@@ -24,20 +28,24 @@ export const SearchResults = () => {
 
   return (
     <Box>
-      <Heading as="h1" variant="noteTitle">
+      {/* <Heading as="h1" variant="noteTitle">
         Search results
-      </Heading>
+      </Heading> */}
 
       {results.length > 0 ? (
-        results.map((result) => (
-          <NoteListItem
-            title={result.title}
-            tags={[]}
-            name={result.path}
-            key={result.id}
-            dateModified="d"
-          />
-        ))
+        results.map((result) => {
+          return (
+            <NoteListItem
+              title={result.title}
+              tags={result.tags}
+              name={result.path}
+              key={result.id}
+              emoji={result.emoji}
+              dateModified="d"
+              onClick={() => setQuery('')}
+            />
+          )
+        })
       ) : (
         <Box>No search results</Box>
       )}

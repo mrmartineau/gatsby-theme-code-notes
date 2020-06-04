@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useContext } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { jsx, Box, NavLink } from 'theme-ui'
+import { SearchContext } from '../Search'
 
 export interface TagItemInterface {
   tag: string
@@ -24,6 +25,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
   basePath,
   hasUntagged,
 }) => {
+  const { setQuery } = useContext(SearchContext)
   return (
     <Box
       as="nav"
@@ -38,6 +40,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
         }}
         to={basePath}
         as={GatsbyLink}
+        onClick={() => setQuery('')}
       >
         All notes
       </NavLink>
@@ -51,6 +54,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
           to={`/tag/${encodeURI(item.slug)}`}
           as={GatsbyLink}
           key={index}
+          onClick={() => setQuery('')}
         >
           {item.tag}
         </NavLink>
@@ -64,6 +68,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
           }}
           to={`/tag/untagged`}
           as={GatsbyLink}
+          onClick={() => setQuery('')}
         >
           Untagged
         </NavLink>

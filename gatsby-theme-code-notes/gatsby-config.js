@@ -53,7 +53,11 @@ module.exports = (options) => {
         options: {
           name: 'notes',
           engine: 'flexsearch',
-          engineOptions: 'speed',
+          engineOptions: {
+            encode: 'icase',
+            tokenize: 'forward',
+            resolution: 9,
+          },
           query: `{
             allNotes: allMdx {
               edges {
@@ -61,27 +65,36 @@ module.exports = (options) => {
                   id
                   frontmatter {
                     title
+                    emoji
+                    tags
                   }
                   parent {
                     ... on File {
                       name
                     }
                   }
-                  rawBody
+                  excerpt(pruneLength: 10000)
                 }
               }
             }
           }`,
           ref: 'id',
-          index: ['title', 'body'],
-          store: ['id', 'path', 'title', 'body'],
+          index: ['title', 'body', 'tagsJoint'],
+          store: ['id', 'path', 'title', 'body', 'tags', 'emoji'],
           normalizer: ({ data }) =>
-            data.allNotes.edges.map(({ node }) => ({
-              id: node.id,
-              path: node.parent.name,
-              title: node.frontmatter.title,
-              body: node.rawBody,
-            })),
+            data.allNotes.edges.map(({ node }) => {
+              return {
+                id: node.id,
+                path: node.parent.name,
+                title: node.frontmatter.title,
+                body: node.excerpt,
+                emoji: node.frontmatter.emoji,
+                tags: node.frontmatter.tags,
+                tagsJoint:
+                  node.frontmatter.tags &&
+                  node.frontmatter.tags.join().replace(/,/gi, ' '),
+              }
+            }),
         },
       },
     ].filter(Boolean),
