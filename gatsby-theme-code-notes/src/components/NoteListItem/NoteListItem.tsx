@@ -11,6 +11,7 @@ interface NoteListItemProps {
   emoji?: string
   dateModified: string
   tags: string[]
+  onClick?: () => void
 }
 
 export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
@@ -19,11 +20,17 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   dateModified,
   tags,
   emoji,
+  onClick,
 }) => {
   const noteEmoji = emoji ?? '🗒'
   return (
     <Box as="article">
-      <Link as={GatsbyLink} to={`/${name}`} variant="noteListItem">
+      <Link
+        as={GatsbyLink}
+        to={`/${name}`}
+        variant="noteListItem"
+        onClick={onClick}
+      >
         <Flex
           sx={{
             justifyContent: 'space-between',

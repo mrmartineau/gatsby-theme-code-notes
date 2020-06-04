@@ -5,7 +5,7 @@ const colorHash = new ColorHash({
   saturation: 0.4,
 })
 
-export const getColorFromString = (item: string): string => {
+export const getColourFromString = (item: string): string => {
   const tagHsl: number[] = colorHash.hsl(item)
   const tagColor = `hsla(${tagHsl[0]},${tagHsl[1] * 100}%,${
     tagHsl[2] * 100

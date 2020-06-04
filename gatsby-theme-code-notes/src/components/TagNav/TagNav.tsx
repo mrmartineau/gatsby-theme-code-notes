@@ -1,7 +1,9 @@
 /** @jsx jsx */
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useContext, Fragment } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { jsx, Box, NavLink } from 'theme-ui'
+import { SearchContext } from '../Search'
+import { TagDot } from '../TagDot'
 
 export interface TagItemInterface {
   tag: string
@@ -24,6 +26,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
   basePath,
   hasUntagged,
 }) => {
+  const { setQuery } = useContext(SearchContext)
   return (
     <Box
       as="nav"
@@ -35,26 +38,51 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
         sx={{
           fontWeight: !!rootPath ? 'bold' : undefined,
           bg: !!rootPath ? 'navHover' : undefined,
+          textTransform: 'uppercase',
         }}
         to={basePath}
         as={GatsbyLink}
+        onClick={() => setQuery('')}
       >
-        All notes
+        All Notes
       </NavLink>
 
-      {tags.map((item, index) => (
-        <NavLink
-          sx={{
-            fontWeight: activeTag === item.tag ? 'bold' : undefined,
-            bg: activeTag === item.tag ? 'navHover' : undefined,
-          }}
-          to={`/tag/${encodeURI(item.slug)}`}
-          as={GatsbyLink}
-          key={index}
-        >
-          {item.tag}
-        </NavLink>
-      ))}
+      {tags.length > 0 && (
+        <Fragment>
+          <Box
+            sx={{
+              px: 3,
+              pt: 2,
+              pb: 1,
+              fontFamily: 'mono',
+              textTransform: 'uppercase',
+              fontSize: 1,
+            }}
+          >
+            Tags
+          </Box>
+
+          {tags
+            .sort((one, two) => one.tag.localeCompare(two.tag))
+            .map((item, index) => {
+              return (
+                <NavLink
+                  sx={{
+                    fontWeight: activeTag === item.tag ? 'bold' : undefined,
+                    bg: activeTag === item.tag ? 'navHover' : undefined,
+                  }}
+                  to={`/tag/${encodeURI(item.slug)}`}
+                  as={GatsbyLink}
+                  key={index}
+                  onClick={() => setQuery('')}
+                >
+                  <TagDot tag={item.tag} />
+                  {item.tag}
+                </NavLink>
+              )
+            })}
+        </Fragment>
+      )}
 
       {hasUntagged && (
         <NavLink
@@ -64,8 +92,10 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
           }}
           to={`/tag/untagged`}
           as={GatsbyLink}
+          onClick={() => setQuery('')}
         >
-          Untagged
+          <TagDot />
+          Untagged Notes
         </NavLink>
       )}
     </Box>
