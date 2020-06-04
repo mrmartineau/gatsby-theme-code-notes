@@ -24,8 +24,8 @@ export const links = {
   nav: {
     px: 3,
     py: 1,
-    textTransform: 'uppercase',
-    display: 'block',
+    display: 'flex',
+    alignItems: 'center',
     fontWeight: 'normal',
     fontFamily: 'mono',
     fontSize: 1,

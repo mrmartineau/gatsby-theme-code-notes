@@ -15,10 +15,6 @@ export const SearchResults = () => {
       }
     }
   `)
-  console.log(
-    'SearchResults -> localSearchNotes.index',
-    JSON.stringify(localSearchNotes.index)
-  )
 
   const results = useFlexSearch(
     query,
@@ -28,10 +24,6 @@ export const SearchResults = () => {
 
   return (
     <Box>
-      {/* <Heading as="h1" variant="noteTitle">
-        Search results
-      </Heading> */}
-
       {results.length > 0 ? (
         results.map((result) => {
           return (
@@ -47,7 +39,9 @@ export const SearchResults = () => {
           )
         })
       ) : (
-        <Box>No search results</Box>
+        <Box mb={7} sx={{ textAlign: 'center' }}>
+          Zero search results
+        </Box>
       )}
     </Box>
   )

@@ -65,6 +65,7 @@ export const styles = {
     fontSize: '1em',
     borderRadius: 'default',
     fontWeight: 'inherit',
+    fontFamily: 'mono',
   },
   code: {
     p: 3,
@@ -73,6 +74,7 @@ export const styles = {
     bg: 'background',
     overflowX: 'auto',
     borderRadius: 'default',
+    fontFamily: 'mono',
     '.comment,.prolog,.doctype,.cdata': {
       color: 'code7',
       fontStyle: 'italic',
@@ -128,6 +130,7 @@ export const styles = {
     bg: 'background',
     borderRadius: 'default',
     overflowX: 'auto',
+    fontFamily: 'mono',
   },
   blockquote: {
     borderLeft: '4px solid',

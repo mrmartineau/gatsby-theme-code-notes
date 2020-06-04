@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { jsx, Box, Badge, Link } from 'theme-ui'
 import slugify from '@alexcarpenter/slugify'
-import { getColorFromString } from '../../utils/getColourFromString'
+import { getColourFromString } from '../../utils/getColourFromString'
 
 interface TagNavProps {
   tags: string[]
@@ -31,7 +31,7 @@ export const TagList: FunctionComponent<TagNavProps> = ({
           return null
         }
         const tagName = slugify(item)
-        const tagColor = getColorFromString(tagName)
+        const tagColor = getColourFromString(tagName)
 
         if (asLinks) {
           return (
