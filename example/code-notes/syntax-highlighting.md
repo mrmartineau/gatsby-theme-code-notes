@@ -64,7 +64,7 @@ export const useAllTags = () => {
 }
 
 const three = [1, 2, 3]
-const doubled = three.map(item => {
+const doubled = three.map((item) => {
   return item * 2
 })
 console.log(three === doubled, doubled) // false, [2, 4, 6]
@@ -90,7 +90,7 @@ const OurComponent = ({ query, results, clearQuery }) => (
     query: {query}
     <button onClick={clearQuery}>Clear</button>
     <ul>
-      {results.map(result => (
+      {results.map((result) => (
         <li>
           <img src={result.url} alt={result.title} />
           {result.title}
