@@ -55,6 +55,7 @@
     "remark-squeeze-paragraphs": "^4.0.0",
     "remark-toc": "^7.0.0",
     "remark-truncate-links": "^1.0.3",
+    "text-cleaner": "^1.1.0",
     "theme-ui": "^0.3.1",
     "typescript": "^3.8.3"
   },

@@ -3,6 +3,17 @@ const remarkEmoji = require('remark-emoji')
 const squeezeParagraphs = require('remark-squeeze-paragraphs')
 const toc = require('remark-toc')
 const remarkTruncateLinks = require('remark-truncate-links').remarkTruncateLinks
+const TextCleaner = require('text-cleaner')
+
+const clean = (string) => {
+  return TextCleaner(string)
+    .removeChars({ exclude: '/', replaceWith: ' ' })
+    .removeStopWords()
+    .stripHtml()
+    .condense()
+    .toLowerCase()
+    .valueOf()
+}
 
 module.exports = (options) => {
   const {
@@ -11,6 +22,11 @@ module.exports = (options) => {
     showThemeInfo = true,
     showDescriptionInSidebar = true,
     logo = '',
+    flexSearchEngineOptions = {
+      encode: 'icase',
+      tokenize: 'forward',
+      resolution: 9,
+    },
   } = options
 
   return {
@@ -53,11 +69,7 @@ module.exports = (options) => {
         options: {
           name: 'notes',
           engine: 'flexsearch',
-          engineOptions: {
-            encode: 'icase',
-            tokenize: 'forward',
-            resolution: 9,
-          },
+          engineOptions: flexSearchEngineOptions,
           query: `{
             allNotes: allMdx {
               edges {
@@ -73,7 +85,7 @@ module.exports = (options) => {
                       name
                     }
                   }
-                  excerpt(pruneLength: 10000)
+                  rawBody
                 }
               }
             }
@@ -87,7 +99,7 @@ module.exports = (options) => {
                 id: node.id,
                 path: node.parent.name,
                 title: node.frontmatter.title,
-                body: node.excerpt,
+                body: clean(node.rawBody),
                 emoji: node.frontmatter.emoji,
                 tags: node.frontmatter.tags,
                 tagsJoint:

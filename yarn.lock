@@ -2756,6 +2756,11 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+anglicize@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/anglicize/-/anglicize-1.0.0.tgz#55c6254557e37f230cafa54a8db82456665d05bf"
+  integrity sha1-VcYlRVfjfyMMr6VKjbgkVmZdBb8=
+
 ansi-align@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-3.0.0.tgz#b536b371cf687caaef236c18d3e21fe3797467cb"
@@ -5529,6 +5534,11 @@ elliptic@^6.0.0, elliptic@^6.5.2:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+email-regex@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/email-regex/-/email-regex-4.0.0.tgz#3a86bc66afaebb6de2f7eb1251133062c4c8c3d5"
+  integrity sha512-OxR2NqoYS3ZikqOkju2krRTyxngwjJ5Wh4yalpTqbBnUOr+LLwwjY2x5Sksruw6TieyQDswE5Pc83Eh6RQj3GA==
+
 "emoji-regex@>=6.0.0 <=6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.1.1.tgz#c6cd0ec1b0642e2a3c67a1137efc5e796da4f88e"
@@ -5633,6 +5643,11 @@ enquirer@^2.3.4:
   integrity sha512-BNT1C08P9XD0vNg3J475yIUG+mVdp9T6towYFHUv897X0KoHBjB1shyrNmhmtHWKP17iSWgo7Gqh7BBuzLZMSA==
   dependencies:
     ansi-colors "^3.2.1"
+
+ent@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ent/-/ent-2.2.0.tgz#e964219325a21d05f44466a2f686ed6ce5f5dd1d"
+  integrity sha1-6WQhkyWiHQX0RGai9obtbOX13R0=
 
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.2"
@@ -11481,6 +11496,11 @@ phin@^2.9.1:
   resolved "https://registry.yarnpkg.com/phin/-/phin-2.9.3.tgz#f9b6ac10a035636fb65dfc576aaaa17b8743125c"
   integrity sha512-CzFr90qM24ju5f88quFC/6qohjC144rehe5n6DH900lgXmUe86+xCKc10ev56gRKC4/BkHUoG4uSiQgBiIXwDA==
 
+phone-regex@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/phone-regex/-/phone-regex-2.1.0.tgz#255f9f8518f0196094ce21ba1dfe732277d20c0d"
+  integrity sha512-9lXTghLpr/jU6Dx9JIacAUt3Hl7qVucW8+Iqwx99dvFSO9imlB2xvY6IyT6Sw554QTtHMnhvPUygGaN5k0pv9Q==
+
 physical-cpu-count@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/physical-cpu-count/-/physical-cpu-count-2.0.0.tgz#18de2f97e4bf7a9551ad7511942b5496f7aba660"
@@ -13875,6 +13895,11 @@ stealthy-require@^1.1.1:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
+stopword@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/stopword/-/stopword-1.0.1.tgz#b91f873c9d3e870af47189c84423eb0280e9dfbc"
+  integrity sha512-mcBsIyr5/cJ0QMlXd8P5vtFyvHPTP8m9mOs8OCu84uAOc9QVRpBUz9KhHu0T5rZDycu5NvHSu3/m1Qz7m2ZCiw==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
@@ -14133,6 +14158,11 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
+striptags@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/striptags/-/striptags-3.1.1.tgz#c8c3e7fdd6fb4bb3a32a3b752e5b5e3e38093ebd"
+  integrity sha1-yMPn/db7S7OjKjt1LltePjgJPr0=
+
 style-loader@^0.23.1:
   version "0.23.1"
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.23.1.tgz#cb9154606f3e771ab6c4ab637026a1049174d925"
@@ -14342,6 +14372,20 @@ test-exclude@^6.0.0:
     "@istanbuljs/schema" "^0.1.2"
     glob "^7.1.4"
     minimatch "^3.0.4"
+
+text-cleaner@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/text-cleaner/-/text-cleaner-1.1.0.tgz#4683f29f6464dde3cbec0ee281ec89f3050ac35b"
+  integrity sha512-lmk6X1GHi66D9ZwWxkpDq5vEqMyCVj43qA+QGzTiS9H27RC3HOPFTGaww+Fqrvvqf6Bkds2lbvsJxKHIilPVqg==
+  dependencies:
+    anglicize "^1.0.0"
+    defaults "^1.0.3"
+    email-regex "^4.0.0"
+    ent "^2.2.0"
+    escape-string-regexp "^2.0.0"
+    phone-regex "^2.1.0"
+    stopword "^1.0.0"
+    striptags "^3.1.1"
 
 text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"

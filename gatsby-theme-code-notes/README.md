@@ -58,15 +58,16 @@ npm install gatsby-theme-code-notes gatsby react react-dom
 
 ### Theme Options
 
-| Key                        | Default value       | Description                                                                                                                                                                    |
-| -------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `basePath`                 | `/`                 | Root url for all notes pages                                                                                                                                                   |
-| `contentPath`              | `/content/notes`    | Location of notes content                                                                                                                                                      |
-| `logo`                     | `''` (empty string) | Path to your site's logo. Will be used as the `src` attribute for an image                                                                                                     |
-| `showDescriptionInSidebar` | `true`              | Show `config.site.description` in the sidebar                                                                                                                                  |
-| `gitRepoContentPath`       | `''`                | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                      |
-| `showThemeInfo`            | `true`              | Show info about this Gatsby theme                                                                                                                                              |
-| `mdxOtherwiseConfigured`   | `true`              | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`. |
+| Key                        | Default value                                             | Description                                                                                                                                                                       |
+| -------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `basePath`                 | `/`                                                       | Root url for all notes pages                                                                                                                                                      |
+| `contentPath`              | `/content/notes`                                          | Location of notes content                                                                                                                                                         |
+| `logo`                     | `''` (empty string)                                       | Path to your site's logo. Will be used as the `src` attribute for an image                                                                                                        |
+| `showDescriptionInSidebar` | `true`                                                    | Show `config.site.description` in the sidebar                                                                                                                                     |
+| `gitRepoContentPath`       | `''`                                                      | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                         |
+| `showThemeInfo`            | `true`                                                    | Show info about this Gatsby theme                                                                                                                                                 |
+| `mdxOtherwiseConfigured`   | `true`                                                    | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`.    |
+| `flexSearchEngineOptions`  | `{ encode: 'icase', tokenize: 'forward', resolution: 9 }` | Configure FlexSearch's index method. The default value uses FlexSearch's `default` preset. Find out your other options [here](https://github.com/nextapps-de/flexsearch#presets). |
 
 ### Example usage
 
