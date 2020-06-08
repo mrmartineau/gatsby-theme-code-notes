@@ -1,3 +1,4 @@
+import { buttons } from './buttons'
 import { colors } from './colors'
 import { shadows } from './shadows'
 import { space } from './space'
@@ -20,6 +21,7 @@ import { badges } from './badges'
 import { borderWidths } from './borderWidths'
 
 export default {
+  buttons,
   colors,
   shadows,
   space,
