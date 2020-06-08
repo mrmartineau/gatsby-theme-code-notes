@@ -9,7 +9,8 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "dev": "gatsby develop"
+    "dev": "gatsby develop",
+    "release": "release-it"
   },
   "license": "MIT",
   "keywords": [
@@ -68,6 +69,7 @@
     "gatsby": "^2.23.1",
     "lint-staged": "^10.2.2",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "release-it": "^13.6.2"
   }
 }
