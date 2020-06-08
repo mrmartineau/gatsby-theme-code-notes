@@ -34,7 +34,7 @@
     "copee": "^1.0.6",
     "gatsby-core-utils": "^1.2.1",
     "gatsby-plugin-local-search": "^1.1.1",
-    "gatsby-plugin-mdx": "^1.2.6",
+    "gatsby-plugin-mdx": "^1.2.14",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-og-image": "^0.0.1",
     "gatsby-plugin-react-helmet": "^3.3.1",
