@@ -40,7 +40,7 @@
     "gatsby-plugin-redirects": "^1.0.0",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-plugin-typegen": "^2.0.0",
-    "gatsby-plugin-typescript": "^2.4.2",
+    "gatsby-plugin-typescript": "^2.4.4",
     "gatsby-source-filesystem": "^2.3.1",
     "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
