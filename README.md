@@ -1,11 +1,7 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/mrmartineau/gatsby-theme-code-notes/master/assets/logo.png" width="140">
+  <img src="https://raw.githubusercontent.com/mrmartineau/gatsby-theme-code-notes/master/assets/opengraph.png" width="640">
 
-  <h1>
-    Code Notes
-  </h1>
-
-  <p align="center">
+  <p>
     <a href="https://github.com/MrMartineau/gatsby-theme-code-notes/blob/master/LICENSE">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="gatsby-theme-code-notes is released under the MIT license." />
     </a>
@@ -24,11 +20,13 @@
     </a>
   </p>
 
+  <p>
+    <a href="#features">Features</a> •
+    <a href="#Installation">Installation</a> •
+    <a href="#usage">Usage</a> •
+    <a href="https://code-notes-example.netlify.com/">Demo</a>
+  </p>
 </div>
-
-### A Gatsby theme for publishing code-related notes to your website
-
-Example: [code-notes-example.netlify.com](https://code-notes-example.netlify.com/)
 
 ## Features
 
