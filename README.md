@@ -128,4 +128,4 @@ Turn your code notes into a PWA using [this extra config](https://github.com/mrm
 
 [MIT](https://choosealicense.com/licenses/mit/) © [Zander Martineau](https://zander.wtf)
 
-> Made by [Zander ⚡](https://github.com/mrmartineau/)
+> Made by Zander • [zander.wtf](https://zander.wtf) • [GitHub](https://github.com/mrmartineau/) • [Twitter](https://twitter.com/mrmartineau/)
