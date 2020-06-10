@@ -33,7 +33,7 @@
 - Notes can:
   - be written using Markdown (`.md`) or [MDX](https://mdxjs.com/) (`.mdx`)
   - have zero, one or many tags. See an example [here](https://code-notes-example.netlify.app/syntax-highlighting)
-  - have 💯 associated 🍔 emojis 👏
+  - have associated emojis 👏
 - Extra markdown features have also been added. Find out more [here](https://code-notes-example.netlify.app/markdown-features)
 - Note search powered by the super-fast [Flexsearch](https://github.com/nextapps-de/flexsearch)
 
@@ -50,6 +50,40 @@ yarn add gatsby-theme-code-notes gatsby react react-dom
 # or
 
 npm install gatsby-theme-code-notes gatsby react react-dom
+```
+
+### Using the Gatsby starter
+
+#### Step 1: Starter installation
+
+Source code for the starter can be found at: https://github.com/MrMartineau/gatsby-starter-code-notes
+
+##### With `gatsby-cli`:
+
+```sh
+gatsby new code-notes https://github.com/MrMartineau/gatsby-starter-code-notes
+```
+
+##### With `git clone`:
+
+```sh
+git clone git@github.com:MrMartineau/gatsby-starter-code-notes.git code-notes
+
+cd code-notes
+
+yarn
+```
+
+#### Step 2: Develop & Build
+
+Once installed or cloned locally and all packages are installed you can begin developing your site.
+
+```sh
+# Run localhost
+yarn dev
+
+# Build your Gatsby site
+yarn build
 ```
 
 ## Usage
