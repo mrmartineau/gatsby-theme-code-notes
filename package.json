@@ -11,17 +11,14 @@
     "dev": "yarn workspace example dev",
     "clean": "yarn workspace example clean",
     "start": "yarn workspace example start",
-    "lint": "eslint './gatsby-theme-code-notes/src/**/*.js'"
+    "lint": "eslint './gatsby-theme-code-notes/src/**/*'"
   },
   "workspaces": [
     "gatsby-theme-code-notes",
     "example"
   ],
-  "dependencies": {
-    "eslint": "^7.0.0"
-  },
   "devDependencies": {
-    "eslint": "^7.0.0",
+    "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.18.3",
