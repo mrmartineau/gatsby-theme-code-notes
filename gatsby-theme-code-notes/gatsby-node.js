@@ -154,3 +154,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type SiteSiteMetadata {
+      title: String!
+      description: String!
+      siteUrl: String!
+      gitRepoContentPath: String!
+      showThemeInfo: Boolean!
+      showDescriptionInSidebar: Boolean!
+      logo: String!
+      author: String!
+    }
+  `
+  createTypes(typeDefs)
+}
