@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { jsx, Heading } from 'theme-ui'
-import { useContext, Fragment } from 'react'
+import { Fragment } from 'react'
 import { NoteList } from '../NoteList'
 import { Layout } from '../Layout'
 import { useSiteMetadata } from '../../use-site-metadata'
-import { SearchContext } from '../Search'
 import { TagDot } from '../TagDot'
 
 export const NotesPage = ({ data, pageContext, location }) => {

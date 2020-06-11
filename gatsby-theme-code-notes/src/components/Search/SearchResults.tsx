@@ -1,7 +1,7 @@
-import React, { useState, Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useFlexSearch } from 'react-use-flexsearch'
-import { Heading, Box } from 'theme-ui'
+import { Box } from 'theme-ui'
 import { NoteListItem } from '../NoteListItem'
 import { SearchContext } from './SearchProvider'
 
