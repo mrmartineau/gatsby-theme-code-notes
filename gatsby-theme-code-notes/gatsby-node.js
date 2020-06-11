@@ -2,6 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const mkdirp = require('mkdirp')
 const slugify = require('@alexcarpenter/slugify')
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 const DEFAULT_BASE_PATH = '/'
 // These are customizable theme options we only need to check once
@@ -13,7 +14,7 @@ exports.onPreBootstrap = ({ store, reporter }, themeOptions) => {
   basePath = themeOptions.basePath || DEFAULT_BASE_PATH
   contentPath = themeOptions.contentPath || `content/notes`
   const dirs = [path.join(program.directory, contentPath)]
-  dirs.forEach(dir => {
+  dirs.forEach((dir) => {
     if (!fs.existsSync(dir)) {
       reporter.log(`Initializing ${dir} directory`)
       mkdirp.sync(dir)
@@ -36,11 +37,8 @@ exports.createPages = async ({ graphql, actions }, options) => {
                 title
                 tags
               }
-              parent {
-                ... on File {
-                  name
-                  base
-                }
+              fields {
+                slug
               }
             }
           }
@@ -71,7 +69,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
   const globalTagsList = allNotes.tags
   const notesData = allNotes.edges
   const hasUntagged = !!untagged.edges.length
-  const slugifiedTags = globalTagsList.map(item => {
+  const slugifiedTags = globalTagsList.map((item) => {
     return {
       ...item,
       slug: slugify(item.tag),
@@ -83,9 +81,9 @@ exports.createPages = async ({ graphql, actions }, options) => {
     const previous =
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
-    const parentName = slugify(note.node.parent.name)
+    const slug = note.node.fields.slug
     const itemPath =
-      basePath === DEFAULT_BASE_PATH ? parentName : `${basePath}${parentName}`
+      basePath === DEFAULT_BASE_PATH ? slug : `${basePath}${slug}`
     createPage({
       path: itemPath,
       component: path.join(__dirname, './src/templates', 'Note.js'),
@@ -137,7 +135,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
   }
 }
 
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
@@ -146,6 +144,13 @@ exports.onCreateNode = ({ node, actions }) => {
       node,
       name: `dateModified`,
       value: modifiedTime,
+    })
+
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
     })
   }
 }

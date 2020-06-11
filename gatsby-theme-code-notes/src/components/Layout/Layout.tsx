@@ -136,7 +136,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
             <SearchInput />
           </Box>
 
-          {query ? <SearchResults /> : <div>{children}</div>}
+          {query ? <SearchResults /> : children}
 
           {showThemeInfo && (
             <Box sx={{ mt: 4, fontSize: 0 }}>

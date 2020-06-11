@@ -95,7 +95,7 @@ const CodeLabel = ({ label }) => {
       sx={{
         position: 'absolute',
         top: 0,
-        left: '1rem',
+        left: 3,
         fontFamily: 'mono',
         fontSize: 0,
         bg: getColourFromString(language), //'contentBg',
@@ -105,6 +105,7 @@ const CodeLabel = ({ label }) => {
         lineHeight: 1,
         borderRadius: '0 0 0.2rem 0.2rem',
         userSelect: 'none',
+        height: 'auto',
       }}
     >
       {language}
@@ -113,27 +114,23 @@ const CodeLabel = ({ label }) => {
 }
 
 const Code = ({ children, classes, code }) => {
-  const noLang = !classes.includes('language')
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        pre: {
-          pt: noLang ? 'auto' : 5,
-        },
-      }}
-    >
+    <Box sx={{ position: 'relative', my: 4 }}>
       <Box
         sx={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
+          borderRadius: '0.25rem 0.25rem 0 0',
+          bg: 'background',
+          p: 2,
+          pb: 0,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
+        <CodeLabel label={classes} />
         <CopyCode code={code} />
       </Box>
       {children}
-      <CodeLabel label={classes} />
     </Box>
   )
 }

@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react'
-import { Heading, Box, Flex, Link, useThemeUI } from 'theme-ui'
+import { Heading, Box, Flex, Link } from 'theme-ui'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { TagList } from '../TagList'
 import { Layout } from '../Layout'
 import { DateModified } from '../DateModified'
 import { useSiteMetadata } from '../../use-site-metadata'
+import { Contents } from '../Contents'
 
 interface NotePageProps {
   data: {
@@ -23,6 +24,7 @@ interface NotePageProps {
         name: string
         fileName: string
       }
+      tableOfContents: any
     }
   }
   pageContext: {
@@ -50,7 +52,9 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
     fields: { dateModified },
     body,
     parent: { fileName },
+    tableOfContents,
   } = data.mdx
+
   const { gitRepoContentPath } = useSiteMetadata()
   const showMetadata = !!(link || dateModified)
 
@@ -99,6 +103,8 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
             </Flex>
           )}
         </Box>
+
+        <Contents toc={tableOfContents} />
 
         <MDXRenderer>{body}</MDXRenderer>
 

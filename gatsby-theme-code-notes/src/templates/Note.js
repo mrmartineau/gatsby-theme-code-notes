@@ -16,6 +16,10 @@ export const pageQuery = graphql`
       fields {
         dateModified(formatString: "Do MMM YYYY")
       }
+      fields {
+        slug
+      }
+      tableOfContents(maxDepth: 3)
       parent {
         ... on File {
           name

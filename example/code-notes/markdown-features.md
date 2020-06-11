@@ -6,18 +6,6 @@ tags:
 
 > This theme adds a few additional features to standard markdown.
 
-## Contents
-
-This uses [remark-toc](https://github.com/remarkjs/) to create a table of contents for your document.
-
-Just add a heading with `'Table of Contents'`, `'toc'`, or `'table-of-contents'` e.g.
-
-```md
-### Table of Contents
-```
-
-### Table of Contents
-
 ## Fenced code blocks
 
 Like you use with GitHub, e.g.
@@ -30,7 +18,7 @@ Like you use with GitHub, e.g.
 
 Like this: :joy: :eggplant:
 
-```
+```md
 Like this: :joy: :eggplant:
 ```
 

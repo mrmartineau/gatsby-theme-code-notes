@@ -69,11 +69,14 @@ export const styles = {
   },
   code: {
     p: 3,
+    pt: 2,
+    mt: 0,
     fontSize: 1,
     color: 'text',
     bg: 'background',
     overflowX: 'auto',
-    borderRadius: 'default',
+    borderRadius: (theme) =>
+      `0 0 ${theme.radii.default} ${theme.radii.default}`,
     fontFamily: 'mono',
     '.comment,.prolog,.doctype,.cdata': {
       color: 'code7',

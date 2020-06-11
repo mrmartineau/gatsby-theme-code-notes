@@ -8,6 +8,7 @@ export const buttons = {
     color: 'text',
     border: (theme) => `1px solid ${theme.colors.badgeBorder}`,
     borderRadius: 'large',
+    ml: 'auto',
     '&:hover,&:focus': {
       bg: 'badgeBgHover',
     },
