@@ -67,7 +67,7 @@ gatsby new code-notes https://github.com/MrMartineau/gatsby-starter-code-notes
 ##### With `git clone`:
 
 ```sh
-git clone git@github.com:MrMartineau/gatsby-starter-code-notes.git code-notes
+git clone git@github.com:MrMartineau/gatsby-starter-code-notes.git
 
 cd code-notes
 
