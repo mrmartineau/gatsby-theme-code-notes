@@ -3,7 +3,6 @@ module.exports = {
     title: 'Code notes',
     description: 'Notes on code. My memory bank.',
     keywords: [],
-    author: 'Zander',
   },
   plugins: [
     {

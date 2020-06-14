@@ -161,12 +161,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     type SiteSiteMetadata {
       title: String!
       description: String!
-      siteUrl: String!
-      gitRepoContentPath: String!
-      showThemeInfo: Boolean!
-      showDescriptionInSidebar: Boolean!
-      logo: String!
-      author: String!
+      gitRepoContentPath: String
+      showThemeInfo: Boolean
+      showDescriptionInSidebar: Boolean
+      logo: String
     }
     type MdxFrontmatter {
       title: String!
