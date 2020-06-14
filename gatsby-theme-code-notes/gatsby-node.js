@@ -168,6 +168,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       logo: String!
       author: String!
     }
+    type MdxFrontmatter {
+      title: String!
+      tags: [String]
+      emoji: String
+      link: String
+    }
   `
   createTypes(typeDefs)
 }
