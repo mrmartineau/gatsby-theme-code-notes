@@ -32,7 +32,7 @@ module.exports = (options) => {
     siteMetadata: {
       title: `Code Notes`,
       description: `A Gatsby theme for your code-related notes`,
-      siteUrl: `http://zander.wtf/`,
+      siteUrl: `https://zander.wtf/`,
       gitRepoContentPath,
       showThemeInfo,
       showDescriptionInSidebar,
