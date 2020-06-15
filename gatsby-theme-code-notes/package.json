@@ -71,7 +71,7 @@
     "@types/react-dom": "^16.9.8",
     "eslint-plugin-react-hooks": "^4.0.0",
     "gatsby": "^2.23.1",
-    "lint-staged": "^10.2.2",
+    "lint-staged": "^10.2.10",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "release-it": "^13.6.2"
