@@ -22,8 +22,7 @@ export const pageQuery = graphql`
       tableOfContents(maxDepth: 3)
       parent {
         ... on File {
-          name
-          fileName: base
+          relativePath
         }
       }
     }

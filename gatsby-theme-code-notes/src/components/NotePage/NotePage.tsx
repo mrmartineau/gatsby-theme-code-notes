@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react'
-import { Heading, Box, Flex, Link } from 'theme-ui'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { TagList } from '../TagList'
-import { Layout } from '../Layout'
-import { DateModified } from '../DateModified'
+import React, { FunctionComponent } from 'react'
+import { Box, Flex, Heading, Link } from 'theme-ui'
 import { useSiteMetadata } from '../../use-site-metadata'
 import { Contents } from '../Contents'
+import { DateModified } from '../DateModified'
+import { Layout } from '../Layout'
+import { TagList } from '../TagList'
 
 interface NotePageProps {
   data: {
@@ -21,8 +21,7 @@ interface NotePageProps {
         dateModified: string
       }
       parent: {
-        name: string
-        fileName: string
+        relativePath: string
       }
       tableOfContents: any
     }
@@ -51,7 +50,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
     frontmatter: { title, tags, emoji, link },
     fields: { dateModified },
     body,
-    parent: { fileName },
+    parent: { relativePath },
     tableOfContents,
   } = data.mdx
 
@@ -117,7 +116,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           }}
         >
           {gitRepoContentPath && (
-            <Link href={`${gitRepoContentPath}${fileName}`}>
+            <Link href={`${gitRepoContentPath}${relativePath}`}>
               Edit this page
             </Link>
           )}
