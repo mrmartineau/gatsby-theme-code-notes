@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Fragment } from 'react'
+import React, { Fragment, FunctionComponent } from 'react'
 import { NoteListItem } from '../NoteListItem'
 
 interface NoteListProps {
@@ -22,7 +22,7 @@ export const NoteList: FunctionComponent<NoteListProps> = ({ notes }) => {
               tags={tags}
               slug={slug}
               dateModified={dateModified}
-              key={name}
+              key={slug}
             />
           )
         })}
