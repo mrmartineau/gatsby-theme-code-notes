@@ -3,6 +3,7 @@ const remarkEmoji = require('remark-emoji')
 const squeezeParagraphs = require('remark-squeeze-paragraphs')
 const remarkTruncateLinks = require('remark-truncate-links').remarkTruncateLinks
 const TextCleaner = require('text-cleaner')
+const unwrapImages = require('remark-unwrap-images')
 
 const clean = (string) => {
   return TextCleaner(string)
@@ -39,15 +40,30 @@ module.exports = (options) => {
     },
     plugins: [
       'gatsby-plugin-typescript',
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`,
       mdxOtherwiseConfigured && {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.md`, `.mdx`],
+          gatsbyRemarkPlugins: [
+            {
+              resolve: 'gatsby-remark-images',
+              options: {
+                backgroundColor: 'none',
+                maxWidth: 900,
+                linkImagesToOriginal: false,
+                disableBgImage: true,
+                wrapperStyle: `margin: 1.5rem 0;`,
+              },
+            },
+          ],
           remarkPlugins: [
             remarkSlug,
             remarkEmoji,
             squeezeParagraphs,
             [remarkTruncateLinks, { style: 'smart' }],
+            unwrapImages,
           ],
         },
       },

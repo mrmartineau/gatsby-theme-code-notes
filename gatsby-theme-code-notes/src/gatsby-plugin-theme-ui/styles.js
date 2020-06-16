@@ -172,4 +172,12 @@ export const styles = {
     borderBottomColor: 'background',
     p: 2,
   },
+  img: {
+    my: 4,
+    p: 3,
+    border: (theme) => `1px solid ${theme.colors.muted}`,
+    //  mx: 'auto',
+    display: 'block',
+    borderRadius: 'default',
+  },
 }

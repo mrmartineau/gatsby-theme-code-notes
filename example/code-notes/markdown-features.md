@@ -6,6 +6,17 @@ tags:
 
 > This theme adds a few additional features to standard markdown.
 
+## Images
+
+![](./opengraph.png)
+![](./logo.png)
+
+Embed images using the usual markdown syntax.
+
+```md
+![](./opengraph.png)
+```
+
 ## Fenced code blocks
 
 Like you use with GitHub, e.g.
