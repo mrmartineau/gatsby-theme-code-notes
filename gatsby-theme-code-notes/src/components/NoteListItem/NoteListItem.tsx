@@ -6,7 +6,7 @@ import { jsx, Heading, Flex, Box, Link } from 'theme-ui'
 import { DateModified } from '../DateModified'
 
 interface NoteListItemProps {
-  name: string
+  slug: string
   title: string
   emoji?: string
   dateModified: string
@@ -15,7 +15,7 @@ interface NoteListItemProps {
 }
 
 export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
-  name,
+  slug,
   title,
   dateModified,
   tags,
@@ -25,12 +25,7 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   const noteEmoji = emoji ?? '🗒'
   return (
     <Box as="article">
-      <Link
-        as={GatsbyLink}
-        to={`/${name}`}
-        variant="noteListItem"
-        onClick={onClick}
-      >
+      <Link as={GatsbyLink} to={slug} variant="noteListItem" onClick={onClick}>
         <Flex
           sx={{
             justifyContent: 'space-between',

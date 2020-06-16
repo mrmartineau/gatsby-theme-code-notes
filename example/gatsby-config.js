@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Code notes',
-    description: 'Notes on code. My memory bank.',
+    description: 'A Gatsby theme for storing your code-related notes',
     keywords: [],
   },
   plugins: [
@@ -14,7 +14,8 @@ module.exports = {
           'https://github.com/mrmartineau/gatsby-theme-code-notes/tree/master/example/code-notes/',
         showDescriptionInSidebar: true,
         showThemeInfo: true,
-        logo: 'https://brand.zander.wtf/Avatar.png',
+        logo:
+          'https://raw.githubusercontent.com/mrmartineau/gatsby-theme-code-notes/master/assets/logo.png',
       },
     },
   ],
