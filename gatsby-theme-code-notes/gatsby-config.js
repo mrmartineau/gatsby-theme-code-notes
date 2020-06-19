@@ -93,10 +93,8 @@ module.exports = (options) => {
                     emoji
                     tags
                   }
-                  parent {
-                    ... on File {
-                      name
-                    }
+                  fields {
+                    slug
                   }
                   rawBody
                 }
@@ -105,12 +103,12 @@ module.exports = (options) => {
           }`,
           ref: 'id',
           index: ['title', 'body', 'tagsJoint'],
-          store: ['id', 'path', 'title', 'body', 'tags', 'emoji'],
+          store: ['id', 'slug', 'title', 'body', 'tags', 'emoji'],
           normalizer: ({ data }) =>
             data.allNotes.edges.map(({ node }) => {
               return {
                 id: node.id,
-                path: node.parent.name,
+                slug: node.fields.slug,
                 title: node.frontmatter.title,
                 body: clean(node.rawBody),
                 emoji: node.frontmatter.emoji,

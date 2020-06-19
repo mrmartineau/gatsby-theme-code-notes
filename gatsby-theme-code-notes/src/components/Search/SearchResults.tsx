@@ -30,7 +30,7 @@ export const SearchResults = () => {
             <NoteListItem
               title={result.title}
               tags={result.tags}
-              name={result.path}
+              slug={result.slug}
               key={result.id}
               emoji={result.emoji}
               dateModified="d"
