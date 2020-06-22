@@ -168,7 +168,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         <Box px={3} mb={3}>
           {!!logo && (
             <Box mb={3}>
-              <Image src={logo} variant="logo" />
+              <Image src={logo} variant="logo" alt="logo" />
             </Box>
           )}
           {showDescriptionInSidebar && description && (
