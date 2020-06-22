@@ -85,10 +85,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           {showMetadata && (
             <Flex sx={{ mb: 3 }}>
               {link && (
-                <Link
-                  href={link}
-                  sx={{ mr: 3, fontFamily: 'monospace', fontSize: 0 }}
-                >
+                <Link href={link} sx={{ mr: 3 }} variant="noteLink">
                   {link}
                 </Link>
               )}

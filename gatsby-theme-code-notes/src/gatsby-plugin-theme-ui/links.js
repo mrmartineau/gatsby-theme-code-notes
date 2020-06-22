@@ -46,4 +46,26 @@ export const links = {
       opacity: '0.7',
     },
   },
+
+  noteLink: {
+    border: '1px solid currentColor',
+    px: 2,
+    pb: '0.3rem',
+    pt: '0.4rem',
+    lineHeight: 1,
+    fontWeight: 'bold',
+    fontSize: 0,
+    borderRadius: 'default',
+    color: 'primary',
+    textDecoration: 'none',
+    outline: 'none',
+    '&:hover,&:focus': {
+      // opacity: '0.7',
+      color: 'background',
+      bg: 'primary',
+    },
+    '&::after': {
+      content: '\u2192',
+    },
+  },
 }
