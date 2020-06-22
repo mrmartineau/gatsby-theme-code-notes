@@ -42,7 +42,6 @@ export const links = {
     flexShrink: 0,
     '&:hover': {
       textDecoration: 'none',
-      // bg: 'badgeBgHover',
       opacity: '0.7',
     },
   },
@@ -52,7 +51,6 @@ export const links = {
     px: 2,
     pb: '0.3rem',
     pt: '0.4rem',
-    lineHeight: 1,
     fontWeight: 'bold',
     fontSize: 0,
     borderRadius: 'default',
@@ -60,12 +58,8 @@ export const links = {
     textDecoration: 'none',
     outline: 'none',
     '&:hover,&:focus': {
-      // opacity: '0.7',
       color: 'background',
       bg: 'primary',
-    },
-    '&::after': {
-      content: '\u2192',
     },
   },
 }
