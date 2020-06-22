@@ -24,7 +24,6 @@ exports.onPreBootstrap = ({ store, reporter }, themeOptions) => {
 }
 
 exports.onPreExtractQueries = ({ reporter }, themeOptions) => {
-  console.log('exports.onPreExtractQueries -> themeOptions', themeOptions)
   if (themeOptions.openSearch && themeOptions.openSearch.siteUrl) {
     const filePath = path.join('public', 'opensearch.xml')
     fs.writeFile(
