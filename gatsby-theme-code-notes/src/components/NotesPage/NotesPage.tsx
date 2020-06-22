@@ -10,6 +10,7 @@ export const NotesPage = ({ data, pageContext, location }) => {
   const notes = data.allMdx.edges
   const { title } = useSiteMetadata()
   const siteTitle = title
+
   return (
     <Layout
       activeTag={pageContext.tag}

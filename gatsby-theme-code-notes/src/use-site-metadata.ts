@@ -11,6 +11,10 @@ export const useSiteMetadata = () => {
           showThemeInfo
           showDescriptionInSidebar
           logo
+          openSearch {
+            siteUrl
+            siteShortName
+          }
         }
       }
     }

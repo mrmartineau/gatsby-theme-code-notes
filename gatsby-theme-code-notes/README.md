@@ -94,18 +94,21 @@ yarn build
 
 ### Theme Options
 
-| Key                        | Default value                                             | Description                                                                                                                                                                       |
-| -------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `basePath`                 | `/`                                                       | Root url for all notes pages                                                                                                                                                      |
-| `contentPath`              | `/content/notes`                                          | Location of notes content                                                                                                                                                         |
-| `logo`                     | `''` (empty string)                                       | Path to your site's logo. Will be used as the `src` attribute for an image                                                                                                        |
-| `showDescriptionInSidebar` | `true`                                                    | Show `config.site.description` in the sidebar                                                                                                                                     |
-| `gitRepoContentPath`       | `''`                                                      | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                         |
-| `showThemeInfo`            | `true`                                                    | Show info about this Gatsby theme                                                                                                                                                 |
-| `mdxOtherwiseConfigured`   | `true`                                                    | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`.    |
-| `flexSearchEngineOptions`  | `{ encode: 'icase', tokenize: 'forward', resolution: 9 }` | Configure FlexSearch's index method. The default value uses FlexSearch's `default` preset. Find out your other options [here](https://github.com/nextapps-de/flexsearch#presets). |
+| Key                        | Default value                                             | Description                                                                                                                                                                                                                       |
+| -------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `basePath`                 | `/`                                                       | Root url for all notes pages                                                                                                                                                                                                      |
+| `contentPath`              | `/content/notes`                                          | Location of notes content                                                                                                                                                                                                         |
+| `logo`                     | `''` (empty string)                                       | Path to your site's logo. Will be used as the `src` attribute for an image                                                                                                                                                        |
+| `showDescriptionInSidebar` | `true`                                                    | Show `config.site.description` in the sidebar                                                                                                                                                                                     |
+| `gitRepoContentPath`       | `''`                                                      | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                                                                         |
+| `showThemeInfo`            | `true`                                                    | Show info about this Gatsby theme                                                                                                                                                                                                 |
+| `mdxOtherwiseConfigured`   | `true`                                                    | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`.                                                    |
+| `flexSearchEngineOptions`  | `{ encode: 'icase', tokenize: 'forward', resolution: 9 }` | Configure FlexSearch's index method. The default value uses FlexSearch's `default` preset. Find out your other options [here](https://github.com/nextapps-de/flexsearch#presets).                                                 |
+| `openSearch`               | `{ }`                                                     | Configure the `opensearch.xml` file contents. This file is generated during the build process. If you want to add opensearch support, ensure you set a `siteUrl` in the config. See [below](#example-usage) for more information. |
 
 ### Example usage
+
+This example overrides some of the theme defaults and shows the various options for the opensearch config.
 
 ```js
 // gatsby-config.js
@@ -121,6 +124,16 @@ module.exports = {
         showDescriptionInSidebar: true,
         showThemeInfo: false,
         logo: 'https://brand.zander.wtf/Avatar.png',
+
+        // Opensearch is used to enhance the search on your site.
+        // If you want to add it, ensure you set a `siteUrl`
+        openSearch: {
+          siteUrl: 'https://code-notes-example.netlify.app', // required if you want opensearch
+          siteShortName: 'Gatsby Theme Code Notes Example', // override the default value of 'Search`
+          siteTags: 'front-end', // optional
+          siteContact: 'https://twitter.com/MrMartineau', // optional
+          siteDescription: 'A Gatsby theme for storing your code-related notes', // optional
+        },
       },
     },
   ],

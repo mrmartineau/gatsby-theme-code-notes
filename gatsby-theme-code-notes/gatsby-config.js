@@ -27,6 +27,7 @@ module.exports = (options) => {
       tokenize: 'forward',
       resolution: 9,
     },
+    openSearch = {},
   } = options
 
   return {
@@ -37,6 +38,7 @@ module.exports = (options) => {
       showThemeInfo,
       showDescriptionInSidebar,
       logo,
+      openSearch,
     },
     plugins: [
       'gatsby-plugin-typescript',

@@ -3,6 +3,7 @@ const fs = require('fs')
 const mkdirp = require('mkdirp')
 const slugify = require('@alexcarpenter/slugify')
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const createOpenSearchFile = require('./src/utils/createOpenSearch')
 
 const DEFAULT_BASE_PATH = '/'
 // These are customizable theme options we only need to check once
@@ -20,6 +21,21 @@ exports.onPreBootstrap = ({ store, reporter }, themeOptions) => {
       mkdirp.sync(dir)
     }
   })
+}
+
+exports.onPreExtractQueries = ({ reporter }, themeOptions) => {
+  console.log('exports.onPreExtractQueries -> themeOptions', themeOptions)
+  if (themeOptions.openSearch && themeOptions.openSearch.siteUrl) {
+    const filePath = path.join('public', 'opensearch.xml')
+    fs.writeFile(
+      filePath,
+      createOpenSearchFile(themeOptions.openSearch),
+      (err) => {
+        if (err) throw err
+        reporter.log('The opensearch.xml file has been created')
+      }
+    )
+  }
 }
 
 exports.createPages = async ({ graphql, actions }, options) => {
@@ -158,6 +174,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
+    type OpenSearch {
+      siteShortName: String
+      siteUrl: String
+      siteTags: String
+      siteContact: String
+      siteDescription: String
+    }
     type SiteSiteMetadata {
       title: String!
       description: String!
@@ -165,6 +188,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       showThemeInfo: Boolean
       showDescriptionInSidebar: Boolean
       logo: String
+      openSearch: OpenSearch
     }
     type MdxFrontmatter {
       title: String!

@@ -43,6 +43,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     showDescriptionInSidebar,
     description,
     logo,
+    openSearch,
   } = useSiteMetadata()
   const [navOpen, setNavOpen] = useState(false)
   const [colorMode, setColorMode] = useColorMode()
@@ -59,6 +60,14 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         <meta charSet="utf-8" />
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        {openSearch && openSearch.siteUrl && (
+          <link
+            rel="search"
+            type="application/opensearchdescription+xml"
+            href="/opensearch.xml"
+            title={openSearch.siteShortName}
+          />
+        )}
       </Helmet>
       <Global
         key="global-styles"

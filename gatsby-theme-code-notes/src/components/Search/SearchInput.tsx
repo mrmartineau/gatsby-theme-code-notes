@@ -1,12 +1,22 @@
 /** @jsx jsx */
 import { useContext, useEffect, useRef } from 'react'
 import { jsx, Input, Box } from 'theme-ui'
+import querystring from 'querystring'
 import { SearchContext } from './SearchProvider'
 import { GoSearch } from 'react-icons/go'
 
 export const SearchInput = () => {
   const { query, setQuery } = useContext(SearchContext)
   const inputEl = useRef<HTMLInputElement | null>(null)
+
+  useEffect(() => {
+    const searchParts = location.search.split('?')
+    const searchParams = querystring.parse(searchParts[1])
+    if (searchParams.search) {
+      console.log('NotesPage -> searchParams', searchParams)
+      setQuery(searchParams.search)
+    }
+  }, [])
 
   useEffect(() => {
     window.addEventListener('keydown', (event) => {
@@ -44,6 +54,7 @@ export const SearchInput = () => {
         onChange={(event) => {
           console.log('Search -> event.target.value', event.target.value)
           setQuery(event.target.value)
+          window.history.pushState({}, '', `?search=${event.target.value}`)
         }}
         aria-label="Search"
         placeholder="Search notes"
