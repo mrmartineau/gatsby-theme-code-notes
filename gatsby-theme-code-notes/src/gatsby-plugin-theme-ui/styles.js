@@ -62,14 +62,14 @@ export const styles = {
   inlineCode: {
     backgroundColor: 'background',
     p: '0.1em 0.2em',
-    fontSize: '1em',
+    fontSize: '80%',
     borderRadius: 'default',
     fontWeight: 'inherit',
     fontFamily: 'mono',
+    color: 'code4',
   },
-  code: {
-    p: 3,
-    pt: 2,
+  pre: {
+    py: 2,
     mt: 0,
     fontSize: 1,
     color: 'text',
@@ -126,14 +126,23 @@ export const styles = {
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: 'muted',
     },
-  },
-  pre: {
-    p: 3,
-    color: 'text',
-    bg: 'background',
-    borderRadius: 'default',
-    overflowX: 'auto',
-    fontFamily: 'mono',
+    '.highlight': {
+      bg: 'codeHighlight',
+      position: 'relative',
+      '&::before': {
+        content: "''",
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        display: 'block',
+        width: '4px',
+        bg: 'codeHighlightBorder',
+      },
+    },
+    '.token-line': {
+      px: 3,
+    },
   },
   blockquote: {
     borderLeft: '4px solid',

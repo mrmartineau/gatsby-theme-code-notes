@@ -25,6 +25,34 @@ Like you use with GitHub, e.g.
     const variable = 42
     ```
 
+### Highlighting lines in code blocks
+
+To highlight lines, wrap line with this comment before: `// highlight-start` and this after `// highlight-end`. **Ensure that these comments are not indented.**
+
+```css
+.grid {
+// highlight-start
+  display: grid;
+  grid-gap: 30px;
+// highlight-end
+  grid-template-columns: repeat(auto-fill, 112px);
+  /* or this */
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+}
+```
+
+      ```css
+      .grid {
+      // highlight-start
+        display: grid;
+        grid-gap: 30px;
+      // highlight-end
+        grid-template-columns: repeat(auto-fill, 112px);
+        /* or this */
+        grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+      }
+      ```
+
 ## Emoji short codes
 
 Like this: :joy: :eggplant:
