@@ -6842,6 +6842,11 @@ escape-string-regexp@^2.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
   integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
+escape-string-regexp@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
+  integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
+
 escodegen@^1.14.1:
   version "1.14.2"
   resolved "https://registry.yarnpkg.com/escodegen/-/escodegen-1.14.2.tgz#14ab71bf5026c2aa08173afba22c6f3173284a84"
@@ -16635,16 +16640,15 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-text-cleaner@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/text-cleaner/-/text-cleaner-1.1.0.tgz#4683f29f6464dde3cbec0ee281ec89f3050ac35b"
-  integrity sha512-lmk6X1GHi66D9ZwWxkpDq5vEqMyCVj43qA+QGzTiS9H27RC3HOPFTGaww+Fqrvvqf6Bkds2lbvsJxKHIilPVqg==
+text-cleaner@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/text-cleaner/-/text-cleaner-1.2.0.tgz#1db8a0e0af8c14039022bfb45ef4a65df78e9011"
+  integrity sha512-k4BsIh029wG4k/nXMS/VzK46SUCQLRQsJ22PpNPtmsqzjRqs3mVtL6YTBCzhvVlwHwyZCrbL+QhgKKvDMQGdtA==
   dependencies:
     anglicize "^1.0.0"
-    defaults "^1.0.3"
     email-regex "^4.0.0"
     ent "^2.2.0"
-    escape-string-regexp "^2.0.0"
+    escape-string-regexp "^4.0.0"
     phone-regex "^2.1.0"
     stopword "^1.0.0"
     striptags "^3.1.1"
