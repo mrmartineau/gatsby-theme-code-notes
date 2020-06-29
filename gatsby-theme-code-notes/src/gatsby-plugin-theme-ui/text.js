@@ -17,4 +17,13 @@ export const text = {
     color: 'text',
     pl: 5,
   },
+
+  dateModified: {
+    fontSize: 0,
+    opacity: 0.7,
+    color: 'text',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
 }

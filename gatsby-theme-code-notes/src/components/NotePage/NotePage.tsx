@@ -1,9 +1,8 @@
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React, { FunctionComponent } from 'react'
-import { Box, Flex, Heading, Link } from 'theme-ui'
+import { Box, Flex, Heading, Link, Text } from 'theme-ui'
 import { useSiteMetadata } from '../../use-site-metadata'
 import { Contents } from '../Contents'
-import { DateModified } from '../DateModified'
 import { Layout } from '../Layout'
 import { TagList } from '../TagList'
 
@@ -19,6 +18,7 @@ interface NotePageProps {
       body: any
       fields: {
         dateModified: string
+        modifiedTimestamp: string
       }
       parent: {
         relativePath: string
@@ -48,7 +48,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   }
   const {
     frontmatter: { title, tags, emoji, link },
-    fields: { dateModified },
+    fields: { dateModified, modifiedTimestamp },
     body,
     parent: { relativePath },
     tableOfContents,
@@ -83,13 +83,20 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           </Heading>
 
           {showMetadata && (
-            <Flex sx={{ mb: 3 }}>
+            <Flex sx={{ mb: 3, alignItems: 'center' }}>
               {link && (
-                <Link href={link} sx={{ mr: 3 }} variant="noteLink">
+                <Link
+                  href={link}
+                  sx={{ mr: 3, fontSize: 0, fontWeight: 'normal' }}
+                >
                   {link}
                 </Link>
               )}
-              {false && <DateModified>{dateModified}</DateModified>}
+              {dateModified && (
+                <time dateTime={modifiedTimestamp}>
+                  <Text variant="dateModified">{dateModified}</Text>
+                </time>
+              )}
             </Flex>
           )}
 

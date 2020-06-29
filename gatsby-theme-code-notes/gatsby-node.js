@@ -3,6 +3,7 @@ const fs = require('fs')
 const mkdirp = require('mkdirp')
 const slugify = require('@alexcarpenter/slugify')
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { getLastModifiedDate } = require('git-jiggy')
 const createOpenSearchFile = require('./src/utils/createOpenSearch')
 
 const DEFAULT_BASE_PATH = '/'
@@ -150,15 +151,20 @@ exports.createPages = async ({ graphql, actions }, options) => {
   }
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
-    const modifiedTime = fs.statSync(node.fileAbsolutePath).mtime
+    const lastEdited = await getLastModifiedDate(node.fileAbsolutePath)
+    console.log(
+      'exports.onCreateNode -> lastEdited',
+      node.fileAbsolutePath,
+      lastEdited
+    )
     createNodeField({
       node,
       name: `dateModified`,
-      value: modifiedTime,
+      value: lastEdited,
     })
 
     const value = createFilePath({ node, getNode })

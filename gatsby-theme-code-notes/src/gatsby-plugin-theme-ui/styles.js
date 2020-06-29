@@ -15,8 +15,8 @@ export const styles = {
   },
   a: {
     transition: 'all 200ms ease-in-out ',
+    fontWeight: 'bold',
     '&:link, &:visited': {
-      fontWeight: 'bold',
       color: 'text',
       textDecoration: 'none',
       borderBottom: '2px solid',

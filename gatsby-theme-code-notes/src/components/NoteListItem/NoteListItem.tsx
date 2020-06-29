@@ -2,14 +2,14 @@
 import { FunctionComponent } from 'react'
 import { TagList } from '../TagList'
 import { Link as GatsbyLink } from 'gatsby'
-import { jsx, Heading, Flex, Box, Link } from 'theme-ui'
-import { DateModified } from '../DateModified'
+import { jsx, Heading, Flex, Box, Link, Text } from 'theme-ui'
 
 interface NoteListItemProps {
   slug: string
   title: string
   emoji?: string
   dateModified: string
+  modifiedTimestamp: string
   tags: string[]
   onClick?: () => void
 }
@@ -18,6 +18,7 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   slug,
   title,
   dateModified,
+  modifiedTimestamp,
   tags,
   emoji,
   onClick,
@@ -38,12 +39,14 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
             </Box>
             {title}
           </Heading>
-          <Flex sx={{ alignItems: 'center', textAlign: 'right' }}>
+          <Flex sx={{ alignItems: 'center' }}>
             {tags && <TagList tags={tags} asLinks={false} />}
-            {false && (
-              <Box ml={2}>
-                <DateModified>{dateModified}</DateModified>
-              </Box>
+            {dateModified && (
+              <time dateTime={modifiedTimestamp}>
+                <Text variant="dateModified" sx={{ ml: 2 }}>
+                  {dateModified}
+                </Text>
+              </time>
             )}
           </Flex>
         </Flex>
