@@ -8,21 +8,25 @@ interface NoteListProps {
 export const NoteList: FunctionComponent<NoteListProps> = ({ notes }) => {
   return (
     <Fragment>
-      {notes.map(({ node }) => {
-        const { title, tags, emoji } = node.frontmatter
-        const { dateModified, modifiedTimestamp, slug } = node.fields
-        return (
-          <NoteListItem
-            title={title}
-            emoji={emoji}
-            tags={tags}
-            slug={slug}
-            dateModified={dateModified}
-            modifiedTimestamp={modifiedTimestamp}
-            key={slug}
-          />
+      {notes
+        .sort((one, two) =>
+          one.node.frontmatter.title.localeCompare(two.node.frontmatter.title)
         )
-      })}
+        .map(({ node }) => {
+          const { title, tags, emoji } = node.frontmatter
+          const { dateModified, modifiedTimestamp, slug } = node.fields
+          return (
+            <NoteListItem
+              title={title}
+              emoji={emoji}
+              tags={tags}
+              slug={slug}
+              dateModified={dateModified}
+              modifiedTimestamp={modifiedTimestamp}
+              key={slug}
+            />
+          )
+        })}
     </Fragment>
   )
 }

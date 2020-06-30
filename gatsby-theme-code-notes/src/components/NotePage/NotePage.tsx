@@ -114,7 +114,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                   </Link>
                 </Fragment>
               )}
-              {dateModified && (
+              {false && (
                 <time
                   dateTime={modifiedTimestamp}
                   sx={{ display: 'flex', alignItems: 'center' }}
