@@ -58,7 +58,7 @@ export const colors = {
       badgeBg: 'hsl(285, 5%, 17%)',
       badgeBgHover: 'hsl(285, 5%, 20%)',
       badgeBorder: 'hsl(285, 5%, 12%)',
-      input: '#ddd',
+      input: 'hsl(215, 5%, 65%)',
       code1: 'hsl(345, 100%, 69%)',
       code2: '#fc9867',
       code3: '#ffd866',
