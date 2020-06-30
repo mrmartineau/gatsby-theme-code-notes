@@ -1,6 +1,8 @@
+/** @jsx jsx */
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import React, { FunctionComponent } from 'react'
-import { Box, Flex, Heading, Link, Text } from 'theme-ui'
+import { FunctionComponent, Fragment } from 'react'
+import { jsx, Box, Flex, Heading, Link, Text } from 'theme-ui'
+import { GoLink, GoCalendar, GoTag } from 'react-icons/go'
 import { useSiteMetadata } from '../../use-site-metadata'
 import { Contents } from '../Contents'
 import { Layout } from '../Layout'
@@ -83,17 +85,47 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           </Heading>
 
           {showMetadata && (
-            <Flex sx={{ mb: 3, alignItems: 'center' }}>
+            <Flex
+              sx={{
+                mb: 3,
+                alignItems: 'center',
+              }}
+            >
               {link && (
-                <Link
-                  href={link}
-                  sx={{ mr: 3, fontSize: 0, fontWeight: 'normal' }}
-                >
-                  {link}
-                </Link>
+                <Fragment>
+                  <GoLink
+                    sx={{
+                      color: 'input',
+                      pointerEvents: 'none',
+                      mr: 2,
+                    }}
+                  />
+                  <Link
+                    href={link}
+                    sx={{
+                      mr: 4,
+                      fontSize: 0,
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {link}
+                  </Link>
+                </Fragment>
               )}
               {dateModified && (
-                <time dateTime={modifiedTimestamp}>
+                <time
+                  dateTime={modifiedTimestamp}
+                  sx={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <GoCalendar
+                    sx={{
+                      color: 'input',
+                      pointerEvents: 'none',
+                      mr: 2,
+                    }}
+                  />
                   <Text variant="dateModified">{dateModified}</Text>
                 </time>
               )}
@@ -102,6 +134,13 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
 
           {tags && (
             <Flex>
+              <GoTag
+                sx={{
+                  color: 'input',
+                  pointerEvents: 'none',
+                  mr: 2,
+                }}
+              />
               <TagList tags={tags} />
             </Flex>
           )}

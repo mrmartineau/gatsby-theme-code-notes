@@ -52,7 +52,6 @@ export const SearchInput = () => {
       <Input
         value={query}
         onChange={(event) => {
-          console.log('Search -> event.target.value', event.target.value)
           setQuery(event.target.value)
           window.history.pushState({}, '', `?search=${event.target.value}`)
         }}
