@@ -55,6 +55,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
               }
               fields {
                 slug
+                dateModified
               }
             }
           }
@@ -151,28 +152,27 @@ exports.createPages = async ({ graphql, actions }, options) => {
   }
 }
 
-exports.onCreateNode = async ({ node, actions, getNode }) => {
+exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
-    const lastEdited = await getLastModifiedDate(node.fileAbsolutePath)
-    console.log(
-      'exports.onCreateNode -> lastEdited',
-      node.fileAbsolutePath,
-      lastEdited
-    )
-    createNodeField({
-      node,
-      name: `dateModified`,
-      value: lastEdited,
-    })
-
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
       value,
     })
+
+    try {
+      const lastEdited = await getLastModifiedDate(node.fileAbsolutePath)
+      createNodeField({
+        name: `dateModified`,
+        node,
+        value: lastEdited,
+      })
+    } catch (err) {
+      reporter.log(`Cannot get modified date for ${node.fileAbsolutePath}`)
+    }
   }
 }
 
