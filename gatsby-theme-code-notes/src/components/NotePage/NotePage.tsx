@@ -59,6 +59,12 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   const { gitRepoContentPath } = useSiteMetadata()
   const showMetadata = !!(link || dateModified)
 
+  let shortenedLink = link
+  if ('URL' in window) {
+    const { hostname, pathname } = new URL(link)
+    shortenedLink = `${hostname}${pathname}`
+  }
+
   return (
     <Layout
       hasUntagged={pageContext.hasUntagged}
@@ -110,7 +116,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                       textOverflow: 'ellipsis',
                     }}
                   >
-                    {link}
+                    {shortenedLink}
                   </Link>
                 </Fragment>
               )}
