@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-code-notes",
   "description": "A Gatsby theme for publishing code-related notes and snippets",
-  "version": "1.13.1",
+  "version": "1.13.2",
   "main": "index.js",
   "author": {
     "name": "Zander Martineau",
