@@ -60,9 +60,11 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   const showMetadata = !!(link || dateModified)
 
   let shortenedLink = link
-  if ('URL' in window) {
-    const { hostname, pathname } = new URL(link)
-    shortenedLink = `${hostname}${pathname}`
+  if (shortenedLink) {
+    if ('URL' in window) {
+      const { hostname, pathname } = new URL(link)
+      shortenedLink = `${hostname}${pathname}`
+    }
   }
 
   return (
