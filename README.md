@@ -38,6 +38,7 @@
   - have zero, one or many tags. See an example [here](https://code-notes-example.netlify.app/syntax-highlighting)
   - have associated emojis 👏
   - be nested in subfolders so you can organise them how you like
+  - sketchy annotations (highlights, strike-thoughs etc). Find out more [here](https://code-notes-example.netlify.app/annotations)
 - Extra markdown features have also been added. Find out more [here](https://code-notes-example.netlify.app/markdown-features)
 - Note search powered by the super-fast [Flexsearch](https://github.com/nextapps-de/flexsearch)
 

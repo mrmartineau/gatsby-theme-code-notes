@@ -18,5 +18,6 @@
     "titleBar.border": "#557c9b"
   },
   "peacock.color": "#557c9b",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "deno.enable": false
 }
