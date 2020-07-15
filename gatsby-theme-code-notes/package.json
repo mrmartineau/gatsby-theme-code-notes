@@ -60,6 +60,7 @@
     "querystring": "^0.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^3.9.0",
+    "react-rough-notation": "^0.1.1",
     "react-use-flexsearch": "^0.1.1",
     "remark-emoji": "^2.0.2",
     "remark-github": "^9.0.1",

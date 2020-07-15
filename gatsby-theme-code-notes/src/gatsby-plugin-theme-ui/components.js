@@ -1,10 +1,18 @@
 /** @jsx jsx */
-import { jsx, Box, Button } from 'theme-ui'
+import { jsx, Box as TUIBox, Button } from 'theme-ui'
 import Prism from '@theme-ui/prism'
 import { FaAnchor } from 'react-icons/fa'
 import { toClipboard } from 'copee'
 import { useState } from 'react'
 import { getColourFromString } from '../utils/getColourFromString'
+import {
+  Underline,
+  Box,
+  Circle,
+  Highlight,
+  StrikeThrough,
+  CrossedOff,
+} from '../components/Rough'
 
 const heading = (Tag) => (props) => {
   if (!props.id) return <Tag {...props} />
@@ -45,7 +53,7 @@ const heading = (Tag) => (props) => {
 
 const ResponsiveTable = ({ children }) => {
   return (
-    <Box
+    <TUIBox
       sx={{
         overflowX: 'auto',
         whiteSpace: 'nowrap',
@@ -56,7 +64,7 @@ const ResponsiveTable = ({ children }) => {
       }}
     >
       <table>{children}</table>
-    </Box>
+    </TUIBox>
   )
 }
 
@@ -91,7 +99,7 @@ const CodeLabel = ({ label }) => {
   const language = classes[langIndex].replace('language-', '')
 
   return (
-    <Box
+    <TUIBox
       sx={{
         position: 'absolute',
         top: 0,
@@ -109,14 +117,14 @@ const CodeLabel = ({ label }) => {
       }}
     >
       {language}
-    </Box>
+    </TUIBox>
   )
 }
 
 const Code = ({ children, classes, code }) => {
   return (
-    <Box sx={{ position: 'relative', my: 4 }}>
-      <Box
+    <TUIBox sx={{ position: 'relative', my: 4 }}>
+      <TUIBox
         sx={{
           borderRadius: '0.25rem 0.25rem 0 0',
           bg: 'background',
@@ -129,9 +137,9 @@ const Code = ({ children, classes, code }) => {
       >
         <CodeLabel label={classes} />
         <CopyCode code={code} />
-      </Box>
+      </TUIBox>
       {children}
-    </Box>
+    </TUIBox>
   )
 }
 
@@ -149,6 +157,12 @@ const components = {
     </Code>
   ),
   table: (props) => <ResponsiveTable>{props.children}</ResponsiveTable>,
+  Underline,
+  Box,
+  Circle,
+  Highlight,
+  StrikeThrough,
+  CrossedOff,
 }
 
 export default components

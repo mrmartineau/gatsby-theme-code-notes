@@ -36,6 +36,10 @@ export const colors = {
   code6: '#0366d6',
   code7: '#999988',
 
+  highlight: '#fff176',
+  around: '#1aa6e9',
+  crossed: '#e9522c',
+
   modes: {
     dark: {
       text: 'hsl(210, 38%, 95%)',
@@ -66,6 +70,10 @@ export const colors = {
       code5: '#78dce8',
       code6: '#ab9df2',
       code7: '#999988',
+
+      highlight: 'hsl(50, 80%, 35%)',
+      around: '#1aa6e9',
+      crossed: '#e9522c',
     },
   },
 }
