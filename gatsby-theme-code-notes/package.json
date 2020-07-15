@@ -33,6 +33,11 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
+  "files": [
+    "src",
+    "gatsby-*.js",
+    "tsconfig.json"
+  ],
   "dependencies": {
     "@alexcarpenter/slugify": "^1.0.6",
     "@mdx-js/mdx": "^1.6.5",
