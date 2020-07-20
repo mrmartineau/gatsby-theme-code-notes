@@ -44,6 +44,13 @@ module.exports = (options) => {
       'gatsby-plugin-typescript',
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: options.contentPath || `content/notes`,
+          name: options.contentPath || `content/notes`,
+        },
+      },
       mdxOtherwiseConfigured && {
         resolve: `gatsby-plugin-mdx`,
         options: {
@@ -67,13 +74,6 @@ module.exports = (options) => {
             [remarkTruncateLinks, { style: 'smart' }],
             unwrapImages,
           ],
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: options.contentPath || `content/notes`,
-          name: options.contentPath || `content/notes`,
         },
       },
       `gatsby-plugin-redirects`,
