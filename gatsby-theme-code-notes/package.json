@@ -60,7 +60,7 @@
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-transformer-sharp": "^2.5.7",
     "git-jiggy": "^1.1.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mkdirp": "^1.0.3",
     "querystring": "^0.2.0",
     "react-helmet": "^6.1.0",
