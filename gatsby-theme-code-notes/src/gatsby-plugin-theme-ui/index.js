@@ -21,6 +21,7 @@ import { badges } from './badges'
 import { borderWidths } from './borderWidths'
 
 export default {
+  useColorSchemeMediaQuery: true,
   buttons,
   colors,
   shadows,
