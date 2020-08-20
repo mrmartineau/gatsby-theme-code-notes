@@ -54,7 +54,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
               }
               fields {
                 slug
-                dateModified
               }
             }
           }

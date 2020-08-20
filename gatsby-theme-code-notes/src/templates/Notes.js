@@ -12,14 +12,12 @@ export const pageQuery = graphql`
       emoji
     }
     fields {
-      dateModified(formatString: "MMM DD, YYYY")
-      modifiedTimestamp: dateModified
       slug
     }
   }
 
   query {
-    allMdx(sort: { fields: fields___dateModified, order: DESC }) {
+    allMdx {
       edges {
         node {
           ...AllPages
