@@ -149,7 +149,9 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 
           {showThemeInfo && (
             <Box sx={{ mt: 4, fontSize: 0 }}>
-              Want to make your own site like this? Try{' '}
+              Want to make your own site like this?
+              <br />
+              Try{' '}
               <Link href="https://github.com/mrmartineau/gatsby-theme-code-notes">
                 gatsby-theme-code-notes
               </Link>{' '}
@@ -210,7 +212,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         >
           <IconButton
             onClick={(e) => {
-              setColorMode(colorMode === 'default' ? 'dark' : 'default')
+              setColorMode(colorMode === 'light' ? 'dark' : 'light')
             }}
             aria-label="Toggle dark mode"
             sx={{
