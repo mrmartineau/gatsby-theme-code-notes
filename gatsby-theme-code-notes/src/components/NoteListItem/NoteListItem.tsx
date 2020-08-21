@@ -8,8 +8,6 @@ interface NoteListItemProps {
   slug: string
   title: string
   emoji?: string
-  dateModified: string
-  modifiedTimestamp: string
   tags: string[]
   onClick?: () => void
 }
@@ -17,8 +15,6 @@ interface NoteListItemProps {
 export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   slug,
   title,
-  dateModified,
-  modifiedTimestamp,
   tags,
   emoji,
   onClick,
@@ -41,13 +37,6 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
           </Heading>
           <Flex sx={{ alignItems: 'center' }}>
             {tags && <TagList tags={tags} asLinks={false} />}
-            {false && (
-              <time dateTime={modifiedTimestamp}>
-                <Text variant="dateModified" sx={{ ml: 2 }}>
-                  {dateModified}
-                </Text>
-              </time>
-            )}
           </Flex>
         </Flex>
       </Link>

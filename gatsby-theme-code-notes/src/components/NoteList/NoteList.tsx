@@ -14,15 +14,13 @@ export const NoteList: FunctionComponent<NoteListProps> = ({ notes }) => {
         )
         .map(({ node }) => {
           const { title, tags, emoji } = node.frontmatter
-          const { dateModified, modifiedTimestamp, slug } = node.fields
+          const { slug } = node.fields
           return (
             <NoteListItem
               title={title}
               emoji={emoji}
               tags={tags}
               slug={slug}
-              dateModified={dateModified}
-              modifiedTimestamp={modifiedTimestamp}
               key={slug}
             />
           )

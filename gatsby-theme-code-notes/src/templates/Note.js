@@ -14,8 +14,6 @@ export const pageQuery = graphql`
         link
       }
       fields {
-        dateModified(formatString: "MMM DD, YYYY H:mm A")
-        modifiedTimestamp: dateModified
         slug
       }
       tableOfContents(maxDepth: 3)

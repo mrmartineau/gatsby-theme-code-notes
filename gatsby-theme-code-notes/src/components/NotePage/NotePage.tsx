@@ -18,10 +18,6 @@ interface NotePageProps {
         link: string
       }
       body: any
-      fields: {
-        dateModified: string
-        modifiedTimestamp: string
-      }
       parent: {
         relativePath: string
       }
@@ -50,14 +46,13 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   }
   const {
     frontmatter: { title, tags, emoji, link },
-    fields: { dateModified, modifiedTimestamp },
     body,
     parent: { relativePath },
     tableOfContents,
   } = data.mdx
 
   const { gitRepoContentPath } = useSiteMetadata()
-  const showMetadata = !!(link || dateModified)
+  const showMetadata = !!(link)
   const [shortenedLink, setShortenedLink] = useState<string>(link)
 
   useEffect(() => {
@@ -123,21 +118,6 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                     {shortenedLink}
                   </Link>
                 </Fragment>
-              )}
-              {false && (
-                <time
-                  dateTime={modifiedTimestamp}
-                  sx={{ display: 'flex', alignItems: 'center' }}
-                >
-                  <GoCalendar
-                    sx={{
-                      color: 'input',
-                      pointerEvents: 'none',
-                      mr: 2,
-                    }}
-                  />
-                  <Text variant="dateModified">{dateModified}</Text>
-                </time>
               )}
             </Flex>
           )}
