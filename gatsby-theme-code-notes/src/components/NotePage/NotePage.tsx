@@ -18,8 +18,6 @@ interface NotePageProps {
         link: string
       }
       body: any
-      fields: {
-      }
       parent: {
         relativePath: string
       }
@@ -48,7 +46,6 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   }
   const {
     frontmatter: { title, tags, emoji, link },
-    fields: { },
     body,
     parent: { relativePath },
     tableOfContents,
