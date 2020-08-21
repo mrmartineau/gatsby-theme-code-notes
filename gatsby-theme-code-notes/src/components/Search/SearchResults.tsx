@@ -19,7 +19,7 @@ export const SearchResults = () => {
   const results = useFlexSearch(
     query,
     localSearchNotes.index,
-    JSON.parse(localSearchNotes.store)
+    localSearchNotes.store
   )
 
   return (
