@@ -27,7 +27,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "husky": "^4.2.5",
-    "jest": "^26.4.1",
+    "jest": "^26.4.2",
     "jest-emotion": "^10.0.27",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"
