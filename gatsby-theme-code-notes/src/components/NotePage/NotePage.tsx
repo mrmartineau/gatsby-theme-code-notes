@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { FunctionComponent, Fragment, useEffect, useState } from 'react'
-import { jsx, Box, Flex, Heading, Link, Text } from 'theme-ui'
+import { jsx, Box, Flex, Heading, Link } from 'theme-ui'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { GoLink, GoCalendar, GoTag } from 'react-icons/go'
+import { GoLink, GoTag } from 'react-icons/go'
 import { useSiteMetadata } from '../../use-site-metadata'
 import { Contents } from '../Contents'
 import { Layout } from '../Layout'
@@ -52,7 +52,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   } = data.mdx
 
   const { gitRepoContentPath } = useSiteMetadata()
-  const showMetadata = !!(link)
+  const showMetadata = !!link
   const [shortenedLink, setShortenedLink] = useState<string>(link)
 
   useEffect(() => {
