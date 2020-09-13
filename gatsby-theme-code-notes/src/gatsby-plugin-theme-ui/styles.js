@@ -185,8 +185,8 @@ export const styles = {
     my: 4,
     p: 3,
     border: (theme) => `1px solid ${theme.colors.muted}`,
-    //  mx: 'auto',
     display: 'block',
     borderRadius: 'default',
+    maxWidth: '100%',
   },
 }
