@@ -28,12 +28,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
 }) => {
   const { setQuery } = useContext(SearchContext)
   return (
-    <Box
-      as="nav"
-      sx={{
-        listStyleType: 'none',
-      }}
-    >
+    <Box as="nav" sx={{ mb: 9 }}>
       <NavLink
         sx={{
           fontWeight: !!rootPath ? 'bold' : undefined,

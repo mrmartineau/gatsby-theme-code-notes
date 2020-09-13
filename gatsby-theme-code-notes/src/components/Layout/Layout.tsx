@@ -173,7 +173,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           overflowX: 'hidden',
           overflowY: 'auto',
           pt: 4,
-          pb: 9,
         }}
       >
         <Box px={3} mb={3}>
