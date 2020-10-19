@@ -89,6 +89,6 @@
     "prettier": "^2.1.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "release-it": "^14.0.4"
+    "release-it": "^14.2.0"
   }
 }
