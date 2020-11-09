@@ -42,7 +42,7 @@
     "@alexcarpenter/slugify": "^1.0.6",
     "@mdx-js/mdx": "^1.6.5",
     "@mdx-js/react": "^1.6.5",
-    "@theme-ui/presets": "0.4.0-rc.5",
+    "@theme-ui/presets": "0.4.0-rc.7",
     "@theme-ui/prism": "0.4.0-rc.5",
     "color-hash": "^1.0.3",
     "copee": "^1.0.6",
