@@ -29,7 +29,7 @@
     "mdx"
   ],
   "peerDependencies": {
-    "gatsby": "^2.23.12",
+    "gatsby": "^2.25.3",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
@@ -83,7 +83,7 @@
     "@types/react-dom": "^16.9.8",
     "dotenv-cli": "^4.0.0",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "gatsby": "^2.23.12",
+    "gatsby": "^2.25.3",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
