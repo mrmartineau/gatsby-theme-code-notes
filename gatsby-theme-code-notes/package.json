@@ -54,7 +54,7 @@
     "gatsby-plugin-react-helmet": "^3.3.13",
     "gatsby-plugin-redirects": "^1.0.0",
     "gatsby-plugin-sharp": "^2.6.39",
-    "gatsby-plugin-theme-ui": "0.4.0-rc.5",
+    "gatsby-plugin-theme-ui": "0.4.0-rc.7",
     "gatsby-plugin-typescript": "^2.4.21",
     "gatsby-remark-images": "^3.3.33",
     "gatsby-source-filesystem": "^2.3.34",
