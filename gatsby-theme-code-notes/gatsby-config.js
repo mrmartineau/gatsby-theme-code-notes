@@ -28,6 +28,7 @@ module.exports = (options) => {
       resolution: 9,
     },
     openSearch = {},
+    sortByDate = false,
   } = options
 
   return {
@@ -39,6 +40,7 @@ module.exports = (options) => {
       showDescriptionInSidebar,
       logo,
       openSearch,
+      sortByDate,
     },
     plugins: [
       'gatsby-plugin-typescript',

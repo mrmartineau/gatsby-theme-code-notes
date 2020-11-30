@@ -3,6 +3,7 @@ const fs = require('fs')
 const mkdirp = require('mkdirp')
 const slugify = require('@alexcarpenter/slugify')
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { getLastModifiedDate } = require('git-jiggy')
 const createOpenSearchFile = require('./src/utils/createOpenSearch')
 
 const DEFAULT_BASE_PATH = '/'
@@ -54,6 +55,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
               }
               fields {
                 slug
+                dateModified
               }
             }
           }
@@ -160,6 +162,22 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
       node,
       value,
     })
+
+    try {
+      const lastEdited = await getLastModifiedDate(node.fileAbsolutePath)
+      console.log('🚀 ~ exports.onCreateNode= ~ lastEdited', lastEdited)
+      console.log(
+        '🚀 ~ exports.onCreateNode= ~ node.fileAbsolutePath',
+        node.fileAbsolutePath
+      )
+      createNodeField({
+        name: `dateModified`,
+        node,
+        value: lastEdited,
+      })
+    } catch (err) {
+      reporter.log(`Cannot get modified date for ${node.fileAbsolutePath}`)
+    }
   }
 }
 
@@ -181,6 +199,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       showDescriptionInSidebar: Boolean
       logo: String
       openSearch: OpenSearch
+      sortByDate: Boolean
     }
     type MdxFrontmatter {
       title: String!

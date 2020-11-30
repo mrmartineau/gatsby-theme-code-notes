@@ -34,6 +34,7 @@ export const SearchResults = () => {
               key={result.id}
               emoji={result.emoji}
               onClick={() => setQuery('')}
+              dateModified={result.dateModified}
             />
           )
         })

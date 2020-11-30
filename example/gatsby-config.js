@@ -23,6 +23,7 @@ module.exports = {
           siteContact: 'https://twitter.com/MrMartineau',
           siteDescription: 'A Gatsby theme for storing your code-related notes',
         },
+        sortByDate: true,
       },
     },
   ],

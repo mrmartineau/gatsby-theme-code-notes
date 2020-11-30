@@ -13,6 +13,8 @@ export const pageQuery = graphql`
     }
     fields {
       slug
+      dateModified(formatString: "MMM DD, YYYY H:mm A")
+      modifiedTimestamp: dateModified
     }
   }
 

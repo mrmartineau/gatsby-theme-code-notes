@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { FunctionComponent, Fragment, useEffect, useState } from 'react'
-import { jsx, Box, Flex, Heading, Link } from 'theme-ui'
+import { jsx, Box, Flex, Heading, Link, Text } from 'theme-ui'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { GoLink, GoTag } from 'react-icons/go'
+import { GoCalendar, GoLink, GoTag } from 'react-icons/go'
 import { useSiteMetadata } from '../../use-site-metadata'
 import { Contents } from '../Contents'
 import { Layout } from '../Layout'
@@ -18,6 +18,10 @@ interface NotePageProps {
         link: string
       }
       body: any
+      fields: {
+        dateModified: string
+        modifiedTimestamp: string
+      }
       parent: {
         relativePath: string
       }
@@ -47,12 +51,13 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   const {
     frontmatter: { title, tags, emoji, link },
     body,
+    fields: { dateModified, modifiedTimestamp },
     parent: { relativePath },
     tableOfContents,
   } = data.mdx
 
   const { gitRepoContentPath } = useSiteMetadata()
-  const showMetadata = !!link
+  const showMetadata = !!(link || dateModified)
   const [shortenedLink, setShortenedLink] = useState<string>(link)
 
   useEffect(() => {
@@ -72,7 +77,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
       title={title}
     >
       <article>
-        <Box as="header" mb={4}>
+        <Box as="header" sx={{ mb: 4 }}>
           {emoji && (
             <Box
               sx={{
@@ -118,6 +123,21 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                     {shortenedLink}
                   </Link>
                 </Fragment>
+              )}
+              {modifiedTimestamp && (
+                <time
+                  dateTime={modifiedTimestamp}
+                  sx={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <GoCalendar
+                    sx={{
+                      color: 'input',
+                      pointerEvents: 'none',
+                      mr: 2,
+                    }}
+                  />
+                  <Text variant="dateModified">{dateModified}</Text>
+                </time>
               )}
             </Flex>
           )}

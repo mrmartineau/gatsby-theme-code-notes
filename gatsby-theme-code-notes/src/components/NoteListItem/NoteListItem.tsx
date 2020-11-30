@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react'
 import { TagList } from '../TagList'
 import { Link as GatsbyLink } from 'gatsby'
 import { jsx, Heading, Flex, Box, Link, Text } from 'theme-ui'
+import { useSiteMetadata } from '../../use-site-metadata'
 
 interface NoteListItemProps {
   slug: string
@@ -10,6 +11,8 @@ interface NoteListItemProps {
   emoji?: string
   tags: string[]
   onClick?: () => void
+  dateModified: string
+  modifiedTimestamp: string
 }
 
 export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
@@ -18,7 +21,10 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   tags,
   emoji,
   onClick,
+  dateModified,
+  modifiedTimestamp,
 }) => {
+  const { sortByDate } = useSiteMetadata()
   const noteEmoji = emoji ?? '🗒'
   return (
     <Box as="article">
@@ -37,6 +43,13 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
           </Heading>
           <Flex sx={{ alignItems: 'center' }}>
             {tags && <TagList tags={tags} asLinks={false} />}
+            {sortByDate && dateModified && modifiedTimestamp && (
+              <time dateTime={modifiedTimestamp}>
+                <Text variant="dateModified" sx={{ ml: 2 }}>
+                  {dateModified}
+                </Text>
+              </time>
+            )}
           </Flex>
         </Flex>
       </Link>
