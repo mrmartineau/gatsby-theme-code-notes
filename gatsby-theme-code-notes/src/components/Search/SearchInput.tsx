@@ -13,7 +13,6 @@ export const SearchInput = () => {
     const searchParts = location.search.split('?')
     const searchParams = querystring.parse(searchParts[1])
     if (searchParams.search) {
-      console.log('NotesPage -> searchParams', searchParams)
       setQuery(searchParams.search)
     }
   }, [])

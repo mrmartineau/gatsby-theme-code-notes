@@ -26,7 +26,7 @@ export const Contents = ({ toc }) => {
   }
 
   return (
-    <Box as="details" sx={{ my: 4 }}>
+    <Box as="details" sx={{ my: 4, fontSize: 1 }}>
       <summary>Table of contents</summary>
       <ContentsList items={toc.items} key="toc-list" />
     </Box>

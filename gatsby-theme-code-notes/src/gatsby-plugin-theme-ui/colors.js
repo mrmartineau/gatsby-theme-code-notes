@@ -1,18 +1,19 @@
 export const baseColors = {
   grayDark: '#2d3748',
   white: '#fff',
-  light: '#f7fafc',
-  dark: '#2d3748',
+  light: '#FBFDFE',
+  dark: '#1a202c',
 }
 
 const lightTheme = {
-  text: baseColors.dark,
+  text: '#4a5568',
+  textStrong: baseColors.dark,
   background: 'hsl(210, 38%, 95%)',
   scrollbar: 'hsl(210, 20%, 85%)',
   backgroundTransparent: 'hsla(210, 38%, 95%, 0.72)',
   contentBg: baseColors.light,
   primary: 'hsl(334, 86%, 48%)',
-  primarySemiTransparent: 'hsla(334, 86%, 48%, 0.5)',
+  primarySemiTransparent: 'hsla(334, 86%, 48%, 0.3)',
   secondary: '#718096',
   muted: '#e2e8f0',
   success: '#9ae6b4',
@@ -44,13 +45,14 @@ export const colors = {
   ...lightTheme,
   modes: {
     dark: {
-      text: 'hsl(210, 38%, 95%)',
+      text: 'hsl(210, 17%, 85%)',
+      textStrong: 'hsl(210, 38%, 98%)',
       background: 'hsl(285, 5%, 17%)',
       scrollbar: 'hsl(285, 5%, 12%)',
       backgroundTransparent: 'hsla(285, 5%, 17%, 0.72)',
       contentBg: '#383539',
       primary: 'hsl(345, 100%, 69%)',
-      primarySemiTransparent: 'hsl(345, 100%, 79%, 0.5)',
+      primarySemiTransparent: 'hsl(345, 100%, 79%, 0.3)',
       secondary: '#718096',
       muted: 'hsl(210, 5%, 40%)',
       success: '#9ae6b4',

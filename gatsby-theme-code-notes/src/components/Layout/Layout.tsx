@@ -13,6 +13,7 @@ import {
   useColorMode,
   IconButton,
   Container,
+  Flex,
 } from 'theme-ui'
 import { Helmet } from 'react-helmet'
 import { TagNav } from '../TagNav'
@@ -121,15 +122,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           minHeight: ['100vh', 'unset'],
         }}
       >
-        <MenuButton
-          aria-label="Toggle Menu"
-          onClick={() => setNavOpen(!navOpen)}
-          sx={{
-            mb: 2,
-            display: ['block', 'none'],
-          }}
-        />
-
         <Container
           sx={{
             display: 'flex',
@@ -137,13 +129,24 @@ export const Layout: FunctionComponent<LayoutProps> = ({
             minHeight: '100%',
           }}
         >
-          <Box
-            sx={{
-              mb: 5,
-            }}
-          >
-            <SearchInput />
-          </Box>
+          <Flex sx={{ alignItems: 'center', mb: 5 }}>
+            <MenuButton
+              aria-label="Toggle Menu"
+              onClick={() => setNavOpen(!navOpen)}
+              sx={{
+                display: ['block', 'none'],
+                mr: 3,
+              }}
+            />
+
+            <Box
+              sx={{
+                flexGrow: 1,
+              }}
+            >
+              <SearchInput />
+            </Box>
+          </Flex>
 
           {query ? <SearchResults /> : children}
 
@@ -175,16 +178,20 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           pt: 4,
         }}
       >
-        <Box px={3} mb={3}>
+        <Box sx={{ mb: 3, px: 3 }}>
           {!!logo && (
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <Image src={logo} variant="logo" alt="logo" />
             </Box>
           )}
           {showDescriptionInSidebar && description && (
-            <Box mb={3}>
+            <Box sx={{ mb: 3 }}>
               <Text
-                sx={{ color: 'text', lineHeight: 'snug', fontWeight: 'bold' }}
+                sx={{
+                  color: 'textStrong',
+                  lineHeight: 'snug',
+                  fontWeight: 'extrabold',
+                }}
               >
                 {description}
               </Text>

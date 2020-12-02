@@ -1,11 +1,12 @@
 export const text = {
   noteTitle: {
-    fontWeight: 'bold',
-    fontSize: 7,
+    fontWeight: 'extrabold',
+    fontSize: 9,
     mb: 3,
     lineHeight: 'none',
     display: 'flex',
     alignItems: 'center',
+    color: 'textStrong',
   },
 
   noteListItem: {
@@ -14,13 +15,12 @@ export const text = {
     m: 0,
     fontFamily: 'body',
     fontWeight: 'bold',
-    color: 'text',
+    color: 'textStrong',
     pl: 5,
   },
 
   dateModified: {
     fontSize: 0,
-    opacity: 0.7,
     color: 'text',
     whiteSpace: 'nowrap',
     overflow: 'hidden',

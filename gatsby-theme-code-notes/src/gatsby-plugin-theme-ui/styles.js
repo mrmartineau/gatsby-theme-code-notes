@@ -2,8 +2,9 @@ export const heading = {
   fontFamily: 'heading',
   fontWeight: 'heading',
   lineHeight: 'heading',
-  mt: 4,
+  mt: 5,
   mb: 3,
+  color: 'textStrong',
 }
 
 export const styles = {
@@ -15,15 +16,17 @@ export const styles = {
   },
   a: {
     transition: 'all 200ms ease-in-out ',
-    fontWeight: 'bold',
     '&:link, &:visited': {
-      color: 'text',
-      textDecoration: 'none',
-      borderBottom: '2px solid',
-      borderBottomColor: 'primary',
+      fontWeight: 'semibold',
+      color: 'textStrong',
+      textDecorationStyle: 'solid',
+      textDecorationSkipInk: 'auto',
+      textDecorationThickness: 'from-font',
     },
     '&:hover,&:focus': {
       color: 'primary',
+      // textDecorationSkipInk: 'none',
+      // textDecorationStyle: 'dashed',
     },
   },
   p: {
@@ -60,19 +63,22 @@ export const styles = {
     mb: 2,
   },
   inlineCode: {
-    backgroundColor: 'background',
-    p: '0.1em 0.2em',
+    // backgroundColor: 'background',
+    // p: '0.1em 0.2em',
+    // borderRadius: 'default',
     fontSize: '80%',
-    borderRadius: 'default',
-    fontWeight: 'inherit',
     fontFamily: 'mono',
-    color: 'code4',
+    color: 'textStrong',
+    fontWeight: 'semibold',
+    '&::before, &::after': {
+      content: "'`'",
+    },
   },
   pre: {
     py: 2,
     mt: 0,
     fontSize: 1,
-    color: 'text',
+    color: 'textStrong',
     bg: 'background',
     overflowX: 'auto',
     borderRadius: (theme) =>
@@ -188,5 +194,8 @@ export const styles = {
     display: 'block',
     borderRadius: 'default',
     maxWidth: '100%',
+  },
+  summary: {
+    color: 'textStrong',
   },
 }

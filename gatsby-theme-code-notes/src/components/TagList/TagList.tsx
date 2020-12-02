@@ -1,18 +1,20 @@
 /** @jsx jsx */
 import { FunctionComponent } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import { jsx, Box, Badge, Link } from 'theme-ui'
+import { jsx, Box, Badge, Link, SxStyleProp } from 'theme-ui'
 import slugify from '@alexcarpenter/slugify'
 import { getColourFromString } from '../../utils/getColourFromString'
 
-interface TagNavProps {
+interface TagListProps {
   tags: string[]
   asLinks?: boolean
+  sx?: SxStyleProp
 }
 
-export const TagList: FunctionComponent<TagNavProps> = ({
+export const TagList: FunctionComponent<TagListProps> = ({
   tags,
   asLinks = true,
+  sx,
 }) => {
   if (!tags) {
     return null
@@ -24,6 +26,7 @@ export const TagList: FunctionComponent<TagNavProps> = ({
         display: 'flex',
         alignItems: 'center',
         flexShrink: 0,
+        ...sx,
       }}
     >
       {tags.map((item, index) => {

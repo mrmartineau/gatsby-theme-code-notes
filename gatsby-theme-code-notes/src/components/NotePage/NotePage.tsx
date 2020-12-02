@@ -78,7 +78,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
       title={title}
     >
       <article>
-        <Box as="header" sx={{ mb: 4 }}>
+        <Box as="header" sx={{ my: 4 }}>
           {emoji && (
             <Box
               sx={{
@@ -98,7 +98,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           {showMetadata && (
             <Flex
               sx={{
-                mb: 3,
+                mb: 2,
                 alignItems: 'center',
               }}
             >
@@ -125,7 +125,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                   </Link>
                 </Fragment>
               )}
-	      {modifiedTimestamp && dateModified && (
+              {modifiedTimestamp && dateModified && (
                 <time
                   dateTime={modifiedTimestamp}
                   sx={{ display: 'flex', alignItems: 'center' }}
@@ -150,6 +150,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                   color: 'input',
                   pointerEvents: 'none',
                   mr: 2,
+                  flexShrink: 0,
                 }}
               />
               <TagList tags={tags} />
@@ -170,7 +171,10 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           }}
         >
           {gitRepoContentPath && (
-            <Link href={`${gitRepoContentPath}${relativePath}`}>
+            <Link
+              href={`${gitRepoContentPath}${relativePath}`}
+              sx={{ fontSize: 0 }}
+            >
               Edit this page
             </Link>
           )}

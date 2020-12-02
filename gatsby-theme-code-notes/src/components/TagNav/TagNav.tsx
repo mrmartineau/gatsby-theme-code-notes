@@ -34,6 +34,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
           fontWeight: !!rootPath ? 'bold' : undefined,
           bg: !!rootPath ? 'navHover' : undefined,
           textTransform: 'uppercase',
+          color: 'textStrong',
         }}
         to={basePath}
         as={GatsbyLink}
@@ -52,6 +53,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
               fontFamily: 'mono',
               textTransform: 'uppercase',
               fontSize: 1,
+              color: 'textStrong',
             }}
           >
             Tags
