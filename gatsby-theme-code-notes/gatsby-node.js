@@ -165,11 +165,11 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
 
     try {
       const lastEdited = await getLastModifiedDate(node.fileAbsolutePath)
-      console.log('🚀 ~ exports.onCreateNode= ~ lastEdited', lastEdited)
       console.log(
-        '🚀 ~ exports.onCreateNode= ~ node.fileAbsolutePath',
+        '🚀 ~ onCreateNode ~ node.fileAbsolutePath',
         node.fileAbsolutePath
       )
+      console.log('🚀 ~ onCreateNode ~ date:', lastEdited)
       createNodeField({
         name: `dateModified`,
         node,
@@ -200,6 +200,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       logo: String
       openSearch: OpenSearch
       sortByDate: Boolean
+      showDate: Boolean
     }
     type MdxFrontmatter {
       title: String!

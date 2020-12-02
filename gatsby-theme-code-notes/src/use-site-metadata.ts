@@ -16,6 +16,7 @@ export const useSiteMetadata = () => {
             siteShortName
           }
           sortByDate
+          showDate
         }
       }
     }

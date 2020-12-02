@@ -24,7 +24,7 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
   dateModified,
   modifiedTimestamp,
 }) => {
-  const { sortByDate } = useSiteMetadata()
+  const { showDate } = useSiteMetadata()
   const noteEmoji = emoji ?? '🗒'
   return (
     <Box as="article">
@@ -43,7 +43,7 @@ export const NoteListItem: FunctionComponent<NoteListItemProps> = ({
           </Heading>
           <Flex sx={{ alignItems: 'center' }}>
             {tags && <TagList tags={tags} asLinks={false} />}
-            {sortByDate && dateModified && modifiedTimestamp && (
+            {showDate && dateModified && modifiedTimestamp && (
               <time dateTime={modifiedTimestamp}>
                 <Text variant="dateModified" sx={{ ml: 2 }}>
                   {dateModified}

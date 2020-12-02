@@ -24,6 +24,7 @@ module.exports = {
           siteDescription: 'A Gatsby theme for storing your code-related notes',
         },
         sortByDate: true,
+        showDate: true,
       },
     },
   ],

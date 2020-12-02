@@ -12,9 +12,12 @@ export const NoteList: FunctionComponent<NoteListProps> = ({ notes }) => {
     one.node.frontmatter.title.localeCompare(two.node.frontmatter.title)
 
   if (sortByDate) {
-    sortingFunction = (one, two) =>
-      new Date(two.node.fields.modifiedTimestamp) -
-      new Date(one.node.fields.modifiedTimestamp)
+    sortingFunction = (one, two) => {
+      return (
+        new Date(two.node.fields.modifiedTimestamp) -
+        new Date(one.node.fields.modifiedTimestamp)
+      )
+    }
   }
 
   return (

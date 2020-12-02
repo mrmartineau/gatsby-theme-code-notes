@@ -48,6 +48,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   if (!data) {
     return null
   }
+  const { showDate } = useSiteMetadata()
   const {
     frontmatter: { title, tags, emoji, link },
     body,
@@ -57,7 +58,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   } = data.mdx
 
   const { gitRepoContentPath } = useSiteMetadata()
-  const showMetadata = !!(link || dateModified)
+  const showMetadata = !!(link || showDate)
   const [shortenedLink, setShortenedLink] = useState<string>(link)
 
   useEffect(() => {
@@ -124,7 +125,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                   </Link>
                 </Fragment>
               )}
-              {modifiedTimestamp && (
+	      {modifiedTimestamp && dateModified && (
                 <time
                   dateTime={modifiedTimestamp}
                   sx={{ display: 'flex', alignItems: 'center' }}
