@@ -166,11 +166,10 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
     let lastEdited //= '1800-01-01T00:00:00.000Z'
     try {
       lastEdited = await getLastModifiedDate(node.fileAbsolutePath)
-      console.log(
-        '🚀 ~ onCreateNode ~ node.fileAbsolutePath',
-        node.fileAbsolutePath
+      reporter.log(
+        `🚀 ~ onCreateNode ~ node.fileAbsolutePath ${node.fileAbsolutePath}`
       )
-      console.log('🚀 ~ onCreateNode ~ date:', lastEdited)
+      reporter.log(`🚀 ~ onCreateNode ~ date: ${lastEdited}`)
     } catch (err) {
       reporter.log(`Cannot get modified date for ${node.fileAbsolutePath}`)
     }
@@ -203,11 +202,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       sortByDate: Boolean
       showDate: Boolean
     }
-    type MdxFrontmatter {
+    type MdxFrontmatter @infer {
       title: String!
       tags: [String]
       emoji: String
       link: String
+    }
+    type MdxFields @infer {
+      dateModified: Date
+      slug: String
     }
   `
   createTypes(typeDefs)
