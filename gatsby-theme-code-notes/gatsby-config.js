@@ -30,6 +30,7 @@ module.exports = (options) => {
     openSearch = {},
     sortByDate = false,
     showDate = false,
+    basePath = '/',
   } = options
 
   return {
@@ -43,6 +44,7 @@ module.exports = (options) => {
       openSearch,
       sortByDate,
       showDate,
+      basePath,
     },
     plugins: [
       'gatsby-plugin-typescript',

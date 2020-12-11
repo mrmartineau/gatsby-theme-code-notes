@@ -17,6 +17,7 @@ export const NotesPage = ({ data, pageContext, location }) => {
       path={location.pathname}
       basePath={pageContext.basePath}
       hasUntagged={pageContext.hasUntagged}
+      tags={pageContext.tags}
       title={pageContext.tag ? `Tag: ${pageContext.tag}` : siteTitle}
     >
       {pageContext.tag && (

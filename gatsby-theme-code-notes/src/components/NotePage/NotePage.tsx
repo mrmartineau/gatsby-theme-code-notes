@@ -32,6 +32,7 @@ interface NotePageProps {
     next: boolean
     hasUntagged: boolean
     basePath?: string
+    tags: any
   }
   location: {
     pathname: string
@@ -53,9 +54,6 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
     parent: { relativePath },
     tableOfContents,
   } = data.mdx
-  console.log('🚀 ~  data.mdx', data.mdx)
-  console.log('🚀 ~ modifiedTimestamp', modifiedTimestamp)
-  console.log('🚀 ~ modified', modified)
 
   const { gitRepoContentPath } = useSiteMetadata()
   const showMetadata = !!(link || showDate)
@@ -74,6 +72,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
     <Layout
       hasUntagged={pageContext.hasUntagged}
       basePath={pageContext.basePath}
+      tags={pageContext.tags}
       path={location.pathname}
       title={title}
     >

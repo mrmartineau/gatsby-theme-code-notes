@@ -17,6 +17,7 @@ export const useSiteMetadata = () => {
           }
           sortByDate
           showDate
+          basePath
         }
       }
     }

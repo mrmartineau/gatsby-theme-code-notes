@@ -9,7 +9,7 @@ module.exports = {
       resolve: 'gatsby-theme-code-notes',
       options: {
         contentPath: 'code-notes',
-        basePath: '/',
+	basePath: '/',
         gitRepoContentPath:
           'https://github.com/mrmartineau/gatsby-theme-code-notes/tree/master/example/code-notes/',
         showDescriptionInSidebar: true,

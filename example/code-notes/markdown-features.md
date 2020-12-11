@@ -10,13 +10,13 @@ modified: 2020-06-22T11:55:48.000Z
 
 ## Images
 
-![](./opengraph.png)
-![](./logo.png)
+![](/opengraph.png)
+![](/logo.png)
 
 Embed images using the usual markdown syntax.
 
 ```md
-![](./opengraph.png)
+![](/opengraph.png)
 ```
 
 ## Fenced code blocks

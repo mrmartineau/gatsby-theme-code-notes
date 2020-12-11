@@ -4,6 +4,7 @@ import { Link as GatsbyLink } from 'gatsby'
 import { jsx, Box, Badge, Link, SxStyleProp } from 'theme-ui'
 import slugify from '@alexcarpenter/slugify'
 import { getColourFromString } from '../../utils/getColourFromString'
+import { useSiteMetadata } from '../../use-site-metadata'
 
 interface TagListProps {
   tags: string[]
@@ -16,6 +17,7 @@ export const TagList: FunctionComponent<TagListProps> = ({
   asLinks = true,
   sx,
 }) => {
+  const { basePath } = useSiteMetadata()
   if (!tags) {
     return null
   }
@@ -35,12 +37,13 @@ export const TagList: FunctionComponent<TagListProps> = ({
         }
         const tagName = slugify(item)
         const tagColor = getColourFromString(tagName)
-
+        const tagLink =
+          basePath === '/' ? `/tag/${tagName}` : `${basePath}/tag/${tagName}`
         if (asLinks) {
           return (
             <Link
               as={GatsbyLink}
-              to={`/tag/${tagName}`}
+              to={tagLink}
               key={index}
               sx={{
                 display: 'inline-flex',

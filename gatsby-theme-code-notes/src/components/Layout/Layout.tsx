@@ -17,7 +17,6 @@ import {
 } from 'theme-ui'
 import { Helmet } from 'react-helmet'
 import { TagNav } from '../TagNav'
-import { useAllTags } from '../../use-all-tags'
 import { useSiteMetadata } from '../../use-site-metadata'
 import { SearchContext, SearchInput, SearchResults } from '../Search'
 
@@ -27,6 +26,7 @@ interface LayoutProps {
   basePath?: string
   title?: string
   hasUntagged?: boolean
+  tags: any
 }
 
 export const Layout: FunctionComponent<LayoutProps> = ({
@@ -35,10 +35,10 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   basePath,
   hasUntagged,
   title,
+  tags,
   children,
 }) => {
   const { theme } = useThemeUI()
-  const tags = useAllTags()
   const {
     showThemeInfo,
     showDescriptionInSidebar,

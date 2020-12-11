@@ -8,12 +8,10 @@ interface NoteListProps {
 
 export const NoteList: FunctionComponent<NoteListProps> = ({ notes }) => {
   const { sortByDate } = useSiteMetadata()
-  console.log('🚀 ~ sortByDate', sortByDate)
   let sortingFunction = (one, two) =>
     one.node.frontmatter.title.localeCompare(two.node.frontmatter.title)
 
   if (sortByDate) {
-    console.log('🚀 ~ sortByDate', sortByDate)
     sortingFunction = (one, two) => {
       return (
         new Date(two.node.frontmatter.modifiedTimestamp) -

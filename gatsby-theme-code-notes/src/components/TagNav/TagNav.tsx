@@ -9,6 +9,7 @@ export interface TagItemInterface {
   tag: string
   totalCount: number
   slug: string
+  path: string
 }
 
 interface TagNavProps {
@@ -42,7 +43,6 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
       >
         All Notes
       </NavLink>
-
       {tags.length > 0 && (
         <Fragment>
           <Box
@@ -68,7 +68,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
                     fontWeight: activeTag === item.tag ? 'bold' : undefined,
                     bg: activeTag === item.tag ? 'navHover' : undefined,
                   }}
-                  to={`/tag/${encodeURI(item.slug)}`}
+                  to={item.path}
                   as={GatsbyLink}
                   key={index}
                   onClick={() => setQuery('')}
@@ -80,7 +80,6 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
             })}
         </Fragment>
       )}
-
       {hasUntagged && (
         <NavLink
           sx={{
