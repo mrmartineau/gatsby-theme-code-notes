@@ -55,7 +55,6 @@ exports.createPages = async ({ graphql, actions }, options) => {
               }
               fields {
                 slug
-                dateModified
               }
             }
           }
@@ -152,7 +151,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
   }
 }
 
-exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
+exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
@@ -161,22 +160,6 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
       name: `slug`,
       node,
       value,
-    })
-
-    let lastEdited //= '1800-01-01T00:00:00.000Z'
-    try {
-      lastEdited = await getLastModifiedDate(node.fileAbsolutePath)
-      reporter.log(
-        `🚀 ~ onCreateNode ~ node.fileAbsolutePath ${node.fileAbsolutePath}`
-      )
-      reporter.log(`🚀 ~ onCreateNode ~ date: ${lastEdited}`)
-    } catch (err) {
-      reporter.log(`Cannot get modified date for ${node.fileAbsolutePath}`)
-    }
-    createNodeField({
-      name: `dateModified`,
-      node,
-      value: lastEdited,
     })
   }
 }
@@ -207,9 +190,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       tags: [String]
       emoji: String
       link: String
+      created: Date
+      modified: Date
     }
     type MdxFields @infer {
-      dateModified: Date
       slug: String
     }
   `

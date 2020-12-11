@@ -10,11 +10,11 @@ export const pageQuery = graphql`
       title
       tags
       emoji
+      modified(formatString: "LL")
+      modifiedTimestamp: modified
     }
     fields {
       slug
-      dateModified(formatString: "LL")
-      modifiedTimestamp: dateModified
     }
   }
 

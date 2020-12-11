@@ -3,11 +3,11 @@ import { Link, Box } from 'theme-ui'
 
 const ContentsList = ({ items }) => {
   return (
-    <ul>
+    <Box as="ul" sx={{ listStyleType: 'none', pl: 3 }}>
       {items.map((item) => {
         return <ContentsItem key={`${item.url}-item`} item={item} />
       })}
-    </ul>
+    </Box>
   )
 }
 
@@ -27,7 +27,9 @@ export const Contents = ({ toc }) => {
 
   return (
     <Box as="details" sx={{ my: 4, fontSize: 1 }}>
-      <summary>Table of contents</summary>
+      <Box as="summary" sx={{ textTransform: 'uppercase', fontSize: 0 }}>
+        On this page
+      </Box>
       <ContentsList items={toc.items} key="toc-list" />
     </Box>
   )

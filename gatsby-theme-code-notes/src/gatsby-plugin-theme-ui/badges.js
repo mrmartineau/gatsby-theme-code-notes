@@ -1,6 +1,6 @@
 export const badgePrimary = {
   borderRadius: '50px',
-  color: 'text',
+  color: 'textStrong',
   bg: 'badgeBg',
   textDecoration: 'none',
   px: 2,

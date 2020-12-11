@@ -34,6 +34,7 @@ export const styles = {
     lineHeight: 'body',
     fontWeight: 'body',
     color: 'text',
+    mt: 0,
     mb: '1.25rem',
   },
   h1: {
@@ -47,20 +48,22 @@ export const styles = {
   h3: {
     ...heading,
     fontSize: 5,
+    mb: 1,
   },
   h4: {
     ...heading,
     fontSize: 4,
+    mb: 1,
   },
   h5: {
     ...heading,
     fontSize: 3,
-    mb: 2,
+    mb: 1,
   },
   h6: {
     ...heading,
     fontSize: 2,
-    mb: 2,
+    mb: 1,
   },
   inlineCode: {
     // backgroundColor: 'background',

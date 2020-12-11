@@ -12,7 +12,7 @@ const ErrorPage: FunctionComponent<ErrorPageProps> = ({ location }) => {
   return (
     <Layout path={location.pathname} title={'404'}>
       <section>
-        <Box as="header" mb={4}>
+        <Box as="header" sx={{ mb: 4 }}>
           <Heading as="h1" variant="noteTitle">
             Page not found
           </Heading>

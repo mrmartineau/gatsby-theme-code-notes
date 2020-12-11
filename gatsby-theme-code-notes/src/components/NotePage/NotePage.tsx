@@ -16,12 +16,10 @@ interface NotePageProps {
         title: string
         emoji: string
         link: string
-      }
-      body: any
-      fields: {
-        dateModified: string
+        modified: string
         modifiedTimestamp: string
       }
+      body: any
       parent: {
         relativePath: string
       }
@@ -50,12 +48,14 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   }
   const { showDate } = useSiteMetadata()
   const {
-    frontmatter: { title, tags, emoji, link },
+    frontmatter: { title, tags, emoji, link, modified, modifiedTimestamp },
     body,
-    fields: { dateModified, modifiedTimestamp },
     parent: { relativePath },
     tableOfContents,
   } = data.mdx
+  console.log('🚀 ~  data.mdx', data.mdx)
+  console.log('🚀 ~ modifiedTimestamp', modifiedTimestamp)
+  console.log('🚀 ~ modified', modified)
 
   const { gitRepoContentPath } = useSiteMetadata()
   const showMetadata = !!(link || showDate)
@@ -78,7 +78,15 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
       title={title}
     >
       <article>
-        <Box as="header" sx={{ my: 4 }}>
+        <Box
+          as="header"
+          sx={{
+            my: 4,
+            borderBottom: '1px solid',
+            borderBottomColor: 'muted',
+            pb: 4,
+          }}
+        >
           {emoji && (
             <Box
               sx={{
@@ -125,7 +133,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                   </Link>
                 </Fragment>
               )}
-              {modifiedTimestamp && dateModified && (
+              {modifiedTimestamp && modified && (
                 <time
                   dateTime={modifiedTimestamp}
                   sx={{ display: 'flex', alignItems: 'center' }}
@@ -137,7 +145,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                       mr: 2,
                     }}
                   />
-                  <Text variant="dateModified">{dateModified}</Text>
+                  <Text variant="dateModified">{modified}</Text>
                 </time>
               )}
             </Flex>

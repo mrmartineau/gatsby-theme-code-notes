@@ -12,11 +12,11 @@ export const pageQuery = graphql`
         tags
         emoji
         link
+        modified(formatString: "LL")
+        modifiedTimestamp: modified
       }
       fields {
         slug
-        dateModified(formatString: "MMM DD, YYYY H:mm A")
-        modifiedTimestamp: dateModified
       }
       tableOfContents(maxDepth: 3)
       parent {

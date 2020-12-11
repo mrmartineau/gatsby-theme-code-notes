@@ -41,10 +41,4 @@ export default {
   zIndices,
   images,
   badges,
-
-  // layout: {
-  //   container: {
-  //     px: 2,
-  //   },
-  // },
 }
