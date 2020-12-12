@@ -44,7 +44,6 @@ exports.onPreExtractQueries = ({ reporter }, themeOptions) => {
 exports.createPages = async ({ graphql, actions }, options) => {
   const { createPage } = actions
   const basePath = getBasePath(options.basePath)
-  console.log('🚀 ~ exports.createPages= ~ basePath', basePath)
 
   const mdxDocs = await graphql(
     `
@@ -144,15 +143,26 @@ exports.createPages = async ({ graphql, actions }, options) => {
 
   if (hasUntagged) {
     createPage({
-      path: `${basePath}tag/untagged`,
+      path: path.join(basePath, 'tag', 'untagged'),
       component: path.join(__dirname, './src/templates', 'UntaggedTagPage.js'),
       context: {
         tag: 'untagged',
+        tags: slugifiedTags,
         hasUntagged,
         basePath,
       },
     })
   }
+
+  createPage({
+    path: path.join('404'),
+    component: path.join(__dirname, './src/templates', '404.js'),
+    context: {
+      tags: slugifiedTags,
+      hasUntagged,
+      basePath,
+    },
+  })
 }
 
 exports.onCreateNode = async ({ node, actions, getNode }, options) => {

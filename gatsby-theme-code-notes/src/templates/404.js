@@ -1,16 +1,16 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { Layout } from '../components/Layout'
 import { Heading, Box, Styled } from 'theme-ui'
 
-interface ErrorPageProps {
-  location: {
-    pathname: string
-  }
-}
-
-const ErrorPage: FunctionComponent<ErrorPageProps> = ({ location }) => {
+const ErrorPage = ({ pageContext, location }) => {
   return (
-    <Layout path={location.pathname} title={'404'}>
+    <Layout
+      path={location.pathname}
+      basePath={pageContext.basePath}
+      hasUntagged={pageContext.hasUntagged}
+      tags={pageContext.tags}
+      title={'404'}
+    >
       <section>
         <Box as="header" sx={{ mb: 4 }}>
           <Heading as="h1" variant="noteTitle">
