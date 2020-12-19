@@ -15,7 +15,6 @@ export const useSiteMetadata = () => {
             siteUrl
             siteShortName
           }
-          sortByDate
           showDate
           basePath
         }

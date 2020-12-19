@@ -102,7 +102,6 @@ yarn build
 | `logo`                     | `''` (empty string)                                       | Path to your site's logo. Will be used as the `src` attribute for an image                                                                                                                                                        |
 | `showDescriptionInSidebar` | `true`                                                    | Show `config.site.description` in the sidebar                                                                                                                                                                                     |
 | `showDate`                 | `false`                                                   | Show the note's modified date (as determined by [`git-jiggy`](https://github.com/manovotny/git-jiggy)). **This will only work if you are using Git in your project**                                                              |
-| `sortByDate`               | `false`                                                   | Sort the notes using the modified date                                                                                                                                                                                            |
 | `gitRepoContentPath`       | `''`                                                      | Set the location for your notes if they're hosted online, e.g. your git repo. This will show a "Edit this page" link underneath each note                                                                                         |
 | `showThemeInfo`            | `true`                                                    | Show info about this Gatsby theme                                                                                                                                                                                                 |
 | `mdxOtherwiseConfigured`   | `true`                                                    | Configure `gatsby-plugin-mdx`. Note that most sites will not need to use this flag. If your site has already configured `gatsby-plugin-mdx` separately, set this flag `false`.                                                    |
@@ -127,7 +126,6 @@ module.exports = {
         showDescriptionInSidebar: true,
         showThemeInfo: false,
         logo: 'https://brand.zander.wtf/Avatar.png',
-        sortByDate: true,
         showDate: true,
 
         // Opensearch is used to enhance the search on your site.
@@ -198,7 +196,6 @@ Turn your code notes into a PWA using [this extra config](https://github.com/mrm
     theme_color: `hsl(345, 100%, 69%)`,
     display: `standalone`,
     icon: `static/logo.png`,
-    sortByDate: false,
     showDate: false,
   },
 },

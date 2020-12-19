@@ -201,7 +201,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       showDescriptionInSidebar: Boolean
       logo: String
       openSearch: OpenSearch
-      sortByDate: Boolean
       showDate: Boolean
     }
     type MdxFrontmatter @infer {

@@ -28,7 +28,6 @@ module.exports = (options) => {
       resolution: 9,
     },
     openSearch = {},
-    sortByDate = false,
     showDate = false,
     basePath = '/',
   } = options
@@ -42,7 +41,6 @@ module.exports = (options) => {
       showDescriptionInSidebar,
       logo,
       openSearch,
-      sortByDate,
       showDate,
       basePath,
     },

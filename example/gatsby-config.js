@@ -9,7 +9,7 @@ module.exports = {
       resolve: 'gatsby-theme-code-notes',
       options: {
         contentPath: 'code-notes',
-	basePath: '/',
+        basePath: '/',
         gitRepoContentPath:
           'https://github.com/mrmartineau/gatsby-theme-code-notes/tree/master/example/code-notes/',
         showDescriptionInSidebar: true,
@@ -23,8 +23,7 @@ module.exports = {
           siteContact: 'https://twitter.com/MrMartineau',
           siteDescription: 'A Gatsby theme for storing your code-related notes',
         },
-        sortByDate: true,
-        showDate: true,
+        showDate: false,
       },
     },
   ],
