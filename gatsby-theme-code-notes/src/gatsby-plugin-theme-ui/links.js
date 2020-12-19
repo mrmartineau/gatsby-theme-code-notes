@@ -27,12 +27,12 @@ export const links = {
     display: 'flex',
     alignItems: 'center',
     fontWeight: 'normal',
-    fontFamily: 'mono',
-    fontSize: 1,
+    fontSize: '14px',
     transition: 'all 200ms ease-in-out ',
+    color: 'textStrong',
     '&:hover,&:focus': {
       bg: 'navHover',
-      color: 'text',
+      color: 'textStrong',
     },
   },
 

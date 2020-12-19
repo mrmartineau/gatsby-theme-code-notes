@@ -1,6 +1,6 @@
 export const sizes = {
   container: 900,
-  sidebar: '240px',
+  sidebar: '250px',
   sidebarSkinny: '50%',
   contentMaxWidth: '900px',
 }

@@ -32,7 +32,7 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
     <Box as="nav" sx={{ mb: 9 }}>
       <NavLink
         sx={{
-          fontWeight: !!rootPath ? 'bold' : undefined,
+          fontWeight: 'medium',
           bg: !!rootPath ? 'navHover' : undefined,
           textTransform: 'uppercase',
           color: 'textStrong',
@@ -50,10 +50,10 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
               px: 3,
               pt: 2,
               pb: 1,
-              fontFamily: 'mono',
               textTransform: 'uppercase',
-              fontSize: 1,
+              fontSize: '14px',
               color: 'textStrong',
+              fontWeight: 'medium',
             }}
           >
             Tags
@@ -65,7 +65,6 @@ export const TagNav: FunctionComponent<TagNavProps> = ({
               return (
                 <NavLink
                   sx={{
-                    fontWeight: activeTag === item.tag ? 'bold' : undefined,
                     bg: activeTag === item.tag ? 'navHover' : undefined,
                   }}
                   to={item.path}
