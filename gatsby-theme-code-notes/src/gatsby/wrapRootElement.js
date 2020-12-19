@@ -1,6 +1,6 @@
-const React = require('react')
-const { SearchProvider } = require('../components/Search')
+import React from 'react'
+import { SearchProvider } from '../components/Search'
 
-exports.wrapRootElement = ({ element }) => {
+export const wrapRootElementComponent = ({ element }) => {
   return <SearchProvider>{element}</SearchProvider>
 }

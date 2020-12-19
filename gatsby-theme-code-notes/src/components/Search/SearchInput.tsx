@@ -73,7 +73,7 @@ export const SearchInput = () => {
           height: '1.2rem',
           textAlign: 'center',
           fontFamily: 'mono',
-          fontSize: 0,
+          fontSize: '0.5rem',
           userSelect: 'none',
           pointerEvents: 'none',
           opacity: 0.7,
