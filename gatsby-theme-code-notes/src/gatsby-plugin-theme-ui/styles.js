@@ -23,11 +23,12 @@ export const styles = {
       textDecorationSkipInk: 'auto',
       textDecorationThickness: 'from-font',
     },
-    '&:hover,&:focus': {
+    '&:hover': {
       color: 'primary',
       // textDecorationSkipInk: 'none',
       // textDecorationStyle: 'dashed',
     },
+    variant: 'utils.focusVisibleOutset',
   },
   p: {
     fontFamily: 'body',

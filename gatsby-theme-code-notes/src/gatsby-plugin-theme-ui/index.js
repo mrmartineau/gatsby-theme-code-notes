@@ -19,6 +19,7 @@ import { zIndices } from './zIndices'
 import { images } from './images'
 import { badges } from './badges'
 import { borderWidths } from './borderWidths'
+import { utils } from './utils'
 
 export default {
   useColorSchemeMediaQuery: true,
@@ -41,4 +42,5 @@ export default {
   zIndices,
   images,
   badges,
+  utils,
 }

@@ -1,28 +1,45 @@
 import React, { Fragment, FunctionComponent } from 'react'
-import { useSiteMetadata } from '../../use-site-metadata'
+import { Flex } from 'theme-ui'
 import { NoteListItem } from '../NoteListItem'
+import { SortButton } from './SortButton'
+import { useSortableData } from './useSortableData'
 
 interface NoteListProps {
   notes: any[]
 }
 
 export const NoteList: FunctionComponent<NoteListProps> = ({ notes }) => {
-  const { sortByDate } = useSiteMetadata()
-  let sortingFunction = (one, two) =>
-    one.node.frontmatter.title.localeCompare(two.node.frontmatter.title)
-
-  if (sortByDate) {
-    sortingFunction = (one, two) => {
-      return (
-        new Date(two.node.frontmatter.modifiedTimestamp) -
-        new Date(one.node.frontmatter.modifiedTimestamp)
-      )
-    }
-  }
+  const { items, requestSort, sortConfig } = useSortableData(notes, {
+    key: 'title',
+    direction: 'descending',
+  })
 
   return (
     <Fragment>
-      {notes.sort(sortingFunction).map(({ node }) => {
+      <Flex
+        sx={{
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          mb: 2,
+        }}
+      >
+        <SortButton
+          requestSort={requestSort}
+          sortKey="title"
+          sortConfig={sortConfig}
+        >
+          A-Z
+        </SortButton>
+        <SortButton
+          requestSort={requestSort}
+          sortKey="modifiedTimestamp"
+          sortConfig={sortConfig}
+        >
+          Date
+        </SortButton>
+      </Flex>
+
+      {items.map(({ node }) => {
         const {
           title,
           tags,

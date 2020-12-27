@@ -40,6 +40,7 @@
   ],
   "dependencies": {
     "@alexcarpenter/slugify": "^1.0.6",
+    "@hookit/local-storage": "^0.0.10",
     "@mdx-js/mdx": "^1.6.5",
     "@mdx-js/react": "^1.6.5",
     "@theme-ui/presets": "0.4.0-rc.5",
@@ -59,7 +60,6 @@
     "gatsby-remark-images": "^3.3.33",
     "gatsby-source-filesystem": "^2.3.34",
     "gatsby-transformer-sharp": "^2.5.17",
-    "git-jiggy": "^1.1.1",
     "lodash": "^4.17.20",
     "mkdirp": "^1.0.3",
     "querystring": "^0.2.0",
