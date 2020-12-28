@@ -22,6 +22,11 @@ export const buttons = {
     variant: 'utils.focusVisibleOutset',
   },
 
+  menu: {
+    borderRadius: '50%',
+    variant: 'utils.focusVisibleOutset',
+  },
+
   sort: {
     display: 'inline-flex',
     alignItems: 'center',

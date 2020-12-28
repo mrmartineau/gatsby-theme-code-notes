@@ -110,14 +110,14 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           overflowX: 'hidden',
           overflowY: 'auto',
           zIndex: 'low',
-          p: 6,
+          p: [3, 6],
           bg: 'contentBg',
           transform: [
-            navOpen && `translateX(${theme.sizes.sidebarSkinny})`,
+            navOpen && `translateX(${theme.sizes.sidebar})`,
             'translateX(0)',
           ],
           transition: 'all 200ms ease-in-out ',
-          boxShadow: ['md', 'md'],
+          boxShadow: 'md',
           borderRadius: [0, 'default'],
           minHeight: ['100vh', 'unset'],
         }}
@@ -167,7 +167,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       <Box
         as="header"
         sx={{
-          width: [theme.sizes.sidebarSkinny, theme.sizes.sidebar],
+          width: 'sidebar',
           position: 'fixed',
           top: 0,
           right: [0, 'auto'],
@@ -210,7 +210,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           sx={{
             position: 'fixed',
             left: 0,
-            width: [theme.sizes.sidebarSkinny, theme.sizes.sidebar],
+            width: 'sidebar',
             bottom: 0,
             bg: 'backgroundTransparent',
             py: 3,

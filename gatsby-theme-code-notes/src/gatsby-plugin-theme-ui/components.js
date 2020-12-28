@@ -33,8 +33,6 @@ const heading = (Tag) => (props) => {
         sx={{
           fontSize: 3,
           textDecoration: 'none',
-          pr: 3,
-          pl: 3,
           display: 'inline-block',
           color: 'text',
           opacity: 0.2,
@@ -43,9 +41,15 @@ const heading = (Tag) => (props) => {
             opacity: 1,
             color: 'primary',
           },
+          width: 25,
+          height: 25,
+          borderRadius: '50%',
+          ml: 2,
+          textAlign: 'center',
+          variant: 'utils.focusVisibleOutset',
         }}
       >
-        <FaAnchor size="0.8em" fill="currentColor" title="" />
+        <FaAnchor size="0.7em" fill="currentColor" title="" />
       </a>
     </Tag>
   )
