@@ -116,6 +116,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                       color: 'input',
                       pointerEvents: 'none',
                       mr: 2,
+                      flexShrink: 0,
                     }}
                   />
                   <Link
@@ -142,6 +143,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                       color: 'input',
                       pointerEvents: 'none',
                       mr: 2,
+                      flexShrink: 0,
                     }}
                   />
                   <Text variant="dateModified">{modified}</Text>
