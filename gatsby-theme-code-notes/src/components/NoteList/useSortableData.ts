@@ -12,14 +12,14 @@ export const useSortableData = (items, config = null) => {
     if (sortConfig !== null) {
       sortableItems.sort((a, b) => {
         if (
-          a.node.frontmatter[sortConfig.key].toLowerCase() <
-          b.node.frontmatter[sortConfig.key].toLowerCase()
+          a.node.frontmatter[sortConfig.key]?.toLowerCase() <
+          b.node.frontmatter[sortConfig.key]?.toLowerCase()
         ) {
           return sortConfig.direction === 'ascending' ? -1 : 1
         }
         if (
-          a.node.frontmatter[sortConfig.key].toLowerCase() >
-          b.node.frontmatter[sortConfig.key].toLowerCase()
+          a.node.frontmatter[sortConfig.key]?.toLowerCase() >
+          b.node.frontmatter[sortConfig.key]?.toLowerCase()
         ) {
           return sortConfig.direction === 'ascending' ? 1 : -1
         }
