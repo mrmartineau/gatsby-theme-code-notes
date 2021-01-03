@@ -28,6 +28,7 @@ export const buttons = {
   },
 
   sort: {
+    variant: 'utils.focusVisibleOutset',
     display: 'inline-flex',
     alignItems: 'center',
     px: 2,
@@ -48,21 +49,6 @@ export const buttons = {
       bg: 'badgeBgHover',
       color: 'textStrong',
     },
-    // '&:focus': {
-    //   bg: 'badgeBorder',
-    //   outline: 0,
-    // },
-    variant: 'utils.focusVisibleOutset',
-    // '&:focus': {
-    //   outline: 0,
-    //   variant: 'utils.focusOutset',
-    // },
-    // '&:focus-visible': {
-    //   variant: 'utils.focusOutset',
-    // },
-    // '&:focus:not(:focus-visible)': {
-    //   boxShadow: 'none',
-    // },
     svg: {
       ml: 1,
     },
