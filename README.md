@@ -177,6 +177,46 @@ The `emoji` frontmatter item will add an emoji beside the title on listing views
 
 The `tags` array frontmatter item allows you to add as many tags to a note as you'd like.
 
+#### Dates
+
+The `modified` frontmatter item allows you set a date for your note. This means they can then be sorted (ascending & descending) when viewed in the note list pages. This was introduced in v2.0.0.
+
+The `created` frontmatter item works in a similar way, but it is not being used at the moment so it can be ommitted.
+
+##### 1. Add new `modified` key to your YAML frontmatter
+
+This will mean that you have to update all your notes with a timestamp.
+
+```yaml
+---
+title: Storybook
+tags:
+  - testing
+emoji: 📖
+link: 'https://storybook.js.org'
+created: 2020-02-27T23:02:00.000Z # this is not used by the theme at the moment
+modified: 2021-01-16T10:31:32.000Z
+
+# any valid ISO timestamp should work, like this:
+# modified: 2021-01-16
+---
+
+```
+
+If you have many notes and want to speed up adding all those timestamps, I created an npm package ([`frontmatter-date-setter`](https://github.com/mrmartineau/frontmatter-date-setter)) to automate it based on your last git or file modification dates.
+
+Use the `frontmatter-date-setter` (or `fds`) CLI like so: (where `notes` is the directory of all your notes)
+
+```sh
+fds --directory=notes --debug
+```
+
+The package does have a few issues that I'd like to improve. For example, it will convert most emojis to unicode strings, and will format other parts of your frontmatter. So take care when you run it.
+
+##### 2. Set `showDate: true` in `gatsby-config.js`
+
+Setting this value in this plugin's config renders the interface to switch to date sorting as well as showing the date in other parts of the interface.
+
 ### Advanced usage
 
 #### PWA
