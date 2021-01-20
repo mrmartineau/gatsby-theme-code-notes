@@ -6,14 +6,18 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 const createOpenSearchFile = require('./src/utils/createOpenSearch')
 
 const DEFAULT_BASE_PATH = '/'
-// These are customizable theme options we only need to check once
-let basePath
-let contentPath
+
+const getBasePath = (bp = DEFAULT_BASE_PATH) => {
+  if (bp === '' || bp === '.' || bp === './') {
+    return DEFAULT_BASE_PATH
+  } else {
+    return bp
+  }
+}
 
 exports.onPreBootstrap = ({ store, reporter }, themeOptions) => {
   const { program } = store.getState()
-  basePath = themeOptions.basePath || DEFAULT_BASE_PATH
-  contentPath = themeOptions.contentPath || `content/notes`
+  const contentPath = themeOptions.contentPath || `content/notes`
   const dirs = [path.join(program.directory, contentPath)]
   dirs.forEach((dir) => {
     if (!fs.existsSync(dir)) {
@@ -39,7 +43,7 @@ exports.onPreExtractQueries = ({ reporter }, themeOptions) => {
 
 exports.createPages = async ({ graphql, actions }, options) => {
   const { createPage } = actions
-  basePath = options.basePath || DEFAULT_BASE_PATH
+  const basePath = getBasePath(options.basePath)
 
   const mdxDocs = await graphql(
     `
@@ -87,7 +91,8 @@ exports.createPages = async ({ graphql, actions }, options) => {
   const slugifiedTags = globalTagsList.map((item) => {
     return {
       ...item,
-      slug: slugify(item.tag),
+      slug: `/${slugify(item.tag)}`,
+      path: path.join(basePath, 'tag', slugify(item.tag)),
     }
   })
 
@@ -97,10 +102,8 @@ exports.createPages = async ({ graphql, actions }, options) => {
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
     const slug = note.node.fields.slug
-    const itemPath =
-      basePath === DEFAULT_BASE_PATH ? slug : `${basePath}${slug}`
     createPage({
-      path: itemPath,
+      path: slug,
       component: path.join(__dirname, './src/templates', 'Note.js'),
       context: {
         id: note.node.id,
@@ -108,6 +111,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
         next,
         hasUntagged,
         basePath,
+        tags: slugifiedTags,
       },
     })
   })
@@ -124,13 +128,13 @@ exports.createPages = async ({ graphql, actions }, options) => {
   })
 
   // Create tag pages
-  slugifiedTags.forEach((item, index, list) => {
+  slugifiedTags.forEach((item) => {
     createPage({
-      path: `${basePath}tag/${item.slug}`,
+      path: item.path,
       component: path.join(__dirname, './src/templates', 'TagPage.js'),
       context: {
         tag: item.tag,
-        tags: list,
+        tags: slugifiedTags,
         hasUntagged,
         basePath,
       },
@@ -139,26 +143,42 @@ exports.createPages = async ({ graphql, actions }, options) => {
 
   if (hasUntagged) {
     createPage({
-      path: `${basePath}tag/untagged`,
+      path: path.join(basePath, 'tag', 'untagged'),
       component: path.join(__dirname, './src/templates', 'UntaggedTagPage.js'),
       context: {
         tag: 'untagged',
+        tags: slugifiedTags,
         hasUntagged,
         basePath,
       },
     })
   }
+
+  createPage({
+    path: path.join('404'),
+    component: path.join(__dirname, './src/templates', '404.js'),
+    context: {
+      tags: slugifiedTags,
+      hasUntagged,
+      basePath,
+    },
+  })
 }
 
-exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
+exports.onCreateNode = async ({ node, actions, getNode }, options) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode })
+    const slug = createFilePath({
+      node,
+      getNode,
+      trailingSlash: false,
+    })
+    const pathSlug = path.join(getBasePath(options.basePath), slug)
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: pathSlug,
     })
   }
 }
@@ -181,12 +201,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       showDescriptionInSidebar: Boolean
       logo: String
       openSearch: OpenSearch
+      showDate: Boolean
     }
-    type MdxFrontmatter {
+    type MdxFrontmatter @infer {
       title: String!
       tags: [String]
       emoji: String
       link: String
+      created: Date
+      modified: Date
+    }
+    type MdxFields @infer {
+      slug: String
     }
   `
   createTypes(typeDefs)

@@ -8,16 +8,13 @@ export const links = {
     display: 'block',
     transition: 'all 200ms ease-in-out ',
     color: 'text',
+    variant: 'utils.focusVisibleOutset',
     '&:link, &:visited': {
       color: 'primary',
       textDecoration: 'none',
     },
     '&:hover': {
       bg: 'codeBackground',
-    },
-    '&:focus': {
-      bg: 'codeBackground',
-      outline: 'none',
     },
   },
 
@@ -27,13 +24,14 @@ export const links = {
     display: 'flex',
     alignItems: 'center',
     fontWeight: 'normal',
-    fontFamily: 'mono',
-    fontSize: 1,
+    fontSize: '14px',
     transition: 'all 200ms ease-in-out ',
-    '&:hover,&:focus': {
+    color: 'textStrong',
+    '&:hover': {
       bg: 'navHover',
-      color: 'text',
+      color: 'textStrong',
     },
+    variant: 'utils.focusVisibleOutset',
   },
 
   badge: {
@@ -44,5 +42,6 @@ export const links = {
       textDecoration: 'none',
       opacity: '0.7',
     },
+    variant: 'utils.focusVisibleOutset',
   },
 }

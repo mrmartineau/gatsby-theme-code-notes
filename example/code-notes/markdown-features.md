@@ -2,19 +2,21 @@
 title: Markdown features
 tags:
   - markdown
+created: 2020-03-20T11:04:49.000Z
+modified: 2020-06-22T11:55:48.000Z
 ---
 
 > This theme adds a few additional features to standard markdown.
 
 ## Images
 
-![](./opengraph.png)
-![](./logo.png)
+![](/opengraph.png)
+![](/logo.png)
 
 Embed images using the usual markdown syntax.
 
 ```md
-![](./opengraph.png)
+![](/opengraph.png)
 ```
 
 ## Fenced code blocks
@@ -31,10 +33,10 @@ To highlight lines, wrap line with this comment before: `// highlight-start` and
 
 ```css
 .grid {
-// highlight-start
+  // highlight-start
   display: grid;
   grid-gap: 30px;
-// highlight-end
+  // highlight-end
   grid-template-columns: repeat(auto-fill, 112px);
   /* or this */
   grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
@@ -89,6 +91,4 @@ Tables are responsive by default. If you need to limit line length for a cell, a
 
 ## Link truncation
 
-This uses [remark-truncate-links](https://github.com/GaiAma/Coding4GaiAma/tree/master/packages/remark-truncate-links) to truncate links
-
-https://github.com/mrmartineau/gatsby-theme-code-notes
+This uses [remark-truncate-links](https://github.com/GaiAma/Coding4GaiAma/tree/master/packages/remark-truncate-links) to truncate links. e.g. https://github.com/mrmartineau/gatsby-theme-code-notes

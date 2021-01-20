@@ -13,4 +13,22 @@ export const forms = {
       borderColor: 'primary',
     },
   },
+
+  radio: {
+    width: 18,
+    height: 18,
+    mr: 1,
+    'input:focus ~ &': {
+      bg: 'primarySemiTransparent',
+    },
+  },
+
+  label: {
+    width: 'auto',
+    ml: 2,
+    fontSize: 0,
+    textTransform: 'uppercase',
+    display: 'inline-flex',
+    alignItems: 'center',
+  },
 }

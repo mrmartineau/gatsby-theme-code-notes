@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { FunctionComponent, Fragment, useEffect, useState } from 'react'
-import { jsx, Box, Flex, Heading, Link } from 'theme-ui'
+import { jsx, Box, Flex, Heading, Link, Text } from 'theme-ui'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { GoLink, GoTag } from 'react-icons/go'
+import { GoCalendar, GoLink, GoTag } from 'react-icons/go'
 import { useSiteMetadata } from '../../use-site-metadata'
 import { Contents } from '../Contents'
 import { Layout } from '../Layout'
@@ -16,6 +16,8 @@ interface NotePageProps {
         title: string
         emoji: string
         link: string
+        modified: string
+        modifiedTimestamp: string
       }
       body: any
       parent: {
@@ -30,6 +32,7 @@ interface NotePageProps {
     next: boolean
     hasUntagged: boolean
     basePath?: string
+    tags: any
   }
   location: {
     pathname: string
@@ -44,15 +47,16 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
   if (!data) {
     return null
   }
+  const { showDate } = useSiteMetadata()
   const {
-    frontmatter: { title, tags, emoji, link },
+    frontmatter: { title, tags, emoji, link, modified, modifiedTimestamp },
     body,
     parent: { relativePath },
     tableOfContents,
   } = data.mdx
 
   const { gitRepoContentPath } = useSiteMetadata()
-  const showMetadata = !!link
+  const showMetadata = !!(link || showDate)
   const [shortenedLink, setShortenedLink] = useState<string>(link)
 
   useEffect(() => {
@@ -68,11 +72,20 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
     <Layout
       hasUntagged={pageContext.hasUntagged}
       basePath={pageContext.basePath}
+      tags={pageContext.tags}
       path={location.pathname}
       title={title}
     >
       <article>
-        <Box as="header" mb={4}>
+        <Box
+          as="header"
+          sx={{
+            my: 4,
+            borderBottom: '1px solid',
+            borderBottomColor: 'muted',
+            pb: 4,
+          }}
+        >
           {emoji && (
             <Box
               sx={{
@@ -92,7 +105,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           {showMetadata && (
             <Flex
               sx={{
-                mb: 3,
+                mb: 2,
                 alignItems: 'center',
               }}
             >
@@ -103,6 +116,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                       color: 'input',
                       pointerEvents: 'none',
                       mr: 2,
+                      flexShrink: 0,
                     }}
                   />
                   <Link
@@ -119,6 +133,22 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                   </Link>
                 </Fragment>
               )}
+              {modifiedTimestamp && modified && (
+                <time
+                  dateTime={modifiedTimestamp}
+                  sx={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <GoCalendar
+                    sx={{
+                      color: 'input',
+                      pointerEvents: 'none',
+                      mr: 2,
+                      flexShrink: 0,
+                    }}
+                  />
+                  <Text variant="dateModified">{modified}</Text>
+                </time>
+              )}
             </Flex>
           )}
 
@@ -129,6 +159,7 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
                   color: 'input',
                   pointerEvents: 'none',
                   mr: 2,
+                  flexShrink: 0,
                 }}
               />
               <TagList tags={tags} />
@@ -149,7 +180,10 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
           }}
         >
           {gitRepoContentPath && (
-            <Link href={`${gitRepoContentPath}${relativePath}`}>
+            <Link
+              href={`${gitRepoContentPath}${relativePath}`}
+              sx={{ fontSize: 0 }}
+            >
               Edit this page
             </Link>
           )}

@@ -19,6 +19,8 @@ import { zIndices } from './zIndices'
 import { images } from './images'
 import { badges } from './badges'
 import { borderWidths } from './borderWidths'
+import { utils } from './utils'
+import { breakpoints } from './breakpoints'
 
 export default {
   useColorSchemeMediaQuery: true,
@@ -33,6 +35,7 @@ export default {
   fontSizes,
   fontWeights,
   borderWidths,
+  breakpoints,
   styles,
   text,
   links,
@@ -41,10 +44,5 @@ export default {
   zIndices,
   images,
   badges,
-
-  // layout: {
-  //   container: {
-  //     px: 2,
-  //   },
-  // },
+  utils,
 }

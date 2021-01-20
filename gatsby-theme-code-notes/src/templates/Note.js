@@ -12,6 +12,8 @@ export const pageQuery = graphql`
         tags
         emoji
         link
+        modified(formatString: "LL")
+        modifiedTimestamp: modified
       }
       fields {
         slug

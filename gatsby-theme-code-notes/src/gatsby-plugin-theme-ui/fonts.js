@@ -1,9 +1,9 @@
 export const baseFonts = {
   sans:
-    '-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"',
+    'Inter,-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"',
   serif: 'Georgia, Cambria, "Times New Roman", Times, serif',
   mono:
-    '"IBM Plex Mono", "JetBrains Mono", "Fira Code", "Input Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    '"JetBrains Mono", "IBM Plex Mono", "Fira Code", "Input Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 }
 
 export const fonts = {
@@ -13,14 +13,18 @@ export const fonts = {
   monospace: baseFonts.mono,
 }
 
+// https://www.modularscale.com/?1&em&1.125
 export const fontSizes = [
   '0.7rem',
   '0.875rem',
   '1rem',
-  '1.25rem',
-  '1.5rem',
-  '1.875rem',
-  '2.25rem',
+  '1.125rem',
+  '1.266em',
+  '1.424em',
+  '1.602em',
+  '1.802em',
+  '2.027em',
+  '2.281em',
   '3rem',
   '4rem',
   '4.5rem',
@@ -41,7 +45,7 @@ export const baseFontWeights = {
 export const fontWeights = {
   ...baseFontWeights,
   body: baseFontWeights.normal,
-  heading: baseFontWeights.normal,
+  heading: baseFontWeights.bold,
 }
 
 export const letterSpacings = {

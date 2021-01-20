@@ -13,7 +13,7 @@ export const useAllTags = () => {
     }
   `)
 
-  return data.allMdx.tags.sort().map(item => {
+  return data.allMdx.tags.sort().map((item) => {
     return {
       ...item,
       slug: slugify(item.tag),

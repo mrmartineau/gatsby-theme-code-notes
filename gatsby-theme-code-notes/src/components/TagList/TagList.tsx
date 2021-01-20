@@ -1,19 +1,23 @@
 /** @jsx jsx */
 import { FunctionComponent } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
-import { jsx, Box, Badge, Link } from 'theme-ui'
+import { jsx, Box, Badge, Link, SxStyleProp } from 'theme-ui'
 import slugify from '@alexcarpenter/slugify'
 import { getColourFromString } from '../../utils/getColourFromString'
+import { useSiteMetadata } from '../../use-site-metadata'
 
-interface TagNavProps {
+interface TagListProps {
   tags: string[]
   asLinks?: boolean
+  sx?: SxStyleProp
 }
 
-export const TagList: FunctionComponent<TagNavProps> = ({
+export const TagList: FunctionComponent<TagListProps> = ({
   tags,
   asLinks = true,
+  sx,
 }) => {
+  const { basePath } = useSiteMetadata()
   if (!tags) {
     return null
   }
@@ -24,6 +28,7 @@ export const TagList: FunctionComponent<TagNavProps> = ({
         display: 'flex',
         alignItems: 'center',
         flexShrink: 0,
+        ...sx,
       }}
     >
       {tags.map((item, index) => {
@@ -32,12 +37,13 @@ export const TagList: FunctionComponent<TagNavProps> = ({
         }
         const tagName = slugify(item)
         const tagColor = getColourFromString(tagName)
-
+        const tagLink =
+          basePath === '/' ? `/tag/${tagName}` : `${basePath}/tag/${tagName}`
         if (asLinks) {
           return (
             <Link
               as={GatsbyLink}
-              to={`/tag/${tagName}`}
+              to={tagLink}
               key={index}
               sx={{
                 display: 'inline-flex',

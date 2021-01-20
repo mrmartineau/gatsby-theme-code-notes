@@ -3,7 +3,9 @@ title: Note frontmatter
 emoji: 😃
 tags:
   - metadata
-link: https://zander.wtf
+link: 'https://zander.wtf'
+created: 2020-05-11T09:59:36.000Z
+modified: 2020-06-11T10:08:56.000Z
 ---
 
 Frontmatter information (written in YAML) can be used to add metadata and extra information for your notes

@@ -15,6 +15,8 @@ export const useSiteMetadata = () => {
             siteUrl
             siteShortName
           }
+          showDate
+          basePath
         }
       }
     }
