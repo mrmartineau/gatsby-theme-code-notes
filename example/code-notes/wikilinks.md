@@ -11,6 +11,10 @@ modified: 2021-04-02T11:55:48.000Z
 
 Make connections between your notes by using `[[note-name]]`. This allows you to easily surf between your connected notes!
 
+## Back Links
+
+Links all the notes that references the current note
+
 ### Check out other notes
 
 - [[markdown-features]]

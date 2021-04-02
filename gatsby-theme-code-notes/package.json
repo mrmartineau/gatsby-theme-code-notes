@@ -61,6 +61,7 @@
     "gatsby-remark-double-brackets-link": "^0.1.8",
     "gatsby-remark-images": "^3.3.33",
     "gatsby-source-filesystem": "^2.3.34",
+    "gatsby-transformer-markdown-references": "^0.1.5",
     "gatsby-transformer-sharp": "^2.5.17",
     "lodash": "^4.17.20",
     "mkdirp": "^1.0.3",

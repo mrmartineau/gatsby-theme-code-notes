@@ -134,6 +134,12 @@ module.exports = (options) => {
             }),
         },
       },
+      {
+        resolve: `gatsby-transformer-markdown-references`,
+        options: {
+          types: ['Mdx'],
+        },
+      },
     ].filter(Boolean),
   }
 }

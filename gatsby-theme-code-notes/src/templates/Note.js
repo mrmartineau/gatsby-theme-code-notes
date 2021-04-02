@@ -15,6 +15,14 @@ export const pageQuery = graphql`
         modified(formatString: "LL")
         modifiedTimestamp: modified
       }
+      references: inboundReferences {
+        ... on Mdx {
+          frontmatter {
+            title
+          }
+          slug
+        }
+      }
       fields {
         slug
       }
