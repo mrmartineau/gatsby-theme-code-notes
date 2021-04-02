@@ -7836,6 +7836,14 @@ gatsby-page-utils@^0.5.0:
     lodash "^4.17.20"
     micromatch "^4.0.2"
 
+gatsby-plugin-catch-links@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-3.2.0.tgz#92e89a2a4fa9bc7d618fd62dede587f6437f2dff"
+  integrity sha512-mXAHWBTm6xaHfNKuyMte5PXxExHzXzpOdK6SiYoj0/uV+OHPIMiLf28ixvmgaxNVCb/k2hgEsnR1GtGb3+KC2w==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    escape-string-regexp "^1.0.5"
+
 gatsby-plugin-local-search@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-local-search/-/gatsby-plugin-local-search-2.0.0.tgz#05d0c2a6e1855fec6d3d0a19508c0f0e35c5514b"
@@ -8052,6 +8060,14 @@ gatsby-recipes@^0.5.0:
     ws "^7.3.0"
     xstate "^4.9.1"
     yoga-layout-prebuilt "^1.9.6"
+
+gatsby-remark-double-brackets-link@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-double-brackets-link/-/gatsby-remark-double-brackets-link-0.1.8.tgz#2244ea750d738abaa5cb030d87d80ea7650ece57"
+  integrity sha512-YlNOCQT0a0PwV2jiAFl+ZkqaNy4iV9IfmfAmHuQjMZhJD2Cbz62Gcy72M4VUDSQS2242HbIbDibnncDtgQEjOg==
+  dependencies:
+    slugify "^1.4.0"
+    unist-util-visit "^2.0.2"
 
 gatsby-remark-images@^3.3.33:
   version "3.7.0"
@@ -15117,6 +15133,11 @@ slice-ansi@^4.0.0:
     ansi-styles "^4.0.0"
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
+
+slugify@^1.4.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.5.0.tgz#5f3c8e2a84105b54eb51486db1b468a599b3c9b8"
+  integrity sha512-Q2UPZ2udzquy1ElHfOLILMBMqBEXkiD3wE75qtBvV+FsDdZZjUqPZ44vqLTejAVq+wLLHacOMcENnP8+ZbzmIA==
 
 slugify@^1.4.4:
   version "1.4.6"

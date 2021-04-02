@@ -48,6 +48,7 @@ module.exports = (options) => {
       'gatsby-plugin-typescript',
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
+      `gatsby-plugin-catch-links`,
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -68,6 +69,13 @@ module.exports = (options) => {
                 linkImagesToOriginal: false,
                 disableBgImage: true,
                 wrapperStyle: `margin: 1.5rem 0;`,
+              },
+            },
+            {
+              resolve: 'gatsby-remark-double-brackets-link',
+              options: {
+                titleToURLPath: `${__dirname}/src/utils/resolve-url.js`,
+                stripBrackets: true,
               },
             },
           ],
