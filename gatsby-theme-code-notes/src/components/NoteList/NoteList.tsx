@@ -3,6 +3,7 @@ import { Flex } from 'theme-ui'
 import { NoteListItem } from '../NoteListItem'
 import { SortButton } from './SortButton'
 import { useSortableData } from './useSortableData'
+import slugify from '@alexcarpenter/slugify'
 
 interface NoteListProps {
   notes: any[]
@@ -47,7 +48,7 @@ export const NoteList: FunctionComponent<NoteListProps> = ({ notes }) => {
           modified,
           modifiedTimestamp,
         } = node.frontmatter
-        const { slug } = node.fields
+        const slug = `/${slugify(node.fields.slug)}`
         return (
           <NoteListItem
             title={title}

@@ -101,7 +101,7 @@ exports.createPages = async ({ graphql, actions }, options) => {
     const previous =
       index === notesData.length - 1 ? null : notesData[index + 1].node
     const next = index === 0 ? null : notesData[index - 1].node
-    const slug = note.node.fields.slug
+    const slug = slugify(note.node.fields.slug)
     createPage({
       path: slug,
       component: path.join(__dirname, './src/templates', 'Note.js'),

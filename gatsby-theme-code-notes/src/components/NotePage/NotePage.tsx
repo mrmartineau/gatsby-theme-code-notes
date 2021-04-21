@@ -7,6 +7,7 @@ import { useSiteMetadata } from '../../use-site-metadata'
 import { Contents } from '../Contents'
 import { Layout } from '../Layout'
 import { TagList } from '../TagList'
+import { BackLinks } from '../BackLinks'
 
 interface NotePageProps {
   data: {
@@ -19,6 +20,12 @@ interface NotePageProps {
         modified: string
         modifiedTimestamp: string
       }
+      references: {
+        frontmatter: {
+          title: string
+        }
+        slug: string
+      }[]
       body: any
       parent: {
         relativePath: string
@@ -166,6 +173,10 @@ export const NotePage: FunctionComponent<NotePageProps> = ({
             </Flex>
           )}
         </Box>
+
+        {!!data.mdx.references.length && (
+          <BackLinks references={data.mdx.references} />
+        )}
 
         <Contents toc={tableOfContents} />
 
