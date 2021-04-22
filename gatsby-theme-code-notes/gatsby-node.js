@@ -203,17 +203,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       openSearch: OpenSearch
       showDate: Boolean
     }
-    type MdxFrontmatter @infer {
-      title: String!
-      tags: [String]
-      emoji: String
-      link: String
-      created: Date
-      modified: Date
-    }
-    type MdxFields @infer {
-      slug: String
-    }
   `
   createTypes(typeDefs)
 }
