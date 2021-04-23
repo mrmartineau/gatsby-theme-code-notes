@@ -1,4 +1,4 @@
-import useLocalStorage from '@hookit/local-storage'
+import { useLocalStorage } from '@hookit/local-storage'
 import { useMemo } from 'react'
 
 export const useSortableData = (items, config = null) => {
