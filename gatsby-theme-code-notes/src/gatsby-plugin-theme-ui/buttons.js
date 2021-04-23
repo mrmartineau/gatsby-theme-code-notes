@@ -11,6 +11,7 @@ export const buttons = {
     ml: 'auto',
     fontFamily: 'inherit',
     textTransform: 'uppercase',
+    cursor: 'pointer',
     '&:hover': {
       bg: 'badgeBgHover',
     },
@@ -18,16 +19,19 @@ export const buttons = {
   },
 
   icon: {
+    cursor: 'pointer',
     borderRadius: '50%',
     variant: 'utils.focusVisibleOutset',
   },
 
   menu: {
+    cursor: 'pointer',
     borderRadius: '50%',
     variant: 'utils.focusVisibleOutset',
   },
 
   sort: {
+    cursor: 'pointer',
     variant: 'utils.focusVisibleOutset',
     display: 'inline-flex',
     alignItems: 'center',

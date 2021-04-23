@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Fragment, FunctionComponent, useState, useContext } from 'react'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 import {
   jsx,
   css,
