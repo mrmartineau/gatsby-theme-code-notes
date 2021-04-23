@@ -27,7 +27,10 @@ export const Contents = ({ toc }) => {
 
   return (
     <Box as="details" sx={{ my: 4, fontSize: 1 }}>
-      <Box as="summary" sx={{ textTransform: 'uppercase', fontSize: 0 }}>
+      <Box
+        as="summary"
+        sx={{ textTransform: 'uppercase', fontSize: 0, cursor: 'pointer' }}
+      >
         On this page
       </Box>
       <ContentsList items={toc.items} key="toc-list" />
