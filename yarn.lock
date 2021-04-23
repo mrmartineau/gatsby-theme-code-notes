@@ -2688,12 +2688,12 @@
     "@theme-ui/preset-tailwind" "^0.4.0-rc.5"
     "@theme-ui/preset-tosh" "^0.4.0-rc.5"
 
-"@theme-ui/prism@0.4.0-rc.5":
-  version "0.4.0-rc.5"
-  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.4.0-rc.5.tgz#0322108231f8f3cad4b7871d857dd503029c8c69"
-  integrity sha512-grfx87cUe2qzBGPYWGrH36TkDXhfC5pMLMbUsblRj/B76o9RfO99uj5H+HlM5FzioySLdRXZGtYvVYpEDsHC8Q==
+"@theme-ui/prism@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.7.3.tgz#83b58d2039c9b7ed2d6e63b1a5c1d2187ff8537b"
+  integrity sha512-o81MpFaV5oTWXDOX7GtMrVNX3y2/u+WJnYgieDV6t/FUVeg1+wO4FsaBoRlzth+gXab0oG2YhyQDUZamnMmfHw==
   dependencies:
-    prism-react-renderer "^1.0.2"
+    prism-react-renderer "^1.1.1"
 
 "@theme-ui/theme-provider@^0.4.0-rc.5":
   version "0.4.0-rc.14"
@@ -13209,10 +13209,10 @@ pretty-format@^26.6.2:
     ansi-styles "^4.0.0"
     react-is "^17.0.1"
 
-prism-react-renderer@^1.0.2:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.1.1.tgz#1c1be61b1eb9446a146ca7a50b7bcf36f2a70a44"
-  integrity sha512-MgMhSdHuHymNRqD6KM3eGS0PNqgK9q4QF5P0yoQQvpB6jNjeSAi3jcSAz0Sua/t9fa4xDOMar9HJbLa08gl9ug==
+prism-react-renderer@^1.1.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/prism-react-renderer/-/prism-react-renderer-1.2.0.tgz#5ad4f90c3e447069426c8a53a0eafde60909cdf4"
+  integrity sha512-GHqzxLYImx1iKN1jJURcuRoA/0ygCcNhfGw1IT8nPIMzarmKQ3Nc+JcG0gi8JXQzuh0C5ShE4npMIoqNin40hg==
 
 probe-image-size@^6.0.0:
   version "6.0.0"
