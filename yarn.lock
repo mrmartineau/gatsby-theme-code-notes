@@ -4998,10 +4998,10 @@ color-convert@^2.0.1:
   dependencies:
     color-name "~1.1.4"
 
-color-hash@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/color-hash/-/color-hash-2.0.0.tgz#5878d15d5c8d9e808120b1d0252b077f2da14fc6"
-  integrity sha512-+dDEmzVztdlTGn06nbizcPiayJBnEHbszlYdHJyFvIMn47yWEecOlT64O3nxVKXfibLcZ+dXIQVmq/03KIIwdA==
+color-hash@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/color-hash/-/color-hash-2.0.1.tgz#178b6733a81cf2c75681d2a9a435cbe97a44bbf1"
+  integrity sha512-/wIYAQ3xL9ruURLmDbxAsXEsivaOfwWDUVy+zbWJZL3bnNQIDNSmmqbkNzeTOQvDdiz11Kb010UlJN7hUXLg/w==
 
 color-name@1.1.3:
   version "1.1.3"

@@ -45,7 +45,7 @@
     "@mdx-js/react": "^1.6.5",
     "@theme-ui/presets": "0.7.3",
     "@theme-ui/prism": "0.7.3",
-    "color-hash": "^2.0.0",
+    "color-hash": "^2.0.1",
     "copee": "^1.0.6",
     "gatsby-core-utils": "^2.3.0",
     "gatsby-plugin-catch-links": "^3.3.0",
