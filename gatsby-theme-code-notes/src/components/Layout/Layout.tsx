@@ -191,17 +191,25 @@ export const Layout: FunctionComponent<LayoutProps> = ({
             </Link>
           )}
           {showDescriptionInSidebar && description && (
-            <Box sx={{ mb: 3 }}>
-              <Text
-                sx={{
-                  color: 'textStrong',
-                  lineHeight: 'snug',
-                  fontWeight: 'extrabold',
-                }}
-              >
-                {description}
-              </Text>
-            </Box>
+            <Link
+              as={GatsbyLink}
+              to='/'
+              sx={{
+                textDecoration: 'none',
+              }}
+            >
+              <Box sx={{ mb: 3 }}>
+                <Text
+                  sx={{
+                    color: 'textStrong',
+                    lineHeight: 'snug',
+                    fontWeight: 'extrabold',
+                  }}
+                >
+                  {description}
+                </Text>
+              </Box>
+            </Link>
           )}
         </Box>
 
