@@ -50,7 +50,7 @@
     "gatsby-core-utils": "^2.3.0",
     "gatsby-plugin-catch-links": "^3.3.0",
     "gatsby-plugin-local-search": "^2.0.1",
-    "gatsby-plugin-mdx": "^2.3.0",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-og-image": "^0.0.1",
     "gatsby-plugin-react-helmet": "^4.3.0",
