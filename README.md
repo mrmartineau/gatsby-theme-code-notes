@@ -31,6 +31,9 @@
 
 </div>
 
+> **Warning**
+> This work on this project is now archived. I have created an up-to-date version of this using [Eleventy](https://www.11ty.dev/) and the source code for it can be found [here](https://github.com/mrmartineau/notes.zander.wtf). If anyone would like to continue work on this theme, please let me know.
+
 ## Features
 
 - Notes can:
