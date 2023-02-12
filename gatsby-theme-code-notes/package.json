@@ -71,7 +71,7 @@
     "react-rough-notation": "^1.0.0",
     "react-use-flexsearch": "^0.1.1",
     "remark-emoji": "^2.2.0",
-    "remark-github": "^10.0.1",
+    "remark-github": "^11.2.4",
     "remark-slug": "^6.0.0",
     "remark-squeeze-paragraphs": "^4.0.0",
     "remark-truncate-links": "^1.0.3",
