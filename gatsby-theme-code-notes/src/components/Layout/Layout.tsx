@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { Fragment, FunctionComponent, useState, useContext } from 'react'
 import { Global } from '@emotion/react'
+import { Link as GatsbyLink } from 'gatsby'
 import {
   jsx,
   css,
@@ -180,22 +181,35 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       >
         <Box sx={{ mb: 3, px: 3 }}>
           {!!logo && (
-            <Box sx={{ mb: 3 }}>
-              <Image src={logo} variant="logo" alt="logo" />
-            </Box>
+            <Link
+              as={GatsbyLink}
+              to='/'
+            >
+              <Box sx={{ mb: 3 }}>
+                <Image src={logo} variant="logo" alt="logo" />
+              </Box>
+            </Link>
           )}
           {showDescriptionInSidebar && description && (
-            <Box sx={{ mb: 3 }}>
-              <Text
-                sx={{
-                  color: 'textStrong',
-                  lineHeight: 'snug',
-                  fontWeight: 'extrabold',
-                }}
-              >
-                {description}
-              </Text>
-            </Box>
+            <Link
+              as={GatsbyLink}
+              to='/'
+              sx={{
+                textDecoration: 'none',
+              }}
+            >
+              <Box sx={{ mb: 3 }}>
+                <Text
+                  sx={{
+                    color: 'textStrong',
+                    lineHeight: 'snug',
+                    fontWeight: 'extrabold',
+                  }}
+                >
+                  {description}
+                </Text>
+              </Box>
+            </Link>
           )}
         </Box>
 
